@@ -1,4 +1,3 @@
-import React from "react";
 import styled from "styled-components";
 import { BsAppIndicator } from "react-icons/bs";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
