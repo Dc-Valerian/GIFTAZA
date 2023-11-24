@@ -8,7 +8,10 @@ import BizzSignUp from "../AuthPages/BusinessAuth/Business.Register";
 import BizzLogin from "../AuthPages/BusinessAuth/Business.Login";
 import UserDashboardLayout from "../Layout/DashBoardLayour/UserDashboard/UseDashboardLayout";
 import UserHome from "../pages/DashBoardPages/UserHome/UserHome";
-import UserProfile from "../pages/DashBoardPages/UserProfile";
+import UserProfile from "../pages/DashBoardPages/UserProfile/UserProfile";
+import BusinessRoutes from "../Layout/AdminDashBoardLayout/BusinessRoutes";
+import BusinessCard from "../pages/AdminDashboard/BusinessCard";
+import BusinessHome from "../pages/AdminDashboard/BusinessHome";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -52,5 +55,13 @@ export const mainRoute = createBrowserRouter([
         element: <UserProfile />,
       },
     ],
+  },
+  {
+    path: "/dashboard",
+    element: <BusinessHome />,
+  },
+  {
+    path: "/dashboard/giftcard",
+    element: <BusinessCard />,
   },
 ]);

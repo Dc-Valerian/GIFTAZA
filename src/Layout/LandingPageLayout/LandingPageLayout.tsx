@@ -1,6 +1,6 @@
-import Header from "../../Static/Header";
+import Header from "../../block/Static/Header";
 import { Outlet } from "react-router-dom";
-import Footer from "../../Static/Footer";
+import Footer from "../../block/Static/Footer";
 
 const LandingPageLayout = () => {
   return (

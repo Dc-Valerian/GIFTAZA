@@ -4,7 +4,7 @@ import create from "../Assets/create-icon.svg";
 import trade from "../Assets/begin-icon.svg";
 import wait from "../Assets/wait-icon.svg";
 import withdraw from "../Assets/withdraw-icon.svg";
-import AboutCard from "./Props/Props.About";
+import AboutCard from "../../block/Props/Props.About";
 
 const AppWorks = () => {
   return (

@@ -170,6 +170,7 @@ const Button2 = styled.button<{ color: string; bg: string }>`
   display: flex;
   align-items: center;
   gap: 5px;
+  cursor: pointer;
   transition: all 0.2s ease;
 
   :hover {
