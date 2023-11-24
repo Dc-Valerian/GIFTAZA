@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-// import PersonalAccount from "../Props/Person.Account";
-// import SecureAccount from "../Props/Secure.Account";
+
+import PersonalAccount from "./UserProfile/PersonalAccount";
+import SecureAccount from "./UserProfile/Secure.Account";
 
 const UserProfile = () => {
   const [person, setPerson] = React.useState(true);
@@ -34,20 +35,11 @@ const UserProfile = () => {
         </HoldToggle>
         {person ? (
           <>
-            {/* <PersonalAccount /> */}
-            <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-              qui consequatur sint vero odio exercitationem perferendis
-              consequuntur. Suscipit, sit assumenda!
-            </div>
+            <PersonalAccount />
           </>
         ) : (
           <>
-            {/* <SecureAccount /> */}
-            <div>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae,
-              officiis?
-            </div>
+            <SecureAccount />
           </>
         )}
       </Head>
@@ -58,7 +50,7 @@ const UserProfile = () => {
 export default UserProfile;
 
 const Container = styled.div`
-  width: 100vw;
+  width: calc(100%-20%);
   overflow: hidden;
 `;
 const Head = styled.div`
@@ -90,4 +82,19 @@ const Toggle = styled.div<{ cls: string; bdb: string }>`
   cursor: pointer;
   color: ${(props) => props.cls};
   border-bottom: ${(props) => props.bdb};
+`;
+const Button = styled.div`
+  border-radius: 10px;
+  color: white;
+  background-color: #a002a0f2;
+  width: 140px;
+  height: 40px;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  margin-top: 30px;
+  transition: all 350ms;
+  :hover {
+    background-color: #940294;
+  }
 `;

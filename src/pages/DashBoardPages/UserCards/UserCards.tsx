@@ -1,35 +1,25 @@
 import styled from "styled-components";
-import ViewCards from "./ViewCards";
+import OnlyViewCards from "./OnlyView";
+// import pic from "../Images/trancard.svg";
 
-const UserHome = () => {
+const UserCards = () => {
   return (
     <Container>
       <Head>
         <HoldToggle>
-          <h2>All Gift Cards</h2>
+          <h2>My Gift Cards</h2>
         </HoldToggle>
+        <OnlyViewCards />
       </Head>
-      <ViewCards />
     </Container>
   );
 };
 
-export default UserHome;
+export default UserCards;
 
 const Container = styled.div`
   width: calc(100%-20%);
   overflow: hidden;
-  overflow-y: scroll;
-
-  ::-webkit-scrollbar {
-    width: 10px;
-    background-color: #f1f1f1;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    background-color: #706e70;
-    border-radius: 20px;
-  }
 `;
 const Head = styled.div`
   width: calc(100% - 47px);
@@ -37,9 +27,6 @@ const Head = styled.div`
   padding-right: 23px;
   height: 150px;
   background-color: #f1f1f1;
-  position: sticky;
-  top: 0;
-  z-index: 1;
 `;
 const HoldToggle = styled.div`
   height: 100%;
