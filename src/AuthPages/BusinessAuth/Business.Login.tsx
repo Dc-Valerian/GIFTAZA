@@ -101,12 +101,12 @@ const BizzLogin = () => {
               Always remember me
             </p>
           </Div>
-          <NavLink to="/user-dashboard">
+          <NavLink to="/business-dashboard">
             <Button>Log in</Button>
           </NavLink>
           <P>
             Don't an account.??{" "}
-            <NavLink to="/business-register" style={{ textDecoration: "none" }}>
+            <NavLink to="/business-dashboard" style={{ textDecoration: "none" }}>
               <span style={{ color: "blue", textDecoration: "none" }}>
                Register 
               </span>

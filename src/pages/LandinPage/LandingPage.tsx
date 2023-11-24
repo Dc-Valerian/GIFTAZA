@@ -2,11 +2,11 @@ import { FC, lazy, Suspense, useEffect, useRef, useState } from "react";
 import { useInView } from "react-intersection-observer";
 import spinner from "../../Assets/Ripple.svg";
 // import Header from "../../Static/Header";
-import Hero from "../../block/Hero";
+import Hero from "./Hero";
 
-const AboutPage = lazy(() => import("../../block/About"));
-const AppWorks = lazy(() => import("../../block/AppWorks"));
-const GetStarted = lazy(() => import("../../block/GetStarted"));
+const AboutPage = lazy(() => import("./About"));
+const AppWorks = lazy(() => import("./AppWorks"));
+const GetStarted = lazy(() => import("./GetStarted"));
 // const Footer = lazy(() => import("../../Static/Footer"));
 
 const LazyComponent: FC<{ children: JSX.Element }> = ({ children }) => {
