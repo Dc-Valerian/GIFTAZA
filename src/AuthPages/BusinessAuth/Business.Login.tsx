@@ -28,7 +28,7 @@ const BizzLogin = () => {
               height: "360px",
             }}
           />
-          <h4>GiftAza</h4>
+          <h4>GIFTAZA</h4>
           <H1>
             <Typewriter
               options={{

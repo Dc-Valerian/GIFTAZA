@@ -28,7 +28,7 @@ const SelectAccount = () => {
             }}
           />
           <NavLink to="/" style={{ textDecoration: "none" }}>
-            <h4>MAVERICK</h4>
+            <h4>GIFTAZA</h4>
           </NavLink>
 
           <h1>
@@ -71,7 +71,7 @@ const SelectAccount = () => {
           </NavLink>
 
           <Footer>
-            <p>© {new Date().getFullYear()} Mavericks</p>
+            <p>© {new Date().getFullYear()} GIFTAZA</p>
           </Footer>
         </Right>
       </Container>

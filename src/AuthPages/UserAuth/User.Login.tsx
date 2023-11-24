@@ -101,12 +101,9 @@ const Login = () => {
               Always remember me
             </p>
           </Div>
-       <NavLink
-       to="/user-dashboard"
-       >
-       <Button>Log in</Button>
-       </NavLink>
-       
+          <NavLink to="/user-dashboard">
+            <Button>Log in</Button>
+          </NavLink>
         </Right>
       </Container>
     </div>
@@ -130,20 +127,6 @@ const Button = styled.button`
   @media screen and (max-width: 960px) {
     margin: 0;
     margin-top: 20px;
-    width: 80%;
-  }
-`;
-
-const P = styled.p`
-  margin: 0;
-  margin-left: 60px;
-  font-size: 15px;
-  margin-top: 20px;
-
-  @media screen and (max-width: 960px) {
-    margin: 0;
-    font-size: 15px;
-    margin-top: 10px;
     width: 80%;
   }
 `;
