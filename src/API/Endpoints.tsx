@@ -1,5 +1,4 @@
 import axios from "axios";
-import { UserDetails } from "../AllInterface/Allinterface";
 
 const config = {
   headers: {

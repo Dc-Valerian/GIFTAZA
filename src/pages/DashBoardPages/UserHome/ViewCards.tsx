@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import pic from "../../../Assets/trancard.svg";
 import { Link } from "react-router-dom";
-import { allGiftCard } from "../../../API/Endpoint";
 import { useQuery } from "@tanstack/react-query";
 import Card from "./Card";
+import { allGiftCard } from "../../../API/Endpoints";
 
 const ViewCards = () => {
   const AllgiftCards = useQuery({
@@ -53,9 +53,6 @@ const ViewCards = () => {
 
 export default ViewCards;
 
-const Container = styled.div`
-  /* overflow: scroll; */
-`;
 const CardContainer = styled.div`
   width: 100%;
   margin-top: 30px;
