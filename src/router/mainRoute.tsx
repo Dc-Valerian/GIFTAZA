@@ -10,6 +10,7 @@ import UserDashboardLayout from "../Layout/DashBoardLayour/UserDashboard/UseDash
 import UserHome from "../pages/DashBoardPages/UserHome/UserHome";
 import UserProfile from "../pages/DashBoardPages/UserProfile";
 import UserCards from "../pages/DashBoardPages/UserCards/UserCards";
+import UserNotify from "../pages/DashBoardPages/UserNotify/UserNotify";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ export const mainRoute = createBrowserRouter([
       {
         path: "/user-dashboard/mycards",
         element: <UserCards />,
+      },
+      {
+        path: "/user-dashboard/notify",
+        element: <UserNotify />,
       },
     ],
   },
