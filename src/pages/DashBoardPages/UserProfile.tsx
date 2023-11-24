@@ -50,7 +50,7 @@ const UserProfile = () => {
 export default UserProfile;
 
 const Container = styled.div`
-  width: 100vw;
+  width: calc(100%-20%);
   overflow: hidden;
 `;
 const Head = styled.div`

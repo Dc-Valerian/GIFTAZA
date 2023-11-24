@@ -31,7 +31,7 @@ const UserNotify = () => {
 export default UserNotify;
 
 const Container = styled.div`
-  width: 100vw;
+  width: calc(100%-20%);
   overflow: hidden;
   @media screen and (min-width: 801px) and (max-width: 1051px) {
     width: calc(100vw - 60px);

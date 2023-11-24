@@ -1,233 +1,251 @@
-import { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { TbCurrencyNaira, TbEdit, TbGitBranchDeleted } from "react-icons/tb";
-import { FaStreetView } from "react-icons/fa6";
-import { RiUserStarFill } from "react-icons/ri";
-import { HiMiniBanknotes } from "react-icons/hi2";
-import { VscGitPullRequestCreate, VscFeedback } from "react-icons/vsc";
-import {
-  MdOutlineAppRegistration,
-  MdOutlineViewInAr,
-  MdSavings,
-} from "react-icons/md";
-import { useSelector } from "react-redux";
-import { BiLogIn, BiSolidPieChart } from "react-icons/bi";
-import { NavLink, useNavigate } from "react-router-dom";
-import { BiPlus, BiMinus, BiSolidAnalyse } from "react-icons/bi";
 
-const UserSideBar = () => {
-  const toggle = useSelector((state: any) => state.toggle);
-  const [branches, setBranches] = useState<boolean>(false);
-  const [staffs, setStaffs] = useState<boolean>(false);
+import { HiHome, HiBell } from "react-icons/hi";
+import { MdInsertChart } from "react-icons/md";
+import { FaWallet } from "react-icons/fa";
+import { AiFillMessage } from "react-icons/ai";
+import { CiLogout } from "react-icons/ci";
+import { BsPersonFill } from "react-icons/bs";
 
-  const logoutNav = useNavigate();
-  const backToHome = () => {
-    logoutNav("/");
+import { TbArrowsLeftRight } from "react-icons/tb";
+import { TiStarFullOutline } from "react-icons/ti";
+import { useNavigate } from "react-router-dom";
+import { UseAppDispatch } from "../../../GlobalStore/Store";
+import NavBars from "../Navbars";
+import { Userlogout } from "../../../GlobalStore/ReduxState";
+
+const SideNav = () => {
+  const [home, setHome] = React.useState(true);
+
+  const dispatch = UseAppDispatch();
+  const [trans, setTrans] = React.useState(true);
+  const [wallet, setWallet] = React.useState(true);
+  const [notify, setNotify] = React.useState(true);
+  const [support, setSupport] = React.useState(true);
+  const [account, setAccount] = React.useState(true);
+  const [logout, setLogout] = React.useState(true);
+  const [show, setShow] = React.useState(true);
+  const navigate = useNavigate();
+  const removeSide = () => {
+    setShow(false);
   };
-
   return (
-    <Container w={toggle ? "k" : ""}>
-      <Wrapper w={toggle ? "k" : ""}>
-        <Top>
-          <Image w={toggle ? "k" : ""}>
-            <Pic
-              src={
-                "https://cdn.dribbble.com/users/6938226/avatars/small/73d8d6b0c59e6036ed9803730edc9ac7.png?1659668380"
-              }
-              alt="Profile Image"
+    <div>
+      <Container dsp={show ? "flex" : "none"}>
+        <Logo>MaAVERICKS</Logo>
+        <br />
+        <br />
+        <br />
+        <Bars>
+          <div
+            onClick={() => {
+              setHome(false);
+              setTrans(true);
+              setWallet(true);
+              setNotify(true);
+              setLogout(true);
+
+              navigate("/user-dashboard");
+            }}>
+            <NavBars
+              pic={<HiHome />}
+              routeName="Home"
+              cl={home ? "#d1abf5" : "white"}
+              bd={home ? "" : "4px solid white"}
+              hov={home ? " #4c2be2" : ""}
             />
-          </Image>
+          </div>
+          <div
+            onClick={() => {
+              setHome(true);
+              setTrans(false);
+              setWallet(true);
+              setNotify(true);
+              setLogout(true);
 
-          {toggle && <Wel>Welcome Back,</Wel>}
-          {toggle && <Text>Valerian Pedro</Text>}
-        </Top>
+              navigate("/user-dashboard/profile");
+            }}>
+            <NavBars
+              pic={<MdInsertChart />}
+              routeName="My Profile"
+              cl={trans ? "#d1abf5" : "white"}
+              bd={trans ? "" : "4px solid white"}
+              hov={trans ? " #4c2be2" : ""}
+            />
+          </div>
+          <div
+            onClick={() => {
+              setHome(true);
+              setTrans(true);
+              setWallet(false);
+              setNotify(true);
+              setLogout(true);
+              navigate("/user-dashboard/mycards");
+            }}>
+            <NavBars
+              pic={<FaWallet />}
+              routeName="My Gift Cards"
+              cl={wallet ? "#d1abf5" : "white"}
+              bd={wallet ? "" : "4px solid white"}
+              hov={wallet ? " #4c2be2" : ""}
+            />
+          </div>
+          <div
+            onClick={() => {
+              setHome(true);
+              setTrans(true);
+              setWallet(true);
+              setNotify(false);
 
-        <NavHolder w={toggle ? "k" : ""}>
-          <Topper>
-            <NavLink style={{ textDecoration: "none" }} to={"/user-dashboard"}>
-              <Nav w={toggle ? "k" : ""}>
-                <Icon>
-                  <BiSolidPieChart />
-                </Icon>
-                {toggle && <NavName>Home</NavName>}
-              </Nav>
-            </NavLink>
-            <NavLink
-              style={{ textDecoration: "none" }}
-              to={"/user-dashboard/profile"}
-            >
-              <Nav w={toggle ? "k" : ""}>
-                <Icon>
-                  <BiSolidPieChart />
-                </Icon>
-                {toggle && <NavName>Profile</NavName>}
-              </Nav>
-            </NavLink>
-            <NavLink style={{ textDecoration: "none" }} to={"/admin-dashboard"}>
-              <Nav w={toggle ? "k" : ""}>
-                <Icon>
-                  <BiSolidPieChart />
-                </Icon>
-                {toggle && <NavName>Home</NavName>}
-              </Nav>
-            </NavLink>
-          </Topper>
+              setLogout(true);
+              navigate("/user-dashboard/notify");
+            }}>
+            <NavBars
+              pic={<HiBell />}
+              routeName="Notifications"
+              cl={notify ? "#d1abf5" : "white"}
+              bd={notify ? "" : "4px solid white"}
+              hov={notify ? " #4c2be2" : ""}
+            />
+          </div>
+        </Bars>
 
-          <Dropper>
-            <Nav
-              onClick={backToHome}
-              w={toggle ? "k" : ""}
-              style={{ marginTop: "30px" }}
-            >
-              <Icon>
-                <BiLogIn />
-              </Icon>
-              {toggle && <NavName>Log Out </NavName>}
-            </Nav>
-          </Dropper>
-        </NavHolder>
-      </Wrapper>
-    </Container>
+        <div
+          onClick={(e) => {
+            e.preventDefault();
+            setHome(true);
+            setTrans(true);
+            setWallet(true);
+            setNotify(true);
+            setLogout(false);
+            dispatch(Userlogout());
+            navigate("/");
+          }}>
+          <NavBars
+            pic={<CiLogout />}
+            routeName="Log Out"
+            cl={logout ? "#d1abf5" : "white"}
+            bd={logout ? "" : "4px solid white"}
+            hov={logout ? " #4c2be2" : ""}
+          />
+        </div>
+      </Container>
+    </div>
   );
 };
 
-export default UserSideBar;
-const Topper = styled.div`
+export default SideNav;
+
+const Container = styled.div<{ dsp: string }>`
+  width: 300px;
+  height: 100vh;
+  background-color: blueviolet;
+  padding-top: 10px;
+  display: ${(props) => props.dsp};
   display: flex;
-  gap: 4px;
   flex-direction: column;
-`;
-
-const Dropper = styled.div``;
-
-const Pic = styled.img`
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-`;
-
-const PlusMinus = styled.div`
-  margin-top: 7px;
-  font-size: 25px;
-  color: white;
-  margin-right: 10px;
-  position: absolute;
-  right: 1px;
-`;
-
-const NestedNavName = styled.div`
-  font-size: 17px;
-  color: #b9b9b9;
-`;
-
-const NestedIcon = styled.div`
-  margin-top: 7px;
-  font-size: 25px;
-  color: #b9b9b9;
-  margin-right: 10px;
-`;
-
-const NavName = styled.div`
-  font-size: 17px;
-  color: #fff;
-`;
-
-const Icon = styled.div`
-  margin-top: 7px;
-  font-size: 25px;
-  color: white;
-  margin-right: 10px;
-`;
-
-const Nav = styled.div<{ w: string }>`
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  transition: all 360ms;
-  padding: 5px 2px 5px 5px;
-  color: white;
-  text-decoration: none;
-  border-radius: 3px;
-  margin: 5px 0;
   position: relative;
-  /* width: 160px; */
-  width: ${({ w }) => (w ? "160px" : "40px")};
-  &:hover {
-    background-color: #2e0425a0;
-    border-radius: 10px;
+  /* transition: all 350ms; */
+`;
+const Logo = styled.div`
+  color: white;
+  padding-left: 30px;
+  @media screen and (min-width: 801px) and (max-width: 1051px) {
+    display: none;
   }
 `;
-
-const NavHolder = styled.div<{ w: string }>`
-  /* background-color: red; */
-  height: 50%;
-  width: ${({ w }) => (w ? "90%" : "50px")};
-  margin-top: 15px;
-  transition: all 360ms;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-`;
-
-const Text = styled.div`
-  margin-top: 5px;
-  font-size: 20px;
-`;
-const Wel = styled.div`
-  font-size: 15px;
-`;
-const Top = styled.div`
-  position: sticky;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  top: 0;
-  background-color: #1c232d;
+const Bars = styled.div`
   width: 100%;
-  z-index: 99999;
-  height: 140px;
-`;
-
-const Image = styled.div<{ w: string }>`
-  /* background-color: blanchedalmond; */
-  height: 70px;
-  width: ${({ w }) => (w ? "90px" : "70px")};
-  border-radius: 20%;
+  height: 70%;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-`;
-
-const Wrapper = styled.div<{ w: string }>`
-  /* background-color: red; */
-  width: ${({ w }) => (w ? "180px" : "70px")};
-  /* height: 98vh; */
-  display: flex;
-  height: 100vh;
-  align-items: center;
   flex-direction: column;
+  gap: 15px;
+  @media screen and (min-width: 801px) and (max-width: 1051px) {
+    gap: 25px;
+  }
+  margin: 0;
+  padding: 0;
 `;
-
-const Container = styled.div<{ w: string }>`
-  width: ${({ w }) => (w ? "200px" : "80px")};
-  background-color: #1c232d;
+const Image = styled.div`
+  margin-left: 5px;
+  margin-right: 5px;
+  margin: 5px;
+  width: calc(100% - 10px);
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-radius: 20px;
+  background-color: #372be2;
   color: white;
-  transition: all 360ms;
   display: flex;
-  align-items: center;
-  position: fixed;
-  left: 0;
-  z-index: 1;
-
-  top: 0;
   justify-content: center;
-  padding-right: 4px;
-  /* padding-bottom: 10px;/ */
-  overflow-x: scroll;
-  @media screen and (max-width: 769px) {
+  align-items: center;
+  img {
+    width: 160px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+  }
+  @media screen and (min-width: 801px) and (max-width: 1051px) {
+    display: none;
+  }
+`;
+const ImageWrapper = styled.div`
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  h5 {
+    font-weight: 400;
+  }
+`;
+const Small = styled.div`
+  font-size: 11px;
+  margin-bottom: 20px;
+`;
+const Big = styled.div`
+  font-weight: bold;
+  margin-top: 20px;
+  margin-bottom: 5px;
+`;
+const Button = styled.button`
+  border-radius: 10px;
+  color: white;
+  background-color: #a002a0f2;
+  width: 60px;
+  height: 30px;
+  /* font-size: 12px; */
+  border: none;
+  outline: none;
+  font-weight: bold;
+  font-size: 11px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  transition: all 350ms;
+  :hover {
+    background-color: #940294;
+  }
+`;
+const Shower = styled.div`
+  position: absolute;
+  right: -15px;
+  top: 2px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  font-weight: 200;
+  color: purple;
+  background-color: white;
+  @media screen and (min-width: 800px) {
+    display: none;
+  }
+`;
+const Stars = styled.div`
+  @media screen and (min-width: 801px) and (max-width: 1051px) {
     display: none;
   }
 `;

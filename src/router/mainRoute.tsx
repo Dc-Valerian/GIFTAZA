@@ -11,6 +11,7 @@ import UserHome from "../pages/DashBoardPages/UserHome/UserHome";
 import UserProfile from "../pages/DashBoardPages/UserProfile";
 import UserCards from "../pages/DashBoardPages/UserCards/UserCards";
 import UserNotify from "../pages/DashBoardPages/UserNotify/UserNotify";
+// import DetailCard from "../pages/DashBoardPages/DetailCard/DetailCard";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ export const mainRoute = createBrowserRouter([
         path: "/user-dashboard/notify",
         element: <UserNotify />,
       },
+      // {
+      //   path: "/user-dashboard/card/:id",
+      //   element: <DetailCard />,
+      // },
     ],
   },
 ]);

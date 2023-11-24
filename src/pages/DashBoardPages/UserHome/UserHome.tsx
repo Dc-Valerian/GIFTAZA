@@ -17,7 +17,7 @@ const UserHome = () => {
 export default UserHome;
 
 const Container = styled.div`
-  width: 100vw;
+  width: calc(100%-20%);
   overflow: hidden;
   overflow-y: scroll;
 
