@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components";
+import ViewCards from "./ViewCards";
 
-import ViewCards from "../Props/ViewCards";
 const UserHome = () => {
   return (
     <Container>

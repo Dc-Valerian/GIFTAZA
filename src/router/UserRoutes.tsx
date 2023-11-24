@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useRoutes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 import styled from "styled-components";
 
 import { TbArrowsLeftRight } from "react-icons/tb";
