@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit/dist/createAction";
-import { BusinessData, UserDetails, cardData } from "../API/Allinterface";
+import { BusinessData, UserDetails, CardData } from "../API/Allinterface";
 
 const initialState = {
   bizClient: {} as BusinessData | null,
-  DataCard: {} as cardData | null,
+  DataCard: {} as CardData | null,
   userData: {} as UserDetails | null,
   //   Admin: {} as BusinessData | null,
 };
@@ -27,7 +27,7 @@ const ReduxState = createSlice({
     Userlogout: (state) => {
       state.userData = null;
     },
-    creatingCard: (state, { payload }: PayloadAction<cardData>) => {
+    creatingCard: (state, { payload }: PayloadAction<CardData>) => {
       state.DataCard = payload;
     },
   },

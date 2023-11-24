@@ -4,6 +4,8 @@ import styled from "styled-components";
 import { TbArrowsLeftRight } from "react-icons/tb";
 import UserHome from "../pages/DashBoardPages/UserHome/UserHome";
 import UserProfile from "../pages/DashBoardPages/UserProfile";
+import SideNav from "../Layout/DashBoardLayour/SideNav";
+import MobileNavs from "../Layout/DashBoardLayour/MobileNavs";
 
 const UserRoutes = () => {
   const [showing, setShowing] = React.useState(false);
