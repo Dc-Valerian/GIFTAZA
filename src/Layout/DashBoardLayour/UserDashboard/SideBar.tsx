@@ -1,24 +1,10 @@
-import { useState } from "react";
 import styled from "styled-components";
-import { TbCurrencyNaira, TbEdit, TbGitBranchDeleted } from "react-icons/tb";
-import { FaStreetView } from "react-icons/fa6";
-import { RiUserStarFill } from "react-icons/ri";
-import { HiMiniBanknotes } from "react-icons/hi2";
-import { VscGitPullRequestCreate, VscFeedback } from "react-icons/vsc";
-import {
-  MdOutlineAppRegistration,
-  MdOutlineViewInAr,
-  MdSavings,
-} from "react-icons/md";
 import { useSelector } from "react-redux";
 import { BiLogIn, BiSolidPieChart } from "react-icons/bi";
 import { NavLink, useNavigate } from "react-router-dom";
-import { BiPlus, BiMinus, BiSolidAnalyse } from "react-icons/bi";
 
 const UserSideBar = () => {
   const toggle = useSelector((state: any) => state.toggle);
-  const [branches, setBranches] = useState<boolean>(false);
-  const [staffs, setStaffs] = useState<boolean>(false);
 
   const logoutNav = useNavigate();
   const backToHome = () => {
@@ -107,27 +93,6 @@ const Pic = styled.img`
   border-radius: 10px;
 `;
 
-const PlusMinus = styled.div`
-  margin-top: 7px;
-  font-size: 25px;
-  color: white;
-  margin-right: 10px;
-  position: absolute;
-  right: 1px;
-`;
-
-const NestedNavName = styled.div`
-  font-size: 17px;
-  color: #b9b9b9;
-`;
-
-const NestedIcon = styled.div`
-  margin-top: 7px;
-  font-size: 25px;
-  color: #b9b9b9;
-  margin-right: 10px;
-`;
-
 const NavName = styled.div`
   font-size: 17px;
   color: #fff;
@@ -184,7 +149,7 @@ const Top = styled.div`
   justify-content: center;
   flex-direction: column;
   top: 0;
-  background-color: #1c232d;
+  background-color: #8246f3;
   width: 100%;
   z-index: 99999;
   height: 140px;
@@ -193,7 +158,7 @@ const Top = styled.div`
 const Image = styled.div<{ w: string }>`
   /* background-color: blanchedalmond; */
   height: 70px;
-  width: ${({ w }) => (w ? "90px" : "70px")};
+  width: ${({ w }) => (w ? "70px" : "70px")};
   border-radius: 20%;
   display: flex;
   align-items: center;
@@ -213,7 +178,7 @@ const Wrapper = styled.div<{ w: string }>`
 
 const Container = styled.div<{ w: string }>`
   width: ${({ w }) => (w ? "200px" : "80px")};
-  background-color: #1c232d;
+  background-color: #8246f3;
   color: white;
   transition: all 360ms;
   display: flex;

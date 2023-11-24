@@ -181,16 +181,19 @@ const SideNav = () => {
 export default SideNav;
 
 const Container = styled.div`
-  width: 100%;
-  height: 100vh;
+  width: 250px;
+  height: 100%;
   background-color: blueviolet;
   padding-top: 10px;
   display: flex;
   flex-direction: column;
-  /* position: relative; */
-
-  /* transition: all 350ms; */
+  position: fixed; /* Fix the SideNav position */
+  top: 0; /* Place it at the top */
+  left: 0; /* Place it at the left */
+  bottom: 0; /* Extend it to the bottom */
 `;
+
+
 const Logo = styled.div`
   color: white;
   padding-left: 30px;

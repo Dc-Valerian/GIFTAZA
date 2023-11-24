@@ -57,11 +57,18 @@ export const mainRoute = createBrowserRouter([
     ],
   },
   {
-    path: "/dashboard",
-    element: <BusinessHome />,
-  },
-  {
-    path: "/dashboard/giftcard",
-    element: <BusinessCard />,
+    path: "/business-dashboard", // This is your parent route
+    element: <BusinessRoutes />,
+    children: [
+      {
+        index: true,
+        element: <BusinessHome />,
+        // path: "/dashboard", // Nested route path within BusinessRoutes
+      },
+      {
+        path: "/business-dashboard/giftcard", // Nested route path within BusinessRoutes
+        element: <BusinessCard />,
+      },
+    ],
   },
 ]);

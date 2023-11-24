@@ -9,11 +9,9 @@ const BusinessRoutes = () => {
   const [showing, setShowing] = React.useState(false);
 
   return (
-    <div style={{ display: "flex", overflow: "hidden" }}>
+    <div style={{ display: "flex" }}>
       <WrapHead>
-        {/* <SideNav /> */}
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat odio
-        eius ipsum optio omnis amet repellat aut alias! Itaque, ad.
+        <SideNav />
         {/* {user?.status === "Business" ? <SideNav /> : null} */}
       </WrapHead>
       <Wrapper>
@@ -33,16 +31,17 @@ const BusinessRoutes = () => {
 
 export default BusinessRoutes;
 const WrapHead = styled.div`
-  width: 250px;
+   width: 250px; /* Adjust as needed */
   height: 100vh;
-  display: block;
-  @media screen and (min-width: 801px) and (max-width: 1051px) {
-    width: 300px;
+  overflow-y: auto; /* Add scrollbar if content exceeds height */
+  background-color: green;
+  /* @media screen and (min-width: 801px) and (max-width: 1051px) {
+    width: 60px;
     height: 100vh;
   }
   @media screen and (max-width: 800px) {
     display: none;
-  }
+  } */
 `;
 const Wrapper = styled.div`
   width: calc(100vw - 250px);
