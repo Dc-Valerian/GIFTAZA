@@ -1,18 +1,14 @@
 import React from "react";
 import { useRoutes } from "react-router-dom";
 import styled from "styled-components";
-
 import { TbArrowsLeftRight } from "react-icons/tb";
-
-import { useAppSelector } from "../Global/Store";
 import UserHome from "../pages/DashBoardPages/UserHome/UserHome";
 import UserProfile from "../pages/DashBoardPages/UserProfile";
 
 const UserRoutes = () => {
   const [showing, setShowing] = React.useState(false);
-  const user = useAppSelector((state) => state.userData);
 
-  let element = useRoutes([
+  const element = useRoutes([
     {
       path: "/user-dashboard",
       element: <UserHome />,
@@ -21,18 +17,18 @@ const UserRoutes = () => {
       path: "/user-dashboard/profile",
       element: <UserProfile />,
     },
-    {
-      path: "/user-dashboard/mycards",
-      element: <UserCards />,
-    },
-    {
-      path: "/user-dashboard/notify",
-      element: <UserNotify />,
-    },
-    {
-      path: "/user-dashboard/card/:id",
-      element: <DetailCard />,
-    },
+    // {
+    //   path: "/user-dashboard/mycards",
+    //   element: <UserCards />,
+    // },
+    // {
+    //   path: "/user-dashboard/notify",
+    //   element: <UserNotify />,
+    // },
+    // {
+    //   path: "/user-dashboard/card/:id",
+    //   element: <DetailCard />,
+    // },
   ]);
   return (
     <div style={{ display: "flex", overflow: "hidden" }}>

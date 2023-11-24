@@ -1,18 +1,18 @@
-import React from "react";
 import styled from "styled-components";
 import { BsFillPersonFill } from "react-icons/bs";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import { useAppSelector } from "../../../Global/Store";
+// import { useAppSelector } from "../../../Global/Store";
 
 const PersonalAccount = () => {
-  const detailUser = useAppSelector((state) => state.userData);
-
   return (
     <Container>
       <NameCard>
         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
           <Logo>
-            <p>{detailUser?.name.charAt(0)}</p>
+            <p>
+              {/* {detailUser?.name.charAt(0)} */}
+              Dc
+            </p>
           </Logo>
 
           <Names>
@@ -21,11 +21,12 @@ const PersonalAccount = () => {
                 color: "#444343",
                 fontSize: "20px",
                 fontWeight: "bold",
-              }}>
-              {detailUser?.name}
+              }}
+            >
+              Valerian Pedro
             </div>
             <div style={{ fontSize: "14px", color: "#082bf3" }}>
-              @{detailUser?.username}
+              @dcValerian
             </div>
           </Names>
         </div>
@@ -37,11 +38,12 @@ const PersonalAccount = () => {
           display: "flex",
           flexDirection: "column",
           gap: "30px",
-        }}>
-        <Inputs>{detailUser?.name}</Inputs>
-        <Inputs2>{detailUser?.username}</Inputs2>
-        <Inputs2>{detailUser?.email}</Inputs2>
-        <Inputs>{detailUser?.phoneNumber}</Inputs>
+        }}
+      >
+        <Inputs>Valerian Pedro</Inputs>
+        <Inputs2>Valerian</Inputs2>
+        <Inputs2>valerianpedro03@gmail.com</Inputs2>
+        <Inputs></Inputs>
         {/* <Button>Update Profile</Button> */}
       </div>
       {/* <Button2>Update Profile</Button2> */}
@@ -51,9 +53,9 @@ const PersonalAccount = () => {
 
 export default PersonalAccount;
 
-const Input = styled.input`
-  display: none;
-`;
+// const Input = styled.input`
+//   display: none;
+// `;
 
 const Container = styled.div`
   width: 70%;
