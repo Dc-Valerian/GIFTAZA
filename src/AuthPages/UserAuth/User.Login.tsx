@@ -28,7 +28,7 @@ const Login = () => {
               height: "360px",
             }}
           />
-          <h4>MAVERICK</h4>
+          <h4>GiftAza</h4>
           <H1>
             <Typewriter
               options={{
@@ -101,15 +101,12 @@ const Login = () => {
               Always remember me
             </p>
           </Div>
-          <Button>Log in</Button>
-          <P>
-            I don't have an account.{" "}
-            <NavLink to="/register">
-              <span style={{ color: "blue", textDecoration: "none" }}>
-                Create one
-              </span>
-            </NavLink>
-          </P>
+       <NavLink
+       to="/user-dashboard"
+       >
+       <Button>Log in</Button>
+       </NavLink>
+       
         </Right>
       </Container>
     </div>

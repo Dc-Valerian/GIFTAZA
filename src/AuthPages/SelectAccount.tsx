@@ -43,7 +43,7 @@ const SelectAccount = () => {
           />
         </Left>
         <Right>
-          <NavLink to="/business/login" style={{ textDecoration: "none" }}>
+          <NavLink to="/business-register" style={{ textDecoration: "none" }}>
             <Card color="#8246f3">
               <Text>
                 <h1>Login as a Business</h1>

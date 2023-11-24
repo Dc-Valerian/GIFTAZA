@@ -4,11 +4,11 @@ import LandingPageLayout from "../Layout/LandingPageLayout/LandingPageLayout";
 // import Login from "../AuthPages/Login";
 import SelectAccount from "../AuthPages/SelectAccount";
 import Login from "../AuthPages/UserAuth/User.Login";
-import Register from "../AuthPages/UserAuth/User.Register";
 import BizzSignUp from "../AuthPages/BusinessAuth/Business.Register";
 import BizzLogin from "../AuthPages/BusinessAuth/Business.Login";
 import UserDashboardLayout from "../Layout/DashBoardLayour/UserDashboard/UseDashboardLayout";
 import UserHome from "../pages/DashBoardPages/UserHome/UserHome";
+import UserProfile from "../pages/DashBoardPages/UserProfile";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -29,23 +29,16 @@ export const mainRoute = createBrowserRouter([
     path: "/login",
     element: <Login />,
   },
+
   {
-    path: "/register",
-    element: <Register />,
+    path: "/business-register",
+    element: <BizzSignUp />,
   },
   {
-    path: "business",
-    children: [
-      {
-        path: "register",
-        element: <BizzSignUp />,
-      },
-      {
-        path: "login",
-        element: <BizzLogin />,
-      },
-    ],
+    path: "business-login",
+    element: <BizzLogin />,
   },
+
   {
     path: "/user-dashboard",
     element: <UserDashboardLayout />,
@@ -53,6 +46,10 @@ export const mainRoute = createBrowserRouter([
       {
         index: true,
         element: <UserHome />,
+      },
+      {
+        path: "/user-dashboard/profile",
+        element: <UserProfile />,
       },
     ],
   },

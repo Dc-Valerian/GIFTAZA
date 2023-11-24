@@ -44,7 +44,7 @@ const UserSideBar = () => {
 
         <NavHolder w={toggle ? "k" : ""}>
           <Topper>
-            <NavLink style={{ textDecoration: "none" }} to={"/admin-dashboard"}>
+            <NavLink style={{ textDecoration: "none" }} to={"/user-dashboard"}>
               <Nav w={toggle ? "k" : ""}>
                 <Icon>
                   <BiSolidPieChart />
@@ -52,7 +52,10 @@ const UserSideBar = () => {
                 {toggle && <NavName>Home</NavName>}
               </Nav>
             </NavLink>
-            <NavLink style={{ textDecoration: "none" }} to={"/admin-dashboard"}>
+            <NavLink
+              style={{ textDecoration: "none" }}
+              to={"/user-dashboard/profile"}
+            >
               <Nav w={toggle ? "k" : ""}>
                 <Icon>
                   <BiSolidPieChart />
@@ -90,9 +93,9 @@ const UserSideBar = () => {
 
 export default UserSideBar;
 const Topper = styled.div`
-display: flex;
-gap:4px;
-flex-direction: column;
+  display: flex;
+  gap: 4px;
+  flex-direction: column;
 `;
 
 const Dropper = styled.div``;
@@ -158,7 +161,7 @@ const Nav = styled.div<{ w: string }>`
 
 const NavHolder = styled.div<{ w: string }>`
   /* background-color: red; */
-  height:50%;
+  height: 50%;
   width: ${({ w }) => (w ? "90%" : "50px")};
   margin-top: 15px;
   transition: all 360ms;
