@@ -6,6 +6,7 @@ const initialState = {
   bizClient: {} as BusinessData | null,
   DataCard: {} as CardData | null,
   userData: {} as UserDetails | null,
+  toggle: false,
   //   Admin: {} as BusinessData | null,
 };
 
@@ -30,12 +31,25 @@ const ReduxState = createSlice({
     creatingCard: (state, { payload }: PayloadAction<CardData>) => {
       state.DataCard = payload;
     },
+    changeToggleTrue: (state: any) => {
+      state.toggle = true;
+    },
+    changeToggleFalse: (state: any) => {
+      state.toggle = false;
+    },
   },
 });
 
 export const dummy_user: any = { name: "Andrea", role: "admin" };
 
-export const { login, logout, creatingCard, Userlogin, Userlogout } =
-  ReduxState.actions;
+export const {
+  login,
+  logout,
+  creatingCard,
+  Userlogin,
+  Userlogout,
+  changeToggleFalse,
+  changeToggleTrue,
+} = ReduxState.actions;
 
 export default ReduxState.reducer;

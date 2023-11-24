@@ -15,7 +15,7 @@ import {
 } from "redux-persist";
 
 const persistConfig = {
-  key: "piggyvestapp",
+  key: "KLUCKER_HACKATHON",
   version: 1,
   storage,
 };

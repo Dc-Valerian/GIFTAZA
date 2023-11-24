@@ -7,7 +7,8 @@ import Login from "../AuthPages/UserAuth/User.Login";
 import Register from "../AuthPages/UserAuth/User.Register";
 import BizzSignUp from "../AuthPages/BusinessAuth/Business.Register";
 import BizzLogin from "../AuthPages/BusinessAuth/Business.Login";
-import UserRoutes from "./UserRoutes";
+import UserDashboardLayout from "../Layout/DashBoardLayour/UserDashboard/UseDashboardLayout";
+import UserHome from "../pages/DashBoardPages/UserHome/UserHome";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -47,6 +48,12 @@ export const mainRoute = createBrowserRouter([
   },
   {
     path: "/user-dashboard",
-    element: <UserRoutes />,
+    element: <UserDashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <UserHome />,
+      },
+    ],
   },
 ]);
