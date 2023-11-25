@@ -34,6 +34,7 @@ const Header = () => {
 
   const toHero = () => {
     scroll.scrollToTop();
+    
     // setIsActive("true");
   };
   const toAbout = (to: any) => {

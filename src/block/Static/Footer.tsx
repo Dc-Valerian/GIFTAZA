@@ -105,7 +105,7 @@ const Button = styled.button`
   border: none;
   outline: none;
   transition: all 350ms;
-  :hover {
+  &:hover {
     cursor: pointer;
     background-color: #7f22f1;
   }
