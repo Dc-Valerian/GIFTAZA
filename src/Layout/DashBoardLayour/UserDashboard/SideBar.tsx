@@ -147,7 +147,7 @@ const Top = styled.div`
   justify-content: center;
   flex-direction: column;
   top: 0;
-  background-color: #8246f3;
+  background-color: #8A2BE2;
   width: 100%;
   z-index: 99999;
   height: 140px;
@@ -176,7 +176,7 @@ const Wrapper = styled.div<{ w: string }>`
 
 const Container = styled.div<{ w: string }>`
   width: ${({ w }) => (w ? "200px" : "80px")};
-  background-color: #8246f3;
+  background-color: #8A2BE2;
   color: white;
   transition: all 360ms;
   display: flex;

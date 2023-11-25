@@ -42,7 +42,6 @@ const UserDashboardLayout = () => {
           />
         )}
       </>
-      <UserDashBoardHead />
       <UserSideBar />
       {!mobile ? null : <ToggleUserSideBar />}
       <Wrapper wd={toggle ? "value" : ""}>
@@ -66,12 +65,11 @@ const Container = styled.div`
 
 const Wrapper = styled.div<{ wd: string }>`
   width: calc(100% - ${({ wd }) => (wd ? "204" : "84")}px);
+  transition: all 360ms;
+  display: flex;
   @media screen and (max-width: 769px) {
     width: 100%;
   }
-  transition: all 360ms;
-  display: flex;
-  margin-top: 70px;
 `;
 
 const Button = styled(BsFillArrowRightSquareFill)<{

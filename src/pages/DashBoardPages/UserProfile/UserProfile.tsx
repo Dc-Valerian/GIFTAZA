@@ -62,12 +62,16 @@ const Head = styled.div`
   background-color: #f1f1f1;
 `;
 const HoldToggle = styled.div`
-  height: 100%;
+  height: 90%;
+  width: 70%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
+  /* background-color: yellow; */
   h2 {
-    font-size: 17px;
+    font-size: 35px;
+  color: black;
   }
 `;
 const ToggleHold = styled.div`

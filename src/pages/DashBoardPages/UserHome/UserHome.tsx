@@ -1,9 +1,12 @@
 import styled from "styled-components";
 import ViewCards from "./ViewCards";
+import UserDashBoardHead from "../../../Layout/DashBoardLayour/UserDashboard/UserDashboard";
 
 const UserHome = () => {
   return (
     <Container>
+      <UserDashBoardHead />
+
       <ViewCards />
     </Container>
   );
@@ -15,7 +18,7 @@ const Container = styled.div`
   width: 100vw;
   overflow: hidden;
   /* overflow-y: scroll; */
-  margin-top: 80px;
+  margin-top: 130px;
   ::-webkit-scrollbar {
     width: 10px;
     background-color: #f1f1f1;
