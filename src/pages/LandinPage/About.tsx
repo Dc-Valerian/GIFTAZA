@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import about from "../Assets/about-img.webp";
+import about from "../../Assets/about-img.webp";
 
 const About = () => {
   return (
