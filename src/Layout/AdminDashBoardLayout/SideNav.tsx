@@ -102,17 +102,18 @@ const SideNav = () => {
               setSupport(true);
               setAccount(true);
               setLogout(true);
-              navigate("/dashboard/notify");
+              navigate("/business-dashboard/histories");
             }}
           >
             <NavBars
               pic={<HiBell />}
-              routeName="Notification"
+              routeName="History"
               cl={notify ? "#d1abf5" : "white"}
               bd={notify ? "" : "4px solid white"}
               hov={notify ? " #4c2be2" : ""}
             />
           </div>
+
           <div
             onClick={() => {
               setHome(true);
