@@ -4,6 +4,7 @@ import { BiLogIn, BiSolidPieChart } from "react-icons/bi";
 import { NavLink, useNavigate } from "react-router-dom";
 
 const UserSideBar = () => {
+  
   const toggle = useSelector((state: any) => state.toggle);
 
   const logoutNav = useNavigate();
@@ -51,14 +52,14 @@ const UserSideBar = () => {
 
           
 
-            <NavLink style={{ textDecoration: "none" }} to={""}>
-              <Nav w={toggle ? "k" : ""}>
-                <Icon>
-                  <BiSolidPieChart />
-                </Icon>
-                {toggle && <NavName>History</NavName>}
-              </Nav>
-            </NavLink>
+              {/* <NavLink style={{ textDecoration: "none" }} to={""}>
+                <Nav w={toggle ? "k" : ""}>
+                  <Icon>
+                    <BiSolidPieChart />
+                  </Icon>
+                  {toggle && <NavName>History</NavName>}
+                </Nav>
+              </NavLink> */}
 
             <NavLink
               style={{ textDecoration: "none" }}

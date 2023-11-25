@@ -66,18 +66,23 @@ const HoldToggle = styled.div`
   width: 70%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
   /* background-color: yellow; */
   h2 {
-    font-size: 35px;
-  color: black;
+    font-weight: 500;
+    margin-left: 60px;
+    margin-bottom:20px;
+    font-size: 17px;
+    @media screen and (min-width: 800px) {
+      font-size: 35px;
+    }
   }
 `;
 const ToggleHold = styled.div`
   display: flex;
   gap: 40px;
   font-size: 14px;
+  margin-left: 60px;
 `;
 
 const Toggle = styled.div<{ cls: string; bdb: string }>`
