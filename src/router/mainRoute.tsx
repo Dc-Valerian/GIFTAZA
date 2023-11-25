@@ -11,9 +11,9 @@ import BusinessRoutes from "../Layout/AdminDashBoardLayout/BusinessRoutes";
 import BusinessHome from "../pages/AdminDashboard/BusinessHome/BusinessHome";
 import UserProfile from "../pages/DashBoardPages/UserProfile/UserProfile";
 import BusinessCard from "../pages/AdminDashboard/BusinessCard/BusinessCard";
-import AllUsers from "../pages/AdminDashboard/Users/AllUsers";
 import BusinessHistory from "../pages/AdminDashboard/BusinessHistory/BusinessHistory";
 import BusinessProfilePage from "../pages/AdminDashboard/BusinessProfile/BusinessProfilePage";
+import UserGiftCardProps from "../pages/AdminDashboard/BusinessUsers/UserGiftCardProps";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -72,7 +72,7 @@ export const mainRoute = createBrowserRouter([
       },
       {
         path: "/business-dashboard/all-users",
-        element: <AllUsers />,
+        element: <UserGiftCardProps />,
       },
       {
         path: "/business-dashboard/histories",
