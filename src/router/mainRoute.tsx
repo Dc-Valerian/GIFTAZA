@@ -14,6 +14,7 @@ import BusinessCard from "../pages/AdminDashboard/BusinessCard";
 import BusinessHome from "../pages/AdminDashboard/BusinessHome";
 import User from "../pages/AdminDashboard/Users/User";
 import Histories from "../pages/AdminDashboard/History/History";
+import Profile from "../pages/AdminDashboard/Profile/Profile";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -77,6 +78,10 @@ export const mainRoute = createBrowserRouter([
       {
         path: "/business-dashboard/histories",
         element: <Histories/>,
+      },
+      {
+        path: "/business-dashboard/profile",
+        element: <Profile/>,
       },
     ],
   },

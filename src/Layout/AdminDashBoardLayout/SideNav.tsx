@@ -114,26 +114,7 @@ const SideNav = () => {
             />
           </div>
 
-          <div
-            onClick={() => {
-              setHome(true);
-              setTrans(true);
-              setWallet(true);
-              setNotify(true);
-              setSupport(false);
-              setAccount(true);
-              setLogout(true);
-              navigate("/dashboard/support");
-            }}
-          >
-            <NavBars
-              pic={<AiFillMessage />}
-              routeName="Support"
-              cl={support ? "#d1abf5" : "white"}
-              bd={support ? "" : "4px solid white"}
-              hov={support ? " #4c2be2" : ""}
-            />
-          </div>
+         
           <div
             onClick={() => {
               setHome(true);
@@ -143,12 +124,12 @@ const SideNav = () => {
               setSupport(true);
               setAccount(false);
               setLogout(true);
-              navigate("/dashboard/account");
+              navigate("/business-dashboard/profile");
             }}
           >
             <NavBars
               pic={<BsPersonFill />}
-              routeName="Account"
+              routeName="Profile"
               cl={account ? "#d1abf5" : "white"}
               bd={account ? "" : "4px solid white"}
               hov={account ? " #4c2be2" : ""}
