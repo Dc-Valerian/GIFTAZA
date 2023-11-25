@@ -40,8 +40,7 @@ const UserSideBar = () => {
             </NavLink>
             <NavLink
               style={{ textDecoration: "none" }}
-              to={"/user-dashboard/profile"}
-            >
+              to={"/user-dashboard/profile"}>
               <Nav w={toggle ? "k" : ""}>
                 <Icon>
                   <BiSolidPieChart />
@@ -63,8 +62,7 @@ const UserSideBar = () => {
             <Nav
               onClick={backToHome}
               w={toggle ? "k" : ""}
-              style={{ marginTop: "30px" }}
-            >
+              style={{ marginTop: "30px" }}>
               <Icon>
                 <BiLogIn />
               </Icon>
