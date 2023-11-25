@@ -52,7 +52,7 @@ const Button = styled.button`
   margin-top: 30px;
   transition: all 350ms;
 
-  :hover {
+  &:hover {
     cursor: pointer;
     background-color: #913cf9;
   }

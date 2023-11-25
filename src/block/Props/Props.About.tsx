@@ -25,14 +25,24 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 70%;
   padding: 10px;
   @media screen and (min-width: 1000px) {
-    width: 47%;
+    width: 45%;
   }
   /* @media screen and (min-width: 1200px) {
     width: 100%;
   } */
+
+  &:hover{
+    cursor: pointer;
+    background: rgba( 255, 255, 255, 0.9 );
+box-shadow: 0 5px 25px 0 rgba( 31, 38, 135, 0.30 );
+backdrop-filter: blur( 1px );
+-webkit-backdrop-filter: blur( 1px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.15 );
+  }
 `;
 const Wrapper = styled.div`
   width: 100%;

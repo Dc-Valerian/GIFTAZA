@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-// import PersonalAccount from "../Props/Person.Account";
-// import SecureAccount from "../Props/Secure.Account";
+import PersonalAccount from "./PersonalAccount";
+import SecureAccount from "./Secure.Account";
 
 const UserProfile = () => {
   const [person, setPerson] = React.useState(true);
@@ -18,7 +18,8 @@ const UserProfile = () => {
                 setSecure(false);
               }}
               cls={person ? "#2343f7" : "#585858"}
-              bdb={person ? "3px solid #2343f7" : ""}>
+              bdb={person ? "3px solid #2343f7" : ""}
+            >
               Personal
             </Toggle>
             <Toggle
@@ -26,28 +27,20 @@ const UserProfile = () => {
                 setPerson(false);
                 setSecure(true);
               }}
-              cls={person ? "#585858" : "#2343f7"}
-              bdb={person ? "" : "3px solid #2343f7"}>
+              cls={secure ? "#2343f7" : "#585858"}
+              bdb={secure ? "3px solid #2343f7" : ""}
+            >
               Security
             </Toggle>
           </ToggleHold>
         </HoldToggle>
         {person ? (
           <>
-            {/* <PersonalAccount /> */}
-            <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-              qui consequatur sint vero odio exercitationem perferendis
-              consequuntur. Suscipit, sit assumenda!
-            </div>
+            <PersonalAccount />
           </>
         ) : (
           <>
-            {/* <SecureAccount /> */}
-            <div>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae,
-              officiis?
-            </div>
+            <SecureAccount />
           </>
         )}
       </Head>
@@ -69,18 +62,27 @@ const Head = styled.div`
   background-color: #f1f1f1;
 `;
 const HoldToggle = styled.div`
-  height: 100%;
+  height: 90%;
+  width: 70%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  /* background-color: yellow; */
   h2 {
+    font-weight: 500;
+    margin-left: 60px;
+    margin-bottom:20px;
     font-size: 17px;
+    @media screen and (min-width: 800px) {
+      font-size: 35px;
+    }
   }
 `;
 const ToggleHold = styled.div`
   display: flex;
   gap: 40px;
   font-size: 14px;
+  margin-left: 60px;
 `;
 
 const Toggle = styled.div<{ cls: string; bdb: string }>`

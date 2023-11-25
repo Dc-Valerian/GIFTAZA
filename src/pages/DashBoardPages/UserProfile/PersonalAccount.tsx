@@ -1,7 +1,4 @@
 import styled from "styled-components";
-import { BsFillPersonFill } from "react-icons/bs";
-import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-// import { useAppSelector } from "../../../Global/Store";
 
 const PersonalAccount = () => {
   return (
@@ -9,10 +6,7 @@ const PersonalAccount = () => {
       <NameCard>
         <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
           <Logo>
-            <p>
-              {/* {detailUser?.name.charAt(0)} */}
-              Dc
-            </p>
+            <p>Dc</p>
           </Logo>
 
           <Names>
@@ -44,18 +38,13 @@ const PersonalAccount = () => {
         <Inputs2>Valerian</Inputs2>
         <Inputs2>valerianpedro03@gmail.com</Inputs2>
         <Inputs></Inputs>
-        {/* <Button>Update Profile</Button> */}
       </div>
-      {/* <Button2>Update Profile</Button2> */}
     </Container>
   );
 };
 
 export default PersonalAccount;
 
-// const Input = styled.input`
-//   display: none;
-// `;
 
 const Container = styled.div`
   width: 70%;
@@ -114,38 +103,4 @@ const Names = styled.div`
   flex-direction: column;
   gap: 5px;
   margin-bottom: 10px;
-`;
-const Button = styled.button`
-  border-radius: 10px;
-  color: white;
-  background-color: #a002a0f2;
-  width: 100%;
-  height: 40px;
-  border: none;
-  outline: none;
-  font-size: 15px;
-  margin-top: 30px;
-  transition: all 350ms;
-  font-weight: bold;
-  :hover {
-    background-color: #940294;
-  }
-`;
-const Button2 = styled.button`
-  position: absolute;
-  top: 100px;
-  right: 30px;
-  border-radius: 10px;
-  color: white;
-  background-color: #a002a0f2;
-  width: 150px;
-  height: 40px;
-  border: none;
-  outline: none;
-  font-size: 15px;
-  transition: all 350ms;
-  font-weight: bold;
-  :hover {
-    background-color: #940294;
-  }
 `;

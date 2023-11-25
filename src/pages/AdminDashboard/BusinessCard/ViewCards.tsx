@@ -1,10 +1,23 @@
+import { useState } from "react";
 import styled from "styled-components";
 import pic from "../../../Assets/trancard.svg";
-const OnlyViewCards = () => {
-  const dummy = [{ card: "One" }, { card: "Two" }];
+import Card from "./Card";
+import axios from "axios";
+import { useAppSelector } from "../../../GlobalStore/Store";
+
+const ViewCards = () => {
+  const [cad, setCad] = useState([]);
+  const business = useAppSelector((state) => state.bizClient);
+
+  const apiUrl = "https://giftcard-api.onrender.com";
+  axios.get(`${apiUrl}/api/businessgiftcard/${business?._id}`).then((res) => {
+    // console.log("cards", res.data.data.giftCard);
+    setCad(res.data.data.giftCard);
+  });
+
   return (
     <div>
-      {dummy.length === 0 ? (
+      {cad === null ? (
         <Nothing>
           <CenterHold>
             <Pic>
@@ -19,15 +32,16 @@ const OnlyViewCards = () => {
       ) : (
         <div>
           <CardContainer>
-            <Nothing>
-              <CenterHold>
-                <Pic>
-                  <img src={pic} />
-                </Pic>
-                <Txt>Whoops! No Activity</Txt>
-                <Sxt>You’ll see your gift cards soon.</Sxt>
-              </CenterHold>
-            </Nothing>
+            {cad?.map((props: any) => (
+              <Card
+                key={props._id}
+                pic={props.BrandLogo}
+                busyname={props.name}
+                amount={props.moneyWorth}
+                colour={props.colour}
+                code={props.uniqueID}
+              />
+            ))}
           </CardContainer>
         </div>
       )}
@@ -35,7 +49,7 @@ const OnlyViewCards = () => {
   );
 };
 
-export default OnlyViewCards;
+export default ViewCards;
 
 const CardContainer = styled.div`
   width: 100%;

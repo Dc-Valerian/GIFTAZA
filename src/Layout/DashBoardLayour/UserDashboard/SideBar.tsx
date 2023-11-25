@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import { BiLogIn, BiSolidPieChart } from "react-icons/bi";
 import { NavLink, useNavigate } from "react-router-dom";
+import { HiHome, HiBell } from "react-icons/hi";
+import { MdInsertChart } from "react-icons/md";
+import { CiLogout } from "react-icons/ci";
+import { BsPersonFill } from "react-icons/bs";
 
 const UserSideBar = () => {
   const toggle = useSelector((state: any) => state.toggle);
@@ -33,27 +36,54 @@ const UserSideBar = () => {
             <NavLink style={{ textDecoration: "none" }} to={"/user-dashboard"}>
               <Nav w={toggle ? "k" : ""}>
                 <Icon>
-                  <BiSolidPieChart />
+                  <HiHome />
                 </Icon>
                 {toggle && <NavName>Home</NavName>}
               </Nav>
             </NavLink>
+
             <NavLink
               style={{ textDecoration: "none" }}
-              to={"/user-dashboard/profile"}>
+              to={"/user-dashboard/my-giftcard"}
+            >
               <Nav w={toggle ? "k" : ""}>
                 <Icon>
-                  <BiSolidPieChart />
+                  <MdInsertChart />
+                </Icon>
+                {toggle && <NavName>Gift Cards</NavName>}
+              </Nav>
+            </NavLink>
+
+            {/* <NavLink style={{ textDecoration: "none" }} to={""}>
+                <Nav w={toggle ? "k" : ""}>
+                  <Icon>
+                    <BiSolidPieChart />
+                  </Icon>
+                  {toggle && <NavName>History</NavName>}
+                </Nav>
+              </NavLink> */}
+
+            <NavLink
+              style={{ textDecoration: "none" }}
+              to={"/user-dashboard/profile"}
+            >
+              <Nav w={toggle ? "k" : ""}>
+                <Icon>
+                  <BsPersonFill />
                 </Icon>
                 {toggle && <NavName>Profile</NavName>}
               </Nav>
             </NavLink>
-            <NavLink style={{ textDecoration: "none" }} to={"/admin-dashboard"}>
+
+            <NavLink
+              style={{ textDecoration: "none" }}
+              to={"/user-dashboard/notify"}
+            >
               <Nav w={toggle ? "k" : ""}>
                 <Icon>
-                  <BiSolidPieChart />
+                  <HiBell />
                 </Icon>
-                {toggle && <NavName>Home</NavName>}
+                {toggle && <NavName>Notifications</NavName>}
               </Nav>
             </NavLink>
           </Topper>
@@ -62,9 +92,10 @@ const UserSideBar = () => {
             <Nav
               onClick={backToHome}
               w={toggle ? "k" : ""}
-              style={{ marginTop: "30px" }}>
+              style={{ marginTop: "30px" }}
+            >
               <Icon>
-                <BiLogIn />
+                <CiLogout />
               </Icon>
               {toggle && <NavName>Log Out </NavName>}
             </Nav>
@@ -124,7 +155,7 @@ const Nav = styled.div<{ w: string }>`
 
 const NavHolder = styled.div<{ w: string }>`
   /* background-color: red; */
-  height: 50%;
+  height: 70%;
   width: ${({ w }) => (w ? "90%" : "50px")};
   margin-top: 15px;
   transition: all 360ms;
@@ -147,7 +178,7 @@ const Top = styled.div`
   justify-content: center;
   flex-direction: column;
   top: 0;
-  background-color: #8246f3;
+  background-color: #8a2be2;
   width: 100%;
   z-index: 99999;
   height: 140px;
@@ -176,7 +207,7 @@ const Wrapper = styled.div<{ w: string }>`
 
 const Container = styled.div<{ w: string }>`
   width: ${({ w }) => (w ? "200px" : "80px")};
-  background-color: #8246f3;
+  background-color: #8a2be2;
   color: white;
   transition: all 360ms;
   display: flex;

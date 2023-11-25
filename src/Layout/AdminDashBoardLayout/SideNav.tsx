@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { HiHome, HiBell } from "react-icons/hi";
 import { MdInsertChart } from "react-icons/md";
 import { FaWallet } from "react-icons/fa";
-import { AiFillMessage } from "react-icons/ai";
 import { CiLogout } from "react-icons/ci";
 import { BsPersonFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +15,6 @@ const SideNav = () => {
   const [trans, setTrans] = React.useState(true);
   const [wallet, setWallet] = React.useState(true);
   const [notify, setNotify] = React.useState(true);
-  const [support, setSupport] = React.useState(true);
   const [account, setAccount] = React.useState(true);
   const [logout, setLogout] = React.useState(true);
 
@@ -26,7 +24,7 @@ const SideNav = () => {
   return (
     <div>
       <Container>
-        <Logo>MAVERICKS</Logo>
+        <Logo>GIFTAZA</Logo>
         <br />
         <br />
         <br />
@@ -37,10 +35,9 @@ const SideNav = () => {
               setTrans(true);
               setWallet(true);
               setNotify(true);
-              setSupport(true);
               setAccount(true);
               setLogout(true);
-              navigate("/dashboard");
+              navigate("/business-dashboard");
             }}
           >
             <NavBars
@@ -57,10 +54,9 @@ const SideNav = () => {
               setTrans(false);
               setWallet(true);
               setNotify(true);
-              setSupport(true);
               setAccount(true);
               setLogout(true);
-              navigate("/dashboard/giftcard");
+              navigate("/business-dashboard/giftcard");
             }}
           >
             <NavBars
@@ -71,81 +67,61 @@ const SideNav = () => {
               hov={trans ? " #4c2be2" : ""}
             />
           </div>
+
           <div
             onClick={() => {
               setHome(true);
               setTrans(true);
               setWallet(false);
               setNotify(true);
-              setSupport(true);
               setAccount(true);
               setLogout(true);
-              navigate("/dashboard/wallet");
+              navigate("/business-dashboard/all-users");
             }}
           >
             <NavBars
               pic={<FaWallet />}
-              routeName="Wallet"
+              routeName="Users"
               cl={wallet ? "#d1abf5" : "white"}
               bd={wallet ? "" : "4px solid white"}
               hov={wallet ? " #4c2be2" : ""}
             />
           </div>
+
           <div
             onClick={() => {
               setHome(true);
               setTrans(true);
               setWallet(true);
               setNotify(false);
-              setSupport(true);
               setAccount(true);
               setLogout(true);
-              navigate("/dashboard/notify");
+              navigate("/business-dashboard/histories");
             }}
           >
             <NavBars
               pic={<HiBell />}
-              routeName="Notification"
+              routeName="History"
               cl={notify ? "#d1abf5" : "white"}
               bd={notify ? "" : "4px solid white"}
               hov={notify ? " #4c2be2" : ""}
             />
           </div>
+
           <div
             onClick={() => {
               setHome(true);
               setTrans(true);
               setWallet(true);
               setNotify(true);
-              setSupport(false);
-              setAccount(true);
-              setLogout(true);
-              navigate("/dashboard/support");
-            }}
-          >
-            <NavBars
-              pic={<AiFillMessage />}
-              routeName="Support"
-              cl={support ? "#d1abf5" : "white"}
-              bd={support ? "" : "4px solid white"}
-              hov={support ? " #4c2be2" : ""}
-            />
-          </div>
-          <div
-            onClick={() => {
-              setHome(true);
-              setTrans(true);
-              setWallet(true);
-              setNotify(true);
-              setSupport(true);
               setAccount(false);
               setLogout(true);
-              navigate("/dashboard/account");
+              navigate("/business-dashboard/profile");
             }}
           >
             <NavBars
               pic={<BsPersonFill />}
-              routeName="Account"
+              routeName="Profile"
               cl={account ? "#d1abf5" : "white"}
               bd={account ? "" : "4px solid white"}
               hov={account ? " #4c2be2" : ""}
@@ -158,7 +134,6 @@ const SideNav = () => {
             setTrans(true);
             setWallet(true);
             setNotify(true);
-            setSupport(true);
             setAccount(true);
             setLogout(false);
             dispatch(LogOut());
@@ -192,7 +167,6 @@ const Container = styled.div`
   left: 0; /* Place it at the left */
   bottom: 0; /* Extend it to the bottom */
 `;
-
 
 const Logo = styled.div`
   color: white;

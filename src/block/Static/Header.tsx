@@ -1,18 +1,15 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { NavLink } from "react-router-dom";
-import { FiArrowUpRight } from "react-icons/fi";
 import { AiOutlineArrowUp } from "react-icons/ai";
-import { animateScroll as scroll, Link } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 
 const Header = () => {
   const [show, setShow] = React.useState(false);
   const [toTopshow, settoTopShow] = React.useState(false);
   const [isActive, setIsActive] = React.useState(null);
 
-  const handleSetActive = (to: any) => {
-    setIsActive(to);
-  };
+  console.log(isActive);
 
   const changeHeaderColor = () => {
     if (window.scrollY >= 250) {
@@ -35,8 +32,9 @@ const Header = () => {
   window.addEventListener("scroll", showBacktoTop);
   window.addEventListener("scroll", changeHeaderColor);
 
-  const toHero = (to: any) => {
+  const toHero = () => {
     scroll.scrollToTop();
+    
     // setIsActive("true");
   };
   const toAbout = (to: any) => {
@@ -55,7 +53,7 @@ const Header = () => {
         <Container boxShadow={show ? "value" : ""} fixed="jj">
           <Wrapper>
             <LogoNav>
-              <Logo onClick={backToTop}>Maverick</Logo>
+              <Logo onClick={backToTop}>GiftAza</Logo>
               <Nav>
                 <Navigation onClick={toHero}>Home</Navigation>
                 <Navigation onClick={toAbout}>About</Navigation>
@@ -82,7 +80,7 @@ const Header = () => {
         <Container boxShadow={show ? "value" : ""} fixed="">
           <Wrapper>
             <LogoNav>
-              <Logo onClick={backToTop}>Maverick</Logo>
+              <Logo onClick={backToTop}>GiftAza</Logo>
               <Nav>
                 <Navigation onClick={toHero}>Home</Navigation>
                 <Navigation onClick={toAbout}>About</Navigation>
@@ -111,6 +109,35 @@ const Header = () => {
 };
 
 export default Header;
+// const pulseInit = keyframes`
+//   0% {
+//     transform: scale(1);
+//     opacity: 0.5;
+//   }
+//   50% {
+//     transform: scale(1.1);
+//     opacity: 1;
+//   }
+//   100% {
+//     transform: scale(1);
+//     opacity: 0.5;
+//   }
+// `;
+
+const pulse = keyframes`
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0.7);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+  }
+`;
 
 const ButtonHold = styled.div`
   display: flex;
@@ -150,7 +177,7 @@ const Navigation = styled.p`
     display: none;
   }
 
-  :hover {
+  &:hover {
     cursor: pointer;
     color: #5057fd;
   }
@@ -189,14 +216,16 @@ const Nav = styled.div`
   align-items: center;
   color: #333333;
 `;
+
 const Logo = styled.div`
+  animation: ${pulse} 2s ease-in-out infinite;
   display: flex;
   align-items: center;
   color: #5352ec;
   font-size: 1.3rem;
   font-weight: 500;
 
-  :hover {
+  &:hover {
     cursor: pointer;
   }
 `;

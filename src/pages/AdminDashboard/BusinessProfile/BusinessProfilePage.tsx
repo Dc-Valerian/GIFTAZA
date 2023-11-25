@@ -1,16 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import PersonalAccount from "./UserProfile/PersonalAccount";
-import SecureAccount from "./UserProfile/Secure.Account";
+import PersonalAccountSetup from "./PersonalAccountSetup";
+import SecureAccountSetUp from "./SecureAccountSetUp";
 
-const UserProfile = () => {
+const BusinessProfilePage = () => {
   const [person, setPerson] = React.useState(true);
   const [secure, setSecure] = React.useState(false);
   return (
     <Container>
       <Head>
         <HoldToggle>
-          <h2>Account</h2>
+          <h2>Profile</h2>
           <ToggleHold>
             <Toggle
               onClick={() => {
@@ -27,24 +27,31 @@ const UserProfile = () => {
                 setPerson(false);
                 setSecure(true);
               }}
-              cls={secure ? "#2343f7" : "#585858"}
-              bdb={secure ? "3px solid #2343f7" : ""}
+              cls={secure ? "#585858" : "#2343f7"}
+              bdb={secure ? "" : "3px solid #2343f7"}
             >
               Security
             </Toggle>
           </ToggleHold>
         </HoldToggle>
-        {person ? <PersonalAccount /> : null}
-        {!person && secure ? <SecureAccount /> : null}
+        {person ? (
+          <>
+            <PersonalAccountSetup />
+          </>
+        ) : (
+          <>
+            <SecureAccountSetUp />
+          </>
+        )}
       </Head>
     </Container>
   );
 };
 
-export default UserProfile;
+export default BusinessProfilePage;
 
 const Container = styled.div`
-  width: calc(100%-20%);
+  width: 100vw;
   overflow: hidden;
 `;
 const Head = styled.div`
@@ -61,6 +68,11 @@ const HoldToggle = styled.div`
   justify-content: space-between;
   h2 {
     font-size: 17px;
+    color: #383838;
+    font-weight: 600;
+    @media screen and (min-width: 800px) {
+      font-size: 35px;
+    }
   }
 `;
 const ToggleHold = styled.div`

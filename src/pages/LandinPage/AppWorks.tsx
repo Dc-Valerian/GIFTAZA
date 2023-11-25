@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import pic from "../Assets/abPhone.webp";
-import create from "../Assets/create-icon.svg";
-import trade from "../Assets/begin-icon.svg";
-import wait from "../Assets/wait-icon.svg";
-import withdraw from "../Assets/withdraw-icon.svg";
+import pic from "../../Assets/abPhone.webp";
+import create from "../../Assets/create-icon.svg";
+import trade from "../../Assets/begin-icon.svg";
+import wait from "../../Assets/wait-icon.svg";
+import withdraw from "../../Assets/withdraw-icon.svg";
 import AboutCard from "../../block/Props/Props.About";
 
 const AppWorks = () => {
@@ -60,9 +60,14 @@ const Container = styled.div`
   align-items: center;
 `;
 const Wrapper = styled.div`
-  width: 90%;
+  width: 95%;
   height: 95%;
-  margin-top: 120px;
+  margin-top: 80px;
+  display: flex;
+/* flex-direction: column; */
+justify-content: space-between;
+
+
   @media screen and (min-width: 1200px) {
     display: flex;
     gap: 60px;
@@ -88,13 +93,13 @@ const P = styled.div`
 const Head = styled.div`
   color: #383838;
   @media screen and (min-width: 1200px) {
-    width: 25%;
+    width: 40%;
   }
 `;
 const Picture = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
   object-position: center;
   border-radius: 20px;
   display: none;
@@ -118,12 +123,13 @@ const Picture2 = styled.img`
   }
 `;
 const Cards = styled.div`
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px;
+  justify-content: flex-end;
   margin-top: 20px;
   @media screen and (min-width: 1200px) {
-    width: calc(75% - 40px);
+    width:60%;
   }
 `;

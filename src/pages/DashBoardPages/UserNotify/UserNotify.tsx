@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import pic from "../../../Assets/noti.svg";
 import NotifyContent from "./Notify.Content";
 
 const UserNotify = () => {
@@ -17,7 +17,9 @@ const UserNotify = () => {
         ) : (
           <Nothing>
             <CenterHold>
-              <Pic>404</Pic>
+              <Pic>
+                <img src={pic} />
+              </Pic>
               <Txt>Whoops! No Activity</Txt>
               <Sxt>You’ll get new notifications soon.</Sxt>
             </CenterHold>
@@ -31,7 +33,7 @@ const UserNotify = () => {
 export default UserNotify;
 
 const Container = styled.div`
-  width: calc(100%-20%);
+  width: 100vw;
   overflow: hidden;
   @media screen and (min-width: 801px) and (max-width: 1051px) {
     width: calc(100vw - 60px);
@@ -58,10 +60,12 @@ const Hold = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   color: #383838;
   h2 {
     font-weight: 500;
+    margin-left: 70px;
+    margin-bottom:20px;
     font-size: 17px;
     @media screen and (min-width: 800px) {
       font-size: 35px;

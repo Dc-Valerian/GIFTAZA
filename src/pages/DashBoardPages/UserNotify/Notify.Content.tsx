@@ -1,4 +1,4 @@
-import React from "react";
+
 import styled from "styled-components";
 import { BsAppIndicator } from "react-icons/bs";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
@@ -58,10 +58,7 @@ const Text = styled.div`
   margin-bottom: 3px;
   color: #303030;
 `;
-const Text2 = styled.div`
-  margin-bottom: 3px;
-  color: #c70707;
-`;
+
 const Arr = styled.div`
   font-size: 20px;
   margin-right: 10px;

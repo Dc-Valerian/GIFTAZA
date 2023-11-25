@@ -7,8 +7,6 @@ import { FaWallet } from "react-icons/fa";
 import { AiFillMessage } from "react-icons/ai";
 import { CiLogout } from "react-icons/ci";
 import { BsPersonFill } from "react-icons/bs";
-import { TbArrowsLeftRight } from "react-icons/tb";
-import { TiStarFullOutline } from "react-icons/ti";
 import { logout as LogOut } from "../../GlobalStore/ReduxState";
 import { UseAppDispatch } from "../../GlobalStore/Store";
 import MobileBars from "./MobileBars";
@@ -21,13 +19,13 @@ const BusinessMobileNavs = () => {
   const [support, setSupport] = React.useState(true);
   const [account, setAccount] = React.useState(true);
   const [logout, setLogout] = React.useState(true);
-  const [show, setShow] = React.useState(true);
   const navigate = useNavigate();
   const dispatch = UseAppDispatch();
   return (
     <div>
       <Container>
         <Wrapper>
+
           <Nav
             onClick={() => {
               setHome(false);
@@ -48,6 +46,8 @@ const BusinessMobileNavs = () => {
               hov={home ? " #4c2be2" : ""}
             />
           </Nav>
+
+
           <Nav
             onClick={() => {
               setHome(true);
@@ -68,6 +68,8 @@ const BusinessMobileNavs = () => {
               hov={trans ? " #4c2be2" : ""}
             />
           </Nav>
+
+
           <Nav
             onClick={() => {
               setHome(true);
@@ -77,17 +79,18 @@ const BusinessMobileNavs = () => {
               setSupport(true);
               setAccount(true);
               setLogout(true);
-              navigate("/dashboard/wallet");
+              navigate("/dashboard/users");
             }}
           >
             <MobileBars
               pic={<FaWallet />}
-              routeName="Wallet"
+              routeName="Users"
               cl={wallet ? "#d1abf5" : "white"}
               bd={wallet ? "" : "#6c25bd"}
               hov={wallet ? " #4c2be2" : ""}
             />
           </Nav>
+
           <Nav
             onClick={() => {
               setHome(true);

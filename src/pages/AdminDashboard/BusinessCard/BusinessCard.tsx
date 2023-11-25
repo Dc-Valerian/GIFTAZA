@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 // import pic from "../Images/trancard.svg";
-// import CreateCard from "../Props/CreateCard";
-// import ViewCards from "../Props/ViewCards";
+import CreateCard from "./CreateCard";
+import ViewCards from "./ViewCards";
 
 const BusinessCard = () => {
   const [person, setPerson] = React.useState(true);
@@ -28,28 +28,16 @@ const BusinessCard = () => {
                 setPerson(false);
                 setSecure(true);
               }}
-              cls={person ? "#585858" : "#2343f7"}
-              bdb={person ? "" : "3px solid #2343f7"}
+              cls={secure ? "#2343f7" : "#585858"}
+              bdb={secure ? "3px solid #2343f7" : ""}
             >
               Gift Cards
             </Toggle>
           </ToggleHold>
         </HoldToggle>
       </Head>{" "}
-      {person ? (
-        //   <CreateCard />
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quidem
-          repellendus doloremque ullam sed laborum vero, iste dolorum ratione
-          iusto ducimus?
-        </div>
-      ) : (
-        // <ViewCards />
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo,
-          voluptatum.
-        </div>
-      )}
+      {person ? <CreateCard /> : null}
+      {!person && secure ? <ViewCards /> : null}
     </Container>
   );
 };
@@ -109,57 +97,4 @@ const Toggle = styled.div<{ cls: string; bdb: string }>`
   }
   color: ${(props) => props.cls};
   border-bottom: ${(props) => props.bdb};
-`;
-const Button = styled.div`
-  border-radius: 10px;
-  color: white;
-  background-color: #a002a0f2;
-  width: 140px;
-  height: 40px;
-  border: none;
-  outline: none;
-  font-size: 15px;
-  margin-top: 30px;
-  transition: all 350ms;
-  :hover {
-    background-color: #940294;
-  }
-`;
-
-const Nothing = styled.div`
-  width: 100%;
-  height: calc(100vh - 205px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-const CenterHold = styled.div`
-  color: lightgray;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`;
-const Pic = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-bottom: 20px;
-  width: 200px;
-  height: 200px;
-  img {
-    height: 100%;
-    width: 100%;
-    object-fit: contain;
-    object-position: center;
-    border-radius: 50%;
-  }
-`;
-const Txt = styled.div`
-  font-size: 14px;
-  color: gray;
-  font-weight: bold;
-`;
-const Sxt = styled.div`
-  font-size: 12px;
-  max-width: 250px;
 `;

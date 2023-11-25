@@ -1,0 +1,32 @@
+.progress-bar {
+    position: fixed;
+    top: 70px;
+    z-index: 40;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: #12C5E4;
+    transform-origin: 0%;
+  }
+
+
+  .circle{
+
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    flex-flow: row;
+    align-content: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 10px;
+    background-color: #12C5E4;
+    border-radius: 200px;
+    pointer-events: none;
+    color: black;
+    text-align: center;
+    font-size:16px;
+  
+}
