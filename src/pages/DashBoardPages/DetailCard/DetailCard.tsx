@@ -1,140 +1,28 @@
 import React from "react";
 import styled from "styled-components";
-import { NavLink, useNavigate, useParams } from "react-router-dom";
-import { useMutation, useQuery } from "@tanstack/react-query";
 import { FaWallet } from "react-icons/fa";
 import { IoMdLock } from "react-icons/io";
-import axios from "axios";
-import { useAppSelector } from "../../../Global/Store";
 import { MdCancel } from "react-icons/md";
-import * as yup from "yup";
-import Swal from "sweetalert2";
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
 
 const DetailCard = () => {
   const [pay, setPay] = React.useState(false);
-  const [singleData, setSingleData] = React.useState<any>();
-  const business: any = useAppSelector((state) => state.bizClient);
-  const user: any = useAppSelector((state) => state.userData);
-  const navigate = useNavigate();
-
-  const { id } = useParams();
-  const URl = "https://giftcard-api.onrender.com";
-
-  const getDetails = async () => {
-    await axios
-      .get(`${URl}/api/getonegiftcard/${id}`)
-      .then((res) => {
-        setSingleData(res.data.data);
-        // console.log("detail:", singleData._id);
-      })
-      .catch((error) => {
-        // console.log(error);
-      });
-  };
-
-  const payIn = async ({
-    name,
-    number,
-    cvv,
-    expiry_month,
-    expiry_year,
-    pin,
-    amount,
-  }: any) => {
-    // e.preventDefault();
-    await axios
-      .post(`${URl}/api/buyagiftcard/${user?._id}/${business?._id}/${id}`, {
-        number,
-        cvv,
-        name,
-        expiry_month,
-        expiry_year,
-        pin,
-        amount,
-      })
-      .then((res) => {
-        console.log("pay", business);
-      })
-      .catch((error) => {
-        console.log("pay", business);
-      });
-  };
-
-  const userSchema = yup
-    .object({
-      name: yup.string().required("please enter an name"),
-      number: yup.string().required("please enter a number"),
-      cvv: yup.string().required("please enter a cvv"),
-      expiry_month: yup.string().required("please enter an expiry month"),
-      expiry_year: yup.string().required("please enter an expiry year"),
-      pin: yup.string().required("please enter a pin"),
-      amount: yup.number().required("please enter an amount"),
-    })
-    .required();
-  type formData = yup.InferType<typeof userSchema>;
-
-  const {
-    handleSubmit,
-    formState: { errors },
-    reset,
-    register,
-  } = useForm<formData>({
-    resolver: yupResolver(userSchema),
-  });
-
-  const posting = useMutation({
-    mutationKey: ["payNow"],
-    mutationFn: payIn,
-
-    onSuccess: (myData) => {
-      // console.log("this is the user", myData);
-
-      Swal.fire({
-        title: "Payment succesful",
-        timer: 1000,
-        timerProgressBar: true,
-
-        didOpen: () => {
-          Swal.showLoading();
-        },
-      });
-      navigate("/user-dashboard");
-    },
-    onError: (error: any) => {
-      Swal.fire({
-        title: "Payment failed",
-        icon: "error",
-      });
-    },
-  });
-
-  const Submit = handleSubmit(async (data) => {
-    posting.mutate(data);
-  });
-
-  React.useEffect(() => {
-    getDetails();
-  }, []);
 
   return (
     <>
       <Container dis={pay ? "none" : "block"}>
         <div style={{ marginTop: "40px" }}>
           <Name>
-            <img src={singleData?.BrandLogo} />
+            <img src="" />
           </Name>
-          <Inputs>
-            This gift card is made for {singleData?.name} products only
-          </Inputs>
+          <Inputs>This gift card is made for Valerian's products only</Inputs>
           <Valuation>
             <div
               style={{
                 fontSize: "13px",
                 color: "#9e9d9df8",
                 fontWeight: 600,
-              }}>
+              }}
+            >
               Cash Value
             </div>
             <div
@@ -144,14 +32,16 @@ const DetailCard = () => {
                 fontSize: "40px",
                 fontWeight: 600,
                 color: "#1f34ee7d",
-              }}>
-              ${singleData?.moneyWorth}
+              }}
+            >
+              $20.00
             </div>
           </Valuation>
           <Inputs2
             onClick={() => {
               setPay(true);
-            }}>
+            }}
+          >
             {" "}
             Purchase this card
           </Inputs2>
@@ -171,7 +61,8 @@ const DetailCard = () => {
                 <CancelPay
                   onClick={() => {
                     setPay(false);
-                  }}>
+                  }}
+                >
                   <MdCancel />
                 </CancelPay>
                 <UpPay>TEST MODE</UpPay>
@@ -181,35 +72,33 @@ const DetailCard = () => {
                       <IconPay>
                         <FaWallet />
                       </IconPay>
-                      <TitleTextPay>
-                        Pay NGN {singleData?.moneyWorth}{" "}
-                      </TitleTextPay>
+                      <TitleTextPay>Pay NGN 3,000 </TitleTextPay>
                     </TitlesPay>
                     <SubTitlesPay>
                       Enter your card information to complete this payment
                     </SubTitlesPay>
-                    <form onSubmit={Submit}>
+                    <form>
                       <WrapInputsPay>
                         <FirstLinePay>
                           <LabelPay>Card name</LabelPay>
-                          <InputPay {...register("name")} />
+                          <InputPay placeholder="" />
                           <LabelPay>Card number</LabelPay>
-                          <InputPay {...register("number")} />
+                          <InputPay placeholder="" />
                           <LabelPay>cvv</LabelPay>
-                          <InputPay {...register("cvv")} />
+                          <InputPay placeholder="" />
                           <LabelPay>Pin</LabelPay>
-                          <InputPay {...register("pin")} />
+                          <InputPay placeholder="" />
                           <LabelPay>amount</LabelPay>
-                          <InputPay {...register("amount")} />
+                          <InputPay placeholder="" />
                         </FirstLinePay>
                         <SecondLinePay>
                           <LeftPay>
                             <LabelPay>Expiry Month</LabelPay>
-                            <Input1Pay {...register("expiry_month")} />
+                            <Input1Pay placeholder="" />
                           </LeftPay>
                           <RightPay>
                             <LabelPay>Expiry Year</LabelPay>
-                            <Input2Pay {...register("expiry_year")} />
+                            <Input2Pay placeholder="" />
                           </RightPay>
                         </SecondLinePay>
                       </WrapInputsPay>
@@ -217,7 +106,7 @@ const DetailCard = () => {
                         <div style={{ fontSize: "17px" }}>
                           <IoMdLock />
                         </div>
-                        <div>Pay NGN {singleData?.moneyWorth} </div>
+                        <div>Pay NGN 4,000 </div>
                       </WrapButtonPay>
                     </form>
                   </WrapperPay>
@@ -233,10 +122,6 @@ const DetailCard = () => {
 };
 
 export default DetailCard;
-
-const HoldPay = styled.div<{ dis: string }>`
-  display: ${(props) => props.dis};
-`;
 
 const Container = styled.div<{ dis: string }>`
   width: 70%;

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { HiHome, HiBell } from "react-icons/hi";
 import { MdInsertChart } from "react-icons/md";
 import { FaWallet } from "react-icons/fa";
-import { AiFillMessage } from "react-icons/ai";
 import { CiLogout } from "react-icons/ci";
 import { BsPersonFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
@@ -16,7 +15,6 @@ const SideNav = () => {
   const [trans, setTrans] = React.useState(true);
   const [wallet, setWallet] = React.useState(true);
   const [notify, setNotify] = React.useState(true);
-  const [support, setSupport] = React.useState(true);
   const [account, setAccount] = React.useState(true);
   const [logout, setLogout] = React.useState(true);
 
@@ -25,7 +23,7 @@ const SideNav = () => {
 
   return (
     <div>
-     <Container>
+      <Container>
         <Logo>GIFTAZA</Logo>
         <br />
         <br />
@@ -37,7 +35,6 @@ const SideNav = () => {
               setTrans(true);
               setWallet(true);
               setNotify(true);
-              setSupport(true);
               setAccount(true);
               setLogout(true);
               navigate("/business-dashboard");
@@ -57,7 +54,6 @@ const SideNav = () => {
               setTrans(false);
               setWallet(true);
               setNotify(true);
-              setSupport(true);
               setAccount(true);
               setLogout(true);
               navigate("/business-dashboard/giftcard");
@@ -78,7 +74,6 @@ const SideNav = () => {
               setTrans(true);
               setWallet(false);
               setNotify(true);
-              setSupport(true);
               setAccount(true);
               setLogout(true);
               navigate("/business-dashboard/all-users");
@@ -99,7 +94,6 @@ const SideNav = () => {
               setTrans(true);
               setWallet(true);
               setNotify(false);
-              setSupport(true);
               setAccount(true);
               setLogout(true);
               navigate("/business-dashboard/histories");
@@ -114,14 +108,12 @@ const SideNav = () => {
             />
           </div>
 
-         
           <div
             onClick={() => {
               setHome(true);
               setTrans(true);
               setWallet(true);
               setNotify(true);
-              setSupport(true);
               setAccount(false);
               setLogout(true);
               navigate("/business-dashboard/profile");
@@ -142,7 +134,6 @@ const SideNav = () => {
             setTrans(true);
             setWallet(true);
             setNotify(true);
-            setSupport(true);
             setAccount(true);
             setLogout(false);
             dispatch(LogOut());
@@ -176,7 +167,6 @@ const Container = styled.div`
   left: 0; /* Place it at the left */
   bottom: 0; /* Extend it to the bottom */
 `;
-
 
 const Logo = styled.div`
   color: white;

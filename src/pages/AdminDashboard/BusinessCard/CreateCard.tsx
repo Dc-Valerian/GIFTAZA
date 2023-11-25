@@ -1,37 +1,14 @@
-import axios from "axios";
 import React from "react";
 import styled from "styled-components";
-import Swal from "sweetalert2";
-import pic from "../../Assets/trancard.svg";
-import { UseAppDispatch, useAppSelector } from "../../GlobalStore/Store";
-import { creatingCard } from "../../GlobalStore/ReduxState";
+import pic from "../../../Assets/trancard.svg";
+import { useAppSelector } from "../../../GlobalStore/Store";
 
 const CreateCard = () => {
   const business = useAppSelector((state) => state.bizClient);
   const card = useAppSelector((state) => state.DataCard);
-  const dispatch = UseAppDispatch();
-  const URl = "https://giftcard-api.onrender.com";
   const [colour, setColour] = React.useState("");
   const [moneyWorth, setMoneyWorth] = React.useState<any>(0);
 
-  const postCard = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    await axios
-      .post(`${URl}/api/generateyourgiftcard/${business?._id}`, {
-        moneyWorth: moneyWorth,
-        colour,
-      })
-      .then((res) => {
-        Swal.fire({
-          title: "Gift cards created successfully!",
-        });
-        dispatch(creatingCard(res.data.data));
-        console.log("create", res.data.data);
-      })
-      .catch((err) => {
-        console.log(`this is err from axios ${err}`);
-      });
-  };
   return (
     <Container>
       <Wrapper>
@@ -135,29 +112,6 @@ const Button2 = styled.button<{ bg: string; cp: string }>`
   }
 `;
 
-const Select = styled.select`
-  border: none;
-  outline: none;
-  width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
-  height: 50px;
-  border-radius: 10px;
-  font-size: 16px;
-  background-color: #ececec92;
-  option {
-    border: none;
-    outline: none;
-    width: 100%;
-    padding-left: 20px;
-    padding-right: 20px;
-    height: 50px;
-    border-radius: 10px;
-    font-size: 16px;
-    background-color: #ececec92;
-  }
-`;
-
 const Inp = styled.input`
   border: none;
   outline: none;
@@ -176,25 +130,6 @@ const Color = styled.input`
   height: 50px;
   border-radius: 50%;
   background-color: #ececec92;
-`;
-
-const Input = styled.input`
-  display: none;
-`;
-const Button = styled.label`
-  height: 40px;
-  width: 200px;
-  background-color: blueviolet;
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  transition: all 350ms;
-  cursor: pointer;
-  :hover {
-    transform: scale(0.98);
-  }
 `;
 
 const Circle = styled.div`

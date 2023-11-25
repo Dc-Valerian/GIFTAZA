@@ -8,13 +8,14 @@ import BizzSignUp from "../AuthPages/BusinessAuth/Business.Register";
 import BizzLogin from "../AuthPages/BusinessAuth/Business.Login";
 import UserDashboardLayout from "../Layout/DashBoardLayour/UserDashboard/UseDashboardLayout";
 import UserHome from "../pages/DashBoardPages/UserHome/UserHome";
-import UserProfile from "../pages/DashBoardPages/UserProfile/UserProfile";
 import BusinessRoutes from "../Layout/AdminDashBoardLayout/BusinessRoutes";
-import BusinessCard from "../pages/AdminDashboard/BusinessCard";
-import BusinessHome from "../pages/AdminDashboard/BusinessHome";
+
+import BusinessHome from "../pages/AdminDashboard/BusinessHome/BusinessHome";
 import User from "../pages/AdminDashboard/Users/User";
 import Histories from "../pages/AdminDashboard/History/History";
 import Profile from "../pages/AdminDashboard/Profile/Profile";
+import UserProfile from "../pages/DashBoardPages/UserProfile/UserProfile";
+import BusinessCard from "../pages/AdminDashboard/BusinessCard/BusinessCard";
 
 export const mainRoute = createBrowserRouter([
   {

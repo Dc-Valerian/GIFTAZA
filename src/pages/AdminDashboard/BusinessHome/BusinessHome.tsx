@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
-import card from "../../Assets/card.svg";
-import spiral from "../../Assets/robo.svg";
+import card from "../../../Assets/card.svg";
+import spiral from "../../../Assets/robo.svg";
 import { NavLink } from "react-router-dom";
 
 const BusinessHome = () => {
@@ -72,30 +72,18 @@ const BusinessHome = () => {
                 <img src={spiral} />
               </CardImage>
               <div>
-                <HText1>Fund Gift Card Wallet</HText1>
+                <HText1>See all User with Gift Card Wallet</HText1>
                 <LText1 style={{ fontSize: "12px" }}>
-                  Fund your wallet to be able to create gift cards
+                  See all registered users with gift cards
                 </LText1>
               </div>
               <NavLink
-                to="/dashboard/wallet"
+                to="/business-dashboard/all-users"
                 style={{ textDecoration: "none" }}
               >
-                <CardButton>Fund Wallet</CardButton>
+                <CardButton>See Users</CardButton>
               </NavLink>
             </CardComponent>
-            {/* <CardComponent2>
-              <CardImage2>
-                <img src={two} />
-              </CardImage2>
-              <div>
-                <HText2>Top Gift Cards</HText2>
-                <LText2 style={{ fontSize: "12px" }}>
-                  Trade gift cards for Fast Cash
-                </LText2>
-              </div>
-              <CardButton2>See Top Gift Cards</CardButton2>
-            </CardComponent2> */}
           </Cards>
           <Pending>
             <div style={{ marginBottom: "10px" }}>Pending</div>
@@ -121,11 +109,10 @@ const BusinessHome = () => {
 export default BusinessHome;
 
 const Container = styled.div`
- width: 100%;
+  width: 100%;
   overflow-y: scroll;
   color: #3d3d3d;
   gap: 30px;
- 
 `;
 const Head = styled.div`
   width: 100%;
@@ -274,9 +261,10 @@ const Button = styled.button`
   font-size: 17px;
   padding: 10px 20px;
   transition: all 350ms;
-  :hover {
+  &:hover {
     cursor: pointer;
-    /* background-color: #913cf9; */
+    background-color: #913cf9;
+    color: white;
   }
 `;
 const HText = styled.div`
@@ -327,7 +315,7 @@ const CardButton = styled.button`
   font-weight: bold;
   padding: 15px 20px;
   transition: all 350ms;
-  :hover {
+  &:hover {
     cursor: pointer;
     background-color: #913cf9;
   }
@@ -336,7 +324,7 @@ const HText1 = styled.div`
   font-size: 35px;
   font-weight: bold;
   color: orange;
-  width: 300px;
+  width: 350px;
   @media screen and (min-width: 800px) {
     font-size: 29px;
   }
@@ -356,68 +344,6 @@ const CardImage = styled.div`
   }
 `;
 
-const CardComponent2 = styled.div`
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  border-radius: 20px;
-  gap: 20px;
-  width: calc(100% - 20px);
-  padding: 20px;
-  background-color: #cecfffad;
-  @media screen and (min-width: 670px) {
-    width: calc(45% - 20px);
-  }
-`;
-const CardButton2 = styled.button`
-  max-width: 200px;
-  border-radius: 5px;
-  color: white;
-  background-color: #2600ff;
-  border: none;
-  outline: none;
-  font-weight: bold;
-  padding: 10px 20px;
-  transition: all 350ms;
-  :hover {
-    cursor: pointer;
-    background-color: #913cf9;
-  }
-`;
-const HText2 = styled.div`
-  font-size: 25px;
-  font-weight: bold;
-  color: #2600ff;
-  @media screen and (min-width: 800px) {
-    font-size: 29px;
-  }
-`;
-const LText2 = styled.div`
-  font-size: 12px;
-  color: #3d3d3d;
-
-  @media screen and (min-width: 800px) {
-    font-size: 22px;
-  }
-
-  @media screen and (max-width: 799px) {
-    font-size: 17px;
-  }
-`;
-const CardImage2 = styled.div`
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background-color: white;
-  img {
-    width: 90%;
-    height: 90%;
-  }
-`;
 const Pending = styled.div``;
 const PendingActions = styled.div`
   width: calc(100% - 20px);

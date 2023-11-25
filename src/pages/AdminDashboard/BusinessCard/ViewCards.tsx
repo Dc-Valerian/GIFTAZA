@@ -1,9 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
-import pic from "../../Assets/trancard.svg";
+import pic from "../../../Assets/trancard.svg";
 import Card from "./Card";
 import axios from "axios";
-import { useAppSelector } from "../../GlobalStore/Store";
+import { useAppSelector } from "../../../GlobalStore/Store";
 
 const ViewCards = () => {
   const [cad, setCad] = useState([]);

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import wave from "../../Assets/way.svg";
-import wave2 from "../../Assets/waveman1.svg";
+import wave from "../../../Assets/way.svg";
+import wave2 from "../../../Assets/waveman1.svg";
 
 interface iCard {
   pic: any;

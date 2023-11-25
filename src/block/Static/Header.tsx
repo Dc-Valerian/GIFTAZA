@@ -1,18 +1,15 @@
 import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import { FiArrowUpRight } from "react-icons/fi";
 import { AiOutlineArrowUp } from "react-icons/ai";
-import { animateScroll as scroll, Link } from "react-scroll";
+import { animateScroll as scroll } from "react-scroll";
 
 const Header = () => {
   const [show, setShow] = React.useState(false);
   const [toTopshow, settoTopShow] = React.useState(false);
   const [isActive, setIsActive] = React.useState(null);
 
-  const handleSetActive = (to: any) => {
-    setIsActive(to);
-  };
+  console.log(isActive);
 
   const changeHeaderColor = () => {
     if (window.scrollY >= 250) {
@@ -35,7 +32,7 @@ const Header = () => {
   window.addEventListener("scroll", showBacktoTop);
   window.addEventListener("scroll", changeHeaderColor);
 
-  const toHero = (to: any) => {
+  const toHero = () => {
     scroll.scrollToTop();
     // setIsActive("true");
   };

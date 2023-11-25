@@ -107,7 +107,7 @@ const BizzSignUp = () => {
               <input placeholder="Phone-no" />
             </Inputs>
           </Box>
-          <NavLink to="">
+          <NavLink to="/business-dashboard">
             <Button>Register Now</Button>
           </NavLink>
           <P>

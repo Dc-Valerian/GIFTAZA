@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-// import PersonalAccount from "../Props/Person.Account";
-// import SecureAccount from "../Props/Secure.Account";
+import PersonalAccount from "./PersonalAccount";
+import SecureAccount from "./Secure.Account";
 
 const UserProfile = () => {
   const [person, setPerson] = React.useState(true);
@@ -18,7 +18,8 @@ const UserProfile = () => {
                 setSecure(false);
               }}
               cls={person ? "#2343f7" : "#585858"}
-              bdb={person ? "3px solid #2343f7" : ""}>
+              bdb={person ? "3px solid #2343f7" : ""}
+            >
               Personal
             </Toggle>
             <Toggle
@@ -26,28 +27,20 @@ const UserProfile = () => {
                 setPerson(false);
                 setSecure(true);
               }}
-              cls={person ? "#585858" : "#2343f7"}
-              bdb={person ? "" : "3px solid #2343f7"}>
+              cls={secure ? "#2343f7" : "#585858"}
+              bdb={secure ? "3px solid #2343f7" : ""}
+            >
               Security
             </Toggle>
           </ToggleHold>
         </HoldToggle>
         {person ? (
           <>
-            {/* <PersonalAccount /> */}
-            <div>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-              qui consequatur sint vero odio exercitationem perferendis
-              consequuntur. Suscipit, sit assumenda!
-            </div>
+            <PersonalAccount />
           </>
         ) : (
           <>
-            {/* <SecureAccount /> */}
-            <div>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Beatae,
-              officiis?
-            </div>
+            <SecureAccount />
           </>
         )}
       </Head>

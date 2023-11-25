@@ -78,7 +78,6 @@ const SearchWrapper = styled.div`
     outline: none;
     background-color: transparent;
     margin-left: 10px;
-
     &::placeholder {
       font-size: 15px;
       text-transform: capitalize;
@@ -99,7 +98,6 @@ const Container = styled.div<{ wd: string }>`
   z-index: 1;
   background-color: #f1f1f1;
   transition: all 360ms;
-
   @media screen and (max-width: 769px) {
     width: 100%;
   }
@@ -165,7 +163,6 @@ const Profile = styled.div`
   padding-right: 10px;
   border-radius: 3px;
   transition-timing-function: all 450ms;
-
   @media screen and (max-width: 500px) {
     background-color: goldenrod;
   }

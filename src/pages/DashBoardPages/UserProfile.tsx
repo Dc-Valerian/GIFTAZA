@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 import PersonalAccount from "./UserProfile/PersonalAccount";
 import SecureAccount from "./UserProfile/Secure.Account";
 
@@ -19,7 +18,8 @@ const UserProfile = () => {
                 setSecure(false);
               }}
               cls={person ? "#2343f7" : "#585858"}
-              bdb={person ? "3px solid #2343f7" : ""}>
+              bdb={person ? "3px solid #2343f7" : ""}
+            >
               Personal
             </Toggle>
             <Toggle
@@ -27,21 +27,15 @@ const UserProfile = () => {
                 setPerson(false);
                 setSecure(true);
               }}
-              cls={person ? "#585858" : "#2343f7"}
-              bdb={person ? "" : "3px solid #2343f7"}>
+              cls={secure ? "#2343f7" : "#585858"}
+              bdb={secure ? "3px solid #2343f7" : ""}
+            >
               Security
             </Toggle>
           </ToggleHold>
         </HoldToggle>
-        {person ? (
-          <>
-            <PersonalAccount />
-          </>
-        ) : (
-          <>
-            <SecureAccount />
-          </>
-        )}
+        {person ? <PersonalAccount /> : null}
+        {!person && secure ? <SecureAccount /> : null}
       </Head>
     </Container>
   );
@@ -82,19 +76,4 @@ const Toggle = styled.div<{ cls: string; bdb: string }>`
   cursor: pointer;
   color: ${(props) => props.cls};
   border-bottom: ${(props) => props.bdb};
-`;
-const Button = styled.div`
-  border-radius: 10px;
-  color: white;
-  background-color: #a002a0f2;
-  width: 140px;
-  height: 40px;
-  border: none;
-  outline: none;
-  font-size: 15px;
-  margin-top: 30px;
-  transition: all 350ms;
-  :hover {
-    background-color: #940294;
-  }
 `;
