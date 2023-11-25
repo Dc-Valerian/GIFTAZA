@@ -57,7 +57,7 @@ const BusinessHome = () => {
                     </LText>
                   </div>
                   <NavLink
-                    to="/dashboard/giftcard"
+                    to="/business-dashboard/giftcard"
                     style={{ textDecoration: "none" }}
                   >
                     <Button>Sell Gift Card</Button>

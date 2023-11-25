@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "styled-components";
-import pic from "../../.././Images/trancard.svg";
+import pic from "../../Assets/trancard.svg";
 import Card from "./Card";
 import axios from "axios";
 import { useAppSelector } from "../../GlobalStore/Store";
@@ -51,7 +51,6 @@ const ViewCards = () => {
 
 export default ViewCards;
 
-const Container = styled.div``;
 const CardContainer = styled.div`
   width: 100%;
   margin-top: 30px;

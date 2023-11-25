@@ -25,6 +25,7 @@ const BusinessMobileNavs = () => {
     <div>
       <Container>
         <Wrapper>
+
           <Nav
             onClick={() => {
               setHome(false);
@@ -45,6 +46,8 @@ const BusinessMobileNavs = () => {
               hov={home ? " #4c2be2" : ""}
             />
           </Nav>
+
+
           <Nav
             onClick={() => {
               setHome(true);
@@ -65,6 +68,8 @@ const BusinessMobileNavs = () => {
               hov={trans ? " #4c2be2" : ""}
             />
           </Nav>
+
+
           <Nav
             onClick={() => {
               setHome(true);
@@ -74,17 +79,18 @@ const BusinessMobileNavs = () => {
               setSupport(true);
               setAccount(true);
               setLogout(true);
-              navigate("/dashboard/wallet");
+              navigate("/dashboard/users");
             }}
           >
             <MobileBars
               pic={<FaWallet />}
-              routeName="Wallet"
+              routeName="Users"
               cl={wallet ? "#d1abf5" : "white"}
               bd={wallet ? "" : "#6c25bd"}
               hov={wallet ? " #4c2be2" : ""}
             />
           </Nav>
+
           <Nav
             onClick={() => {
               setHome(true);

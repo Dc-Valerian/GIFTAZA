@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 // import pic from "../Images/trancard.svg";
 import CreateCard from "./CreateCard";
-// import ViewCards from "../Props/ViewCards";
+import ViewCards from "./ViewCards";
 
 const BusinessCard = () => {
   const [person, setPerson] = React.useState(true);
@@ -36,15 +36,7 @@ const BusinessCard = () => {
           </ToggleHold>
         </HoldToggle>
       </Head>{" "}
-      {person ? (
-          <CreateCard />
-      ) : (
-        // <ViewCards />
-        <div>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo,
-          voluptatum.
-        </div>
-      )}
+      {person ? <CreateCard /> : <ViewCards />}
     </Container>
   );
 };

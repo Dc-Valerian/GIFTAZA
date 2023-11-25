@@ -25,7 +25,7 @@ const SideNav = () => {
 
   return (
     <div>
-      <Container>
+     <Container>
         <Logo>MAVERICKS</Logo>
         <br />
         <br />
