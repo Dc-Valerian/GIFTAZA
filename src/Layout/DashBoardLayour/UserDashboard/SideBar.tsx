@@ -30,7 +30,8 @@ const UserSideBar = () => {
 
         <NavHolder w={toggle ? "k" : ""}>
           <Topper>
-            <NavLink style={{ textDecoration: "none" }} to={"/user-dashboard"}>
+
+          <NavLink style={{ textDecoration: "none" }} to={"/user-dashboard"}>
               <Nav w={toggle ? "k" : ""}>
                 <Icon>
                   <BiSolidPieChart />
@@ -38,6 +39,27 @@ const UserSideBar = () => {
                 {toggle && <NavName>Home</NavName>}
               </Nav>
             </NavLink>
+
+            <NavLink style={{ textDecoration: "none" }} to={"/user-dashboard/my-giftcard"}>
+              <Nav w={toggle ? "k" : ""}>
+                <Icon>
+                  <BiSolidPieChart />
+                </Icon>
+                {toggle && <NavName>Gift Cards</NavName>}
+              </Nav>
+            </NavLink>
+
+          
+
+            <NavLink style={{ textDecoration: "none" }} to={""}>
+              <Nav w={toggle ? "k" : ""}>
+                <Icon>
+                  <BiSolidPieChart />
+                </Icon>
+                {toggle && <NavName>History</NavName>}
+              </Nav>
+            </NavLink>
+
             <NavLink
               style={{ textDecoration: "none" }}
               to={"/user-dashboard/profile"}>
@@ -48,14 +70,18 @@ const UserSideBar = () => {
                 {toggle && <NavName>Profile</NavName>}
               </Nav>
             </NavLink>
-            <NavLink style={{ textDecoration: "none" }} to={"/admin-dashboard"}>
+
+            <NavLink style={{ textDecoration: "none" }} to={"/user-dashboard/notify"}>
               <Nav w={toggle ? "k" : ""}>
                 <Icon>
                   <BiSolidPieChart />
                 </Icon>
-                {toggle && <NavName>Home</NavName>}
+                {toggle && <NavName>Notifications</NavName>}
               </Nav>
             </NavLink>
+
+           
+
           </Topper>
 
           <Dropper>
@@ -124,7 +150,7 @@ const Nav = styled.div<{ w: string }>`
 
 const NavHolder = styled.div<{ w: string }>`
   /* background-color: red; */
-  height: 50%;
+  height: 70%;
   width: ${({ w }) => (w ? "90%" : "50px")};
   margin-top: 15px;
   transition: all 360ms;

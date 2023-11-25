@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import pic from "../../../Assets/trancard.svg";
 const OnlyViewCards = () => {
   const dummy = [{ card: "One" }, { card: "Two" }];
   return (
@@ -7,7 +7,9 @@ const OnlyViewCards = () => {
       {dummy.length === 0 ? (
         <Nothing>
           <CenterHold>
-            <Pic>404</Pic>
+            <Pic>
+              <img src={pic} />
+            </Pic>
             <Txt>No Withdrawals Yet!</Txt>
             <Sxt>
               This place is empty because you haven't made any withdrawal 😒
@@ -19,7 +21,9 @@ const OnlyViewCards = () => {
           <CardContainer>
             <Nothing>
               <CenterHold>
-                <Pic>404</Pic>
+                <Pic>
+                  <img src={pic} />
+                </Pic>
                 <Txt>Whoops! No Activity</Txt>
                 <Sxt>You’ll see your gift cards soon.</Sxt>
               </CenterHold>

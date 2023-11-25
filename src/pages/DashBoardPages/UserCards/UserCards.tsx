@@ -18,7 +18,7 @@ const UserCards = () => {
 export default UserCards;
 
 const Container = styled.div`
-  width: calc(100%-20%);
+  width: 100vw;
   overflow: hidden;
 `;
 const Head = styled.div`
@@ -32,9 +32,12 @@ const HoldToggle = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  /* align-items: center; */
   color: #5e5d5d;
   h2 {
+    margin-left: 70px;
+    margin-bottom:20px;
     font-size: 17px;
     @media screen and (min-width: 800px) {
       font-size: 35px;

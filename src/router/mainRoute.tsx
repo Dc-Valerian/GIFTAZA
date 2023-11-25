@@ -14,6 +14,8 @@ import BusinessCard from "../pages/AdminDashboard/BusinessCard/BusinessCard";
 import BusinessHistory from "../pages/AdminDashboard/BusinessHistory/BusinessHistory";
 import BusinessProfilePage from "../pages/AdminDashboard/BusinessProfile/BusinessProfilePage";
 import UserGiftCardProps from "../pages/AdminDashboard/BusinessUsers/UserGiftCardProps";
+import UserCards from "../pages/DashBoardPages/UserCards/UserCards";
+import UserNotify from "../pages/DashBoardPages/UserNotify/UserNotify";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -55,6 +57,14 @@ export const mainRoute = createBrowserRouter([
       {
         path: "/user-dashboard/profile",
         element: <UserProfile />,
+      },
+      {
+        path: "/user-dashboard/my-giftcard",
+        element: <UserCards />,
+      },
+      {
+        path: "/user-dashboard/notify",
+        element: <UserNotify />,
       },
     ],
   },
