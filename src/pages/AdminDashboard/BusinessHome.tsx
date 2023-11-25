@@ -121,8 +121,8 @@ const BusinessHome = () => {
 export default BusinessHome;
 
 const Container = styled.div`
-  width: 100%;
-  /* overflow: hidden; */
+ width: 100%;
+  overflow-y: scroll;
   color: #3d3d3d;
   gap: 30px;
  

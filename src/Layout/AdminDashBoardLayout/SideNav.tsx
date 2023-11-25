@@ -40,7 +40,7 @@ const SideNav = () => {
               setSupport(true);
               setAccount(true);
               setLogout(true);
-              navigate("/dashboard");
+              navigate("/business-dashboard");
             }}
           >
             <NavBars
@@ -60,7 +60,7 @@ const SideNav = () => {
               setSupport(true);
               setAccount(true);
               setLogout(true);
-              navigate("/dashboard/giftcard");
+              navigate("/business-dashboard/giftcard");
             }}
           >
             <NavBars

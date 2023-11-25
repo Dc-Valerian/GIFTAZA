@@ -30,6 +30,7 @@
     "react-scroll": "^1.9.0",
     "redux-persist": "^6.0.0",
     "styled-components": "^6.0.3",
+    "sweetalert2": "^11.10.1",
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
