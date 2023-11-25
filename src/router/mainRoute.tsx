@@ -12,6 +12,7 @@ import UserProfile from "../pages/DashBoardPages/UserProfile/UserProfile";
 import BusinessRoutes from "../Layout/AdminDashBoardLayout/BusinessRoutes";
 import BusinessCard from "../pages/AdminDashboard/BusinessCard";
 import BusinessHome from "../pages/AdminDashboard/BusinessHome";
+import User from "../pages/AdminDashboard/Users/User";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -57,17 +58,20 @@ export const mainRoute = createBrowserRouter([
     ],
   },
   {
-    path: "/business-dashboard", // This is your parent route
+    path: "/business-dashboard", 
     element: <BusinessRoutes />,
     children: [
       {
         index: true,
         element: <BusinessHome />,
-        // path: "/dashboard", // Nested route path within BusinessRoutes
       },
       {
-        path: "/business-dashboard/giftcard", // Nested route path within BusinessRoutes
+        path: "/business-dashboard/giftcard",
         element: <BusinessCard />,
+      },
+      {
+        path: "/business-dashboard/all-users",
+        element: <User />,
       },
     ],
   },

@@ -26,7 +26,7 @@ const SideNav = () => {
   return (
     <div>
      <Container>
-        <Logo>MAVERICKS</Logo>
+        <Logo>GIFTAZA</Logo>
         <br />
         <br />
         <br />
@@ -71,6 +71,7 @@ const SideNav = () => {
               hov={trans ? " #4c2be2" : ""}
             />
           </div>
+
           <div
             onClick={() => {
               setHome(true);
@@ -80,17 +81,18 @@ const SideNav = () => {
               setSupport(true);
               setAccount(true);
               setLogout(true);
-              navigate("/dashboard/wallet");
+              navigate("/business-dashboard/all-users");
             }}
           >
             <NavBars
               pic={<FaWallet />}
-              routeName="Wallet"
+              routeName="Users"
               cl={wallet ? "#d1abf5" : "white"}
               bd={wallet ? "" : "4px solid white"}
               hov={wallet ? " #4c2be2" : ""}
             />
           </div>
+
           <div
             onClick={() => {
               setHome(true);
