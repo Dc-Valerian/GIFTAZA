@@ -11,9 +11,9 @@ import BusinessRoutes from "../Layout/AdminDashBoardLayout/BusinessRoutes";
 import BusinessHome from "../pages/AdminDashboard/BusinessHome/BusinessHome";
 import UserProfile from "../pages/DashBoardPages/UserProfile/UserProfile";
 import BusinessCard from "../pages/AdminDashboard/BusinessCard/BusinessCard";
-import BusinessHistory from "../pages/AdminDashboard/History/BusinessHistory";
 import AllUsers from "../pages/AdminDashboard/Users/AllUsers";
-import BusinessProfile from "../pages/AdminDashboard/Profile/BusinessProfile";
+import BusinessHistory from "../pages/AdminDashboard/BusinessHistory/BusinessHistory";
+import BusinessProfilePage from "../pages/AdminDashboard/BusinessProfile/BusinessProfilePage";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -80,7 +80,7 @@ export const mainRoute = createBrowserRouter([
       },
       {
         path: "/business-dashboard/profile",
-        element: <BusinessProfile />,
+        element: <BusinessProfilePage />,
       },
     ],
   },
