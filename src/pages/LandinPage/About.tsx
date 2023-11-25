@@ -7,14 +7,17 @@ const About = () => {
       <Container>
         <Wrapper>
           <Left>
-            <h2>About Mavericks</h2>
+            <h2>About GiftAza</h2>
             <h1>You probably want to know about us right?</h1>
             <p>
-              MAVERICKS is a registered gift card purchasing company established
-              in 2023 dedicated to providing world-class purchasing experience
-              to people in Nigeria and Ghana. Integrity, dedication and
-              excellence in value have been the pillars to which our company
-              hinges its practices and policies on.
+              GiftAza app is a digital gift card platform that makes purchasing
+              and sending gift cards easier and more personal than ever before.
+              With the app, users can browse through a selection of gift cards
+              from top brands, purchase them with just a few taps, and send them
+              to friends and family with personalized messages. The app also
+              offers features like reminders, gift tracking, and the ability to
+              manage multiple gift cards. In short, GiftAza is designed to make
+              gift-giving as simple and enjoyable as possible.
             </p>
           </Left>
           <Right>
@@ -137,7 +140,6 @@ const Container = styled.div`
   width: 100%;
   color: #00002d;
   margin-top: 110px;
-  margin-bottom: 20px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 

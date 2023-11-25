@@ -11,12 +11,12 @@ const Hero = () => {
           <Left>
             <TextHold>
               <Title>
-                The best & most trusted platform to buy your Gift Cards and shop
-                at any marketplace.
+                GiftAza: Simplifying Personalized Gift-Giving with Digital Cards
               </Title>
               <p>
-                An awesome place to purchase securely with no worries or delay.
-                It is perfectly built for you.
+                Discover top-brand gift cards, send personalized messages, and
+                manage your gifting easily with GiftAza. Effortless, practical,
+                and joyful.!!
               </p>
               <NavLink to="/get-started" style={{ textDecoration: "none" }}>
                 <button>
@@ -28,8 +28,8 @@ const Hero = () => {
           <Right>
             <img src={hero} alt="" />
 
-            <Money>{/* <img src={money} alt="" /> */}</Money>
-            {/* <Hundred src={hundred} /> */}
+           
+       
           </Right>
         </Wrapper>
       </Container>
@@ -76,15 +76,7 @@ const TextHold = styled.div`
   }
 `;
 
-const Money = styled.div`
-  position: absolute;
-  right: 0px;
-  top: 200px;
 
-  img {
-    width: 10vw;
-  }
-`;
 // const Hundred = styled.img`
 //   width: 100px;
 //   height: 100px;

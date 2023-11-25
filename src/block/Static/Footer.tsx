@@ -7,7 +7,7 @@ const Footer = () => {
     <div>
       <Container>
         <LogoPart>
-          <Logo>MAVERICKS</Logo>
+          <Logo>GiftAza</Logo>
           <Text>
             A Unique giftcard purchasing business perfectly built for you.
           </Text>
@@ -79,7 +79,7 @@ const Trailing = styled.div`
   align-items: center;
   gap: 10px;
   cursor: pointer;
-  :hover {
+  &:hover {
     color: blue;
   }
 `;
