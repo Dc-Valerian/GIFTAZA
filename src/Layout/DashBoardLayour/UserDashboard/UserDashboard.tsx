@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 import moment from "moment";
-import { FiSearch } from "react-icons/fi";
-import { MdOutlineNotificationsActive } from "react-icons/md";
 import img from "../../../Assets/me.jpg";
 import { useSelector } from "react-redux";
 
