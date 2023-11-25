@@ -11,6 +11,7 @@ import BusinessRoutes from "../Layout/AdminDashBoardLayout/BusinessRoutes";
 import BusinessHome from "../pages/AdminDashboard/BusinessHome/BusinessHome";
 import UserProfile from "../pages/DashBoardPages/UserProfile/UserProfile";
 import BusinessCard from "../pages/AdminDashboard/BusinessCard/BusinessCard";
+
 import User from "../pages/AdminDashboard/Users/User";
 import Histories from "../pages/AdminDashboard/History/History";
 import Profile from "../pages/AdminDashboard/Profile/Profile";
@@ -72,15 +73,15 @@ export const mainRoute = createBrowserRouter([
       },
       {
         path: "/business-dashboard/all-users",
-        element: <User />,
+        element: <User/>
       },
       {
         path: "/business-dashboard/histories",
-        element: <Histories />,
+        element: <Histories/>
       },
       {
         path: "/business-dashboard/profile",
-        element: <Profile />,
+        element: <Profile/>
       },
     ],
   },
