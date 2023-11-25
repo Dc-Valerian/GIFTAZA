@@ -10,13 +10,11 @@ import {
   MdOutlineViewInAr,
   MdSavings,
 } from "react-icons/md";
-import { useSelector } from "react-redux";
 import { BiLogIn, BiSolidPieChart } from "react-icons/bi";
 import { NavLink, useNavigate } from "react-router-dom";
 import { BiPlus, BiMinus, BiSolidAnalyse } from "react-icons/bi";
 
 const ToggleUserSideBar = () => {
-  const toggle = useSelector((state: any) => state.toggle);
   const [branches, setBranches] = useState<boolean>(false);
   const [staffs, setStaffs] = useState<boolean>(false);
 
@@ -27,31 +25,30 @@ const ToggleUserSideBar = () => {
 
   return (
     <Container>
-      <Wrapper >
+      <Wrapper>
         <Top>
-         <Wel>Welcome Back,</Wel>
-           <Text>Valerian Pedro</Text>
+          <Wel>Welcome Back,</Wel>
+          <Text>Valerian Pedro</Text>
         </Top>
 
-        <NavHolder >
+        <NavHolder>
           <NavLink style={{ textDecoration: "none" }} to={"/admin-dashboard"}>
-            <Nav >
+            <Nav>
               <Icon>
                 <BiSolidPieChart />
               </Icon>
-             <NavName>Home</NavName>
+              <NavName>Home</NavName>
             </Nav>
           </NavLink>
 
           <div onClick={() => setStaffs(!staffs)}>
-            <Nav >
+            <Nav>
               <Icon>
                 <MdOutlineViewInAr />
               </Icon>
-             <NavName>Staffs</NavName>
+              <NavName>Staffs</NavName>
 
-                <PlusMinus>{staffs ? <BiMinus /> : <BiPlus />}</PlusMinus>
-
+              <PlusMinus>{staffs ? <BiMinus /> : <BiPlus />}</PlusMinus>
             </Nav>
           </div>
           {staffs ? (
@@ -66,29 +63,29 @@ const ToggleUserSideBar = () => {
                 to={"/admin-dashboard/staff/create"}
                 style={{ textDecoration: "none" }}
               >
-                <Nav >
+                <Nav>
                   <NestedIcon>
                     <VscGitPullRequestCreate />
                   </NestedIcon>
-                 <NestedNavName>Create Staff</NestedNavName>
+                  <NestedNavName>Create Staff</NestedNavName>
                 </Nav>
               </NavLink>
               <NavLink
                 to={"/admin-dashboard/staff"}
                 style={{ textDecoration: "none" }}
               >
-                <Nav >
+                <Nav>
                   <NestedIcon>
                     <FaStreetView />
                   </NestedIcon>
-                   <NestedNavName>View Staff</NestedNavName>
+                  <NestedNavName>View Staff</NestedNavName>
                 </Nav>
               </NavLink>
               <NavLink
                 to={"/admin-dashboard/staff/edit"}
                 style={{ textDecoration: "none" }}
               >
-                <Nav >
+                <Nav>
                   <NestedIcon>
                     <TbEdit />
                   </NestedIcon>
@@ -106,18 +103,17 @@ const ToggleUserSideBar = () => {
               <Icon>
                 <RiUserStarFill />
               </Icon>
-             <NavName>Users</NavName>
+              <NavName>Users</NavName>
             </Nav>
           </NavLink>
           <div onClick={() => setBranches(!branches)}>
-            <Nav >
+            <Nav>
               <Icon>
                 <BiSolidAnalyse />
               </Icon>
-             <NavName> Branches</NavName>
+              <NavName> Branches</NavName>
 
-                <PlusMinus>{branches ? <BiMinus /> : <BiPlus />}</PlusMinus>
-
+              <PlusMinus>{branches ? <BiMinus /> : <BiPlus />}</PlusMinus>
             </Nav>
           </div>
           {branches ? (
@@ -132,11 +128,11 @@ const ToggleUserSideBar = () => {
                 style={{ textDecoration: "none" }}
                 to={"/admin-dashboard/branch/view"}
               >
-                <Nav >
+                <Nav>
                   <NestedIcon>
                     <TbGitBranchDeleted />
                   </NestedIcon>
-                 <NestedNavName>View Branches</NestedNavName>
+                  <NestedNavName>View Branches</NestedNavName>
                 </Nav>
               </NavLink>
             </div>
@@ -150,7 +146,7 @@ const ToggleUserSideBar = () => {
               <Icon>
                 <TbCurrencyNaira />
               </Icon>
-             <NavName> Loans</NavName>
+              <NavName> Loans</NavName>
             </Nav>
           </NavLink>
 
@@ -158,11 +154,11 @@ const ToggleUserSideBar = () => {
             style={{ textDecoration: "none" }}
             to={"/admin-dashboard/user-registered"}
           >
-            <Nav >
+            <Nav>
               <Icon>
                 <MdOutlineAppRegistration />
               </Icon>
-            <NavName> Registration</NavName>
+              <NavName> Registration</NavName>
             </Nav>
           </NavLink>
 
@@ -170,7 +166,7 @@ const ToggleUserSideBar = () => {
             style={{ textDecoration: "none" }}
             to={"/admin-dashboard/investment"}
           >
-            <Nav >
+            <Nav>
               <Icon>
                 <HiMiniBanknotes />
               </Icon>
@@ -182,11 +178,11 @@ const ToggleUserSideBar = () => {
             style={{ textDecoration: "none" }}
             to={"/admin-dashboard/savings"}
           >
-            <Nav >
+            <Nav>
               <Icon>
                 <MdSavings />
               </Icon>
-               <NavName>Savings</NavName>
+              <NavName>Savings</NavName>
             </Nav>
           </NavLink>
 
@@ -194,18 +190,14 @@ const ToggleUserSideBar = () => {
             style={{ textDecoration: "none" }}
             to={"/admin-dashboard/feedbacks"}
           >
-            <Nav >
+            <Nav>
               <Icon>
                 <VscFeedback />
               </Icon>
               <NavName>FeedBacks</NavName>
             </Nav>
           </NavLink>
-          <Nav
-            onClick={backToHome}
-
-            style={{ marginTop: "30px" }}
-          >
+          <Nav onClick={backToHome} style={{ marginTop: "30px" }}>
             <Icon>
               <BiLogIn />
             </Icon>
@@ -274,7 +266,7 @@ const Nav = styled.div`
 const NavHolder = styled.div`
   /* background-color: red; */
   height: 90%;
-  width:90%;
+  width: 90%;
   margin-top: 15px;
   transition: all 360ms;
 `;
@@ -297,17 +289,6 @@ const Top = styled.div`
   width: 100%;
   z-index: 99999;
   height: 140px;
-`;
-
-const Image = styled.div`
-  background-color: blanchedalmond;
-  height: 70px;
-  width:90px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
 `;
 
 const Wrapper = styled.div`
@@ -336,5 +317,5 @@ const Container = styled.div`
   @media screen and (min-width: 769px) {
     display: none;
   }
-  z-index:1;
+  z-index: 1;
 `;

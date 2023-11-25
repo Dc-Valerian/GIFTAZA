@@ -90,7 +90,7 @@ const Button = styled(BsFillArrowRightSquareFill)<{
   transform: ${({ tt }) => (tt ? "rotate(180deg)" : "rotate(0deg)")};
   transition: all 360ms;
   z-index: 9999;
-  @media screen and (max-width:500px) {
+  @media screen and (max-width: 500px) {
     display: none;
   }
 `;
