@@ -4,7 +4,7 @@ const Overlay = styled.div`
   position: fixed;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   color: black;
   background: white;
   display: flex;
@@ -16,7 +16,7 @@ const Overlay = styled.div`
 
 const PopupContainer = styled.div`
   width: 300px;
-  height: fit-content;
+
   padding: 1.5rem;
   border: 1px solid #8d26ae;
   display: flex;
@@ -30,9 +30,6 @@ const PopupContainer = styled.div`
 `;
 
 const ContentWrapper = styled.div`
-  width: 88%;
-  height: 86%;
-
   & > div:first-child {
     width: 100%;
     height: 200px;
@@ -63,13 +60,20 @@ const ContentWrapper = styled.div`
       #fe34b9 100%
     );
     color: #ffffff;
-    border-radius: 4px;
+    border-radius: 10px;
     width: 100%;
-    margin-top: 0.5rem;
+    margin-top: 70px;
+
     height: 2.25rem;
     font-weight: 600;
     font-size: 0.75rem;
     cursor: pointer;
+  }
+  input {
+    width: 100%;
+    height: 2.25rem;
+    margin-bottom: 10px;
+    margin-top: 10px;
   }
 `;
 
@@ -81,8 +85,14 @@ const PopUp = () => {
           <div>
             <h1>Please enter name and email to continue purchase process</h1>
 
-            <input type="text" />
+            <div>
+              <input type="text" placeholder="Enter Name" />
+              <br />
+              <input type="text" placeholder="Enter Email" />
+            </div>
           </div>
+
+          <button>Submit</button>
         </ContentWrapper>
       </PopupContainer>
     </Overlay>
