@@ -31,10 +31,7 @@ const ViewCards = () => {
         <div>
           <CardContainer>
             {AllgiftCards?.data?.data?.data?.map((props: any) => (
-              <Link
-                style={{ textDecoration: "none" }}
-                to={`/user-dashboard/card/${props?._id}`}
-              >
+              <Link style={{ textDecoration: "none" }} to={`/popup`}>
                 <Card
                   pic={props?.BrandLogo}
                   busyname={props?.name}

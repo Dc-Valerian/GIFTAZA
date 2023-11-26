@@ -16,6 +16,7 @@ import BusinessProfilePage from "../pages/AdminDashboard/BusinessProfile/Busines
 import UserGiftCardProps from "../pages/AdminDashboard/BusinessUsers/UserGiftCardProps";
 import UserCards from "../pages/DashBoardPages/UserCards/UserCards";
 import UserNotify from "../pages/DashBoardPages/UserNotify/UserNotify";
+import PopUp from "../pages/POPUP";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -93,5 +94,9 @@ export const mainRoute = createBrowserRouter([
         element: <BusinessProfilePage />,
       },
     ],
+  },
+  {
+    path: "/popup",
+    element: <PopUp />,
   },
 ]);
