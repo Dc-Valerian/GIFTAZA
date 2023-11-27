@@ -11,8 +11,8 @@ interface User {
 const AllBusinessUsers = () => {
   const users: User[] = [
     {
-      username: "John Doe",
-      email: "john@example.com",
+      username: "Valerian Pedro",
+      email: "valerianpedro03@gmail.com",
       phone: "123-456-7890",
       contact: "New York",
     },

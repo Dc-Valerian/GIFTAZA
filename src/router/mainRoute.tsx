@@ -16,8 +16,8 @@ import BusinessProfilePage from "../pages/AdminDashboard/BusinessProfile/Busines
 import UserCards from "../pages/DashBoardPages/UserCards/UserCards";
 import UserNotify from "../pages/DashBoardPages/UserNotify/UserNotify";
 import PopUp from "../pages/POPUP";
-import AllGiftCard from "../pages/LandinPage/AllGiftCard";
 import AllBusinessUsers from "../pages/AdminDashboard/BusinessUsers/AllBusinessUsers";
+import GiftCard from "../pages/LandinPage/GiftCard";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -29,9 +29,9 @@ export const mainRoute = createBrowserRouter([
         element: <LandingPage />,
       },
       {
-        path:"/all-giftcards",
-        element:<AllGiftCard/>
-      }
+        path: "/all-giftcards",
+        element: <GiftCard />,
+      },
     ],
   },
   {
