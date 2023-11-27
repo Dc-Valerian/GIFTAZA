@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useMutation } from "@tanstack/react-query";
@@ -28,7 +27,6 @@ export const useUserRegister = () => {
     resolver: yupResolver(schema),
   });
 
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const postData = useMutation({
