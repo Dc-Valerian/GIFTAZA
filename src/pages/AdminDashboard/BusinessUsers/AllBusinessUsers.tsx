@@ -13,19 +13,19 @@ const AllBusinessUsers = () => {
     {
       username: "Valerian Pedro",
       email: "valerianpedro03@gmail.com",
-      phone: "123-456-7890",
+      phone: "0",
       contact: "New York",
     },
     {
       username: "John Doe",
       email: "john@example.com",
-      phone: "123-456-7890",
+      phone: "10",
       contact: "New York",
     },
     {
       username: "John Doe",
       email: "john@example.com",
-      phone: "123-456-7890",
+      phone: "3",
       contact: "New York",
     },
     {

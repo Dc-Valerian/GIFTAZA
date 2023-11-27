@@ -28,8 +28,8 @@ const Card: React.FC<iCard> = ({ pic, busyname, amount, colour, code }) => {
 
   const user = useAppSelector((state) => state?.userData);
   console.log(user);
-  const total = AllgiftCards?.data?.data?.data;
-  const totalTotal: number = total?.moneyWorth;
+  // const total = AllgiftCards?.data?.data?.data;
+  // const totalTotal: number = total?.moneyWorth;
 
   console.log("bus", AllgiftCards.data);
   useEffect(() => {
@@ -44,7 +44,7 @@ const Card: React.FC<iCard> = ({ pic, busyname, amount, colour, code }) => {
     };
   }, []);
 
-  const userName = useAppSelector((state) => state?.userData);
+  // const userName = useAppSelector((state) => state?.userData);
 
   const handlePayment = () => {
     if (window.FlutterwaveCheckout) {
@@ -52,17 +52,17 @@ const Card: React.FC<iCard> = ({ pic, busyname, amount, colour, code }) => {
         public_key: "FLWPUBK_TEST-833c54a77bfbb7f86f623880d2ea4518-X",
         // public_key: "FLWPUBK-fec7e15906e2283f296b2327c10814f0-X",
         tx_ref: "titanic-48981487343MDI0NzMxvcujeit",
-        amount: totalTotal,
+        amount: 6000,
         currency: "NGN",
         payment_options: "card, mobilemoneyghana, ussd",
-        redirect_url: "https://giftaza.vercel.app/handle-flutterwave-payment",
+        redirect_url: "https://giftaza.vercel.app/user-dashboard/",
         meta: {
           consumer_id: 23,
           consumer_mac: "92a3-912ba-1192a",
         },
         customer: {
-          email: `${userName?.email}`,
-          name: `${userName?.name}`,
+          email: `ogbuuzoma413@gmail.com`,
+          name: `Esther`,
         },
         customizations: {
           title: `SHOP-WITH-Gift Aza`,
