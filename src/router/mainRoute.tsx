@@ -53,7 +53,7 @@ export const mainRoute = createBrowserRouter([
     element: <BizzLogin />,
   },
   {
-    path: "/api/staff/:id/verification",
+    path: "/:id/verification",
     element: <YesOrNo />,
   },
 
