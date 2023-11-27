@@ -132,36 +132,7 @@ const Container = styled.div`
     padding-bottom: 30px;
   }
 `;
-const Right = styled.div`
-  background-image: url("https://harnishdesign.net/demo/html/oxyy/images/login-bg-2.jpg");
-  width: 50%;
-  height: 100%;
-  flex-direction: column;
-  display: flex;
-  justify-content: center;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-  position: relative;
-  h3 {
-    margin-left: 80px;
-    z-index: 2;
-    color: rgb(255, 255, 255);
-    font-size: 40px;
-    @media screen and (max-width: 800px) {
-      margin: 0;
-    }
-    @media screen and (max-width: 500px) {
-      font-size: 30px;
-      margin-left: 30px;
-    }
-  }
-  @media screen and (max-width: 500px) {
-    width: 100%;
-    height: 350px;
-  }
-`;
+
 const Notification = styled.span`
   font-weight: 500;
   font-size: 17px;

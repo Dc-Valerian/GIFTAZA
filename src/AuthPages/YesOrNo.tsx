@@ -12,7 +12,10 @@ const YesOrNo = () => {
   const navigate = useNavigate();
 
   const [myChecked, setMyChecked] = useState(true);
+  console.log(setMyChecked);
+
   const [loading, setLoading] = useState(false);
+  console.log(loading);
 
   const noStaff = async () => {
     const newURL = `${newurl}/final-verification/${id}`;
@@ -20,6 +23,8 @@ const YesOrNo = () => {
     await axios
       .post(newURL, { response: "No" })
       .then((res) => {
+        console.log(res);
+
         Swal.fire({
           position: "center",
           icon: "success",
@@ -51,6 +56,7 @@ const YesOrNo = () => {
     await axios
       .post(newURL, { response: "Yes" })
       .then((res) => {
+        console.log(res);
         Swal.fire({
           position: "center",
           icon: "success",
@@ -105,7 +111,8 @@ const YesOrNo = () => {
                   bg={myChecked ? "" : ""}
                   onClick={() => {
                     noStaff();
-                  }}>
+                  }}
+                >
                   No
                 </BUtton>
               </InputRow>

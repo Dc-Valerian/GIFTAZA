@@ -46,36 +46,6 @@ const Card: React.FC<iCard> = ({ pic, busyname, amount, colour, code }) => {
     };
   }, []);
 
-  const handlePayment = () => {
-    if (window.FlutterwaveCheckout) {
-      window.FlutterwaveCheckout({
-        public_key: "FLWPUBK_TEST-833c54a77bfbb7f86f623880d2ea4518-X",
-        // public_key: "FLWPUBK-fec7e15906e2283f296b2327c10814f0-X",
-        tx_ref: "titanic-48981487343MDI0NzMxvcujeittru",
-        amount: { totalTotal },
-        currency: "NGN",
-        payment_options: "card, mobilemoneyghana, ussd",
-        redirect_url: "https://giftaza.vercel.app/handle-flutterwave-payment",
-        meta: {
-          consumer_id: 23,
-          consumer_mac: "92a3-912ba-1192a",
-        },
-        customer: {
-          email: `${user?.email}`,
-          name: `${user?.name}`,
-        },
-        customizations: {
-          title: `SHOP-WITH-MHIZ-GEE`,
-          description: "Payment for items purchased",
-          logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
-        },
-      });
-    } else {
-      console.error(
-        "Flutterwave script not yet loaded or FlutterwaveCheckout is not available!"
-      );
-    }
-  };
   return (
     <div>
       <Link to="/popup" style={{ textDecoration: "none" }}>
