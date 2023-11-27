@@ -18,6 +18,7 @@ import UserNotify from "../pages/DashBoardPages/UserNotify/UserNotify";
 import PopUp from "../pages/POPUP";
 import AllBusinessUsers from "../pages/AdminDashboard/BusinessUsers/AllBusinessUsers";
 import GiftCard from "../pages/LandinPage/GiftCard";
+import YesOrNo from "../AuthPages/YesOrNo";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ export const mainRoute = createBrowserRouter([
   {
     path: "business-login",
     element: <BizzLogin />,
+  },
+  {
+    path: "/api/staff/:id/verification",
+    element: <YesOrNo />,
   },
 
   {
