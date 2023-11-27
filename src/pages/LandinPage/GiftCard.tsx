@@ -3,7 +3,7 @@ import AllGiftCard from "./AllGiftCard";
 
 const Section = styled.section`
   overflow: hidden;
-  background: url(${`https://media.istockphoto.com/id/1740798722/video/happy-asian-couple-having-fun-surprise-gifting-birthday-present-in-red-gift-box-sit-on-sofa.mp4?s=mp4-640x640-is&k=20&c=A5tImQ9rYLzJzgoLRmmFYkOj1rOV0bPbEOGY37BICfM=`});
+  background: url(${`https://media.istockphoto.com/id/1460983528/vector/gift-card-discount-voucher-red-blue-coupon-paper-vector-invitation-giftcard-certificate.jpg?s=612x612&w=0&k=20&c=0uIOhxubpUpKeJbXh2Qc7C2FE3cdP-dlvzf4X0YCSOY=`});
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
