@@ -4,36 +4,11 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="https://media.gettyimages.com/id/155159126/photo/alphabet-g.jpg?s=612x612&w=0&k=20&c=XKqJDkRB3xZKmmGiDY1ivmeMhnCBTY1nKpNG1k9v7Vc=" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <base href="/" />
+   
 
     <title>GiftAza</title>
 
-    <script>
-      (function () {
-          // Check if the path matches an existing file or directory on the server
-          function pathExists(path) {
-              // You may need to customize this logic depending on your server setup
-              // Here, we assume that if the path starts with a slash and contains a dot (.) or ends with a slash (/), it's a file or directory
-              return /^\/.+\..+|\/$/.test(path);
-          }
-
-          // Handle routing on the client side
-          function handleRoute() {
-              const currentPath = window.location.pathname;
-
-              // If the path doesn't exist on the server, redirect to the root
-              if (!pathExists(currentPath)) {
-                  window.location.replace('/');
-              }
-          }
-
-          // Listen for changes in the URL and handle routing
-          window.addEventListener('popstate', handleRoute);
-
-          // Initial route handling when the page loads
-          handleRoute();
-      })();
-  </script>
+  
   </head>
   <body>
     <div id="root"></div>
