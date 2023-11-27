@@ -6,7 +6,9 @@ import flower from "../../Assets/flower.svg";
 import { MdOutlinePersonOutline } from "react-icons/md";
 import { IoMailOutline } from "react-icons/io5";
 import { BsTelephone } from "react-icons/bs";
-// import { TbSquareKey } from "react-icons/tb";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { BeatLoader } from "react-spinners";
 import Typewriter from "typewriter-effect";
 import { NavLink } from "react-router-dom";
 import { useBusinessRegistration } from "../../Functions/Business/BusinessRegistration";
@@ -18,7 +20,7 @@ const BizzSignUp = () => {
   return (
     <div>
       {" "}
-      <Container>
+      <Container onSubmit={Submit}>
         <Left>
           <img
             src={rstar}
@@ -78,7 +80,8 @@ const BizzSignUp = () => {
                   color: "silver",
                 }}
               />
-              <input placeholder="Business Name" />
+              <input {...register("companyName")} placeholder="Business Name" />
+              <p>{errors?.companyName && errors?.companyName?.message}</p>
             </Inputs>
 
             <Inputs>
@@ -89,7 +92,8 @@ const BizzSignUp = () => {
                   color: "silver",
                 }}
               />
-              <input placeholder="E-mail address" />
+              <input placeholder="E-mail address" {...register("email")} />
+              <p>{errors?.email && errors?.email?.message}</p>
             </Inputs>
             <Inputs>
               <BsTelephone
@@ -99,7 +103,8 @@ const BizzSignUp = () => {
                   color: "silver",
                 }}
               />
-              <input placeholder="Phone-no" />
+              <input {...register("phoneNumber")} placeholder="Phone-no" />
+              <p>{errors?.phoneNumber && errors?.phoneNumber?.message}</p>
             </Inputs>
             <Inputs>
               <TbSquareKey
@@ -108,12 +113,32 @@ const BizzSignUp = () => {
                   fontSize: "25px",
                 }}
               />
-              <input placeholder="Password" />
+              <input {...register("password")} placeholder="Password" />
+              {errors?.password && errors?.password?.message}
             </Inputs>
           </Box>
-          <NavLink to="/business-dashboard">
-            <Button>Register Now</Button>
-          </NavLink>
+          <div>
+            <Button disabled={postData?.isLoading} type="submit">
+              {postData?.isLoading ? (
+                <BeatLoader color="white" />
+              ) : (
+                "Register now"
+              )}
+            </Button>
+            <ToastContainer
+              position="top-right"
+              autoClose={10000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="colored"
+            />
+          </div>
+
           <P>
             Already have an account.??{" "}
             <NavLink to="/business-login" style={{ textDecoration: "none" }}>
