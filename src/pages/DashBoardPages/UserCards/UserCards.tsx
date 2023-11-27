@@ -8,8 +8,7 @@ const UserCards = () => {
         <HoldToggle>
           <h2>My Gift Cards</h2>
         </HoldToggle>
-            <ViewCards />
-
+        <ViewCards />
       </Head>
     </Container>
   );
@@ -37,7 +36,7 @@ const HoldToggle = styled.div`
   color: #5e5d5d;
   h2 {
     margin-left: 70px;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     font-size: 17px;
     @media screen and (min-width: 800px) {
       font-size: 35px;
