@@ -38,13 +38,13 @@ const OnlineStatus = () => {
       {isOnline && (
         <div>
           <OnlineStatusIcon />
-          Welcome Back Online!
+          Welcome Back Online!!!
         </div>
       )}
       {!isOnline && (
         <div>
           <OfflineStatusIcon />
-          You're Currrently Offline!
+          You're Currrently Offline! Get Connected to enjoy a better User Experience
         </div>
       )}
     </Container>
