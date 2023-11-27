@@ -13,7 +13,6 @@ import UserProfile from "../pages/DashBoardPages/UserProfile/UserProfile";
 import BusinessCard from "../pages/AdminDashboard/BusinessCard/BusinessCard";
 import BusinessHistory from "../pages/AdminDashboard/BusinessHistory/BusinessHistory";
 import BusinessProfilePage from "../pages/AdminDashboard/BusinessProfile/BusinessProfilePage";
-import UserGiftCardProps from "../pages/AdminDashboard/BusinessUsers/UserGiftCardProps";
 import UserCards from "../pages/DashBoardPages/UserCards/UserCards";
 import UserNotify from "../pages/DashBoardPages/UserNotify/UserNotify";
 import PopUp from "../pages/POPUP";
