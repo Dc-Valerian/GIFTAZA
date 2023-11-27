@@ -1,5 +1,10 @@
 import styled from "styled-components";
+import { useUserRegister } from "../Functions/User/UserRegister";
+import { useEffect, useState } from "react";
+import { useAppSelector } from "../GlobalStore/Store";
+import { newurl } from "../API/Business/BusinessEndpoints";
 
+import axios from "axios";
 const Overlay = styled.div`
   position: fixed;
   top: 0;
@@ -14,7 +19,7 @@ const Overlay = styled.div`
   z-index: 50;
 `;
 
-const PopupContainer = styled.div`
+const PopupContainer = styled.form`
   width: 300px;
 
   padding: 1.5rem;
@@ -32,7 +37,6 @@ const PopupContainer = styled.div`
 const ContentWrapper = styled.div`
   & > div:first-child {
     width: 100%;
-    height: 200px;
 
     img {
       width: 100%;
@@ -62,7 +66,7 @@ const ContentWrapper = styled.div`
     color: #ffffff;
     border-radius: 10px;
     width: 100%;
-    margin-top: 70px;
+    margin-top: 50px;
 
     height: 2.25rem;
     font-weight: 600;
@@ -76,23 +80,63 @@ const ContentWrapper = styled.div`
     margin-top: 10px;
   }
 `;
+const Inputs = styled.div`
+  border: 1px solid black;
+  outline: none;
+  width: calc(100% - 20px);
+
+  padding-left: 20px;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 16px;
+  background-color: #ececec92;
+`;
 
 const PopUp = () => {
+  const { Submit, errors, isLoading, loading, postData, register } =
+    useUserRegister();
+  const business = useAppSelector((state) => state.bizClient);
+  const [getCompanyName, setGetCompanyName] = useState("");
+  const getBiz = async () => {
+    console.log("id", business?._id);
+    console.log("email", business?.email);
+    await axios
+      .get(`${newurl}/api/getsinglebusiness/${business?._id}`)
+
+      .then((res) => {
+        setGetCompanyName(res?.data?.data?.companyName);
+        console.log("getcomapny name", getCompanyName);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  useEffect(() => {
+    getBiz();
+  }, []);
+
   return (
     <Overlay>
-      <PopupContainer>
+      <PopupContainer onSubmit={Submit}>
         <ContentWrapper>
           <div>
             <h1>Please enter name and email to continue purchase process</h1>
 
             <div>
-              <input type="text" placeholder="Enter Name" />
+              <input {...register("name")} placeholder="name" />
+              {errors?.password && errors?.password?.message}
               <br />
-              <input type="text" placeholder="Enter Email" />
+              <input {...register("email")} placeholder="name" />
+
+              <br />
+              <Inputs>{getCompanyName}</Inputs>
             </div>
           </div>
 
-          <button>Submit</button>
+          <button type="submit">Submit</button>
         </ContentWrapper>
       </PopupContainer>
     </Overlay>

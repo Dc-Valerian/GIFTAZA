@@ -6,17 +6,14 @@ import { toast } from "react-toastify";
 import * as yup from "yup";
 import { useDispatch } from "react-redux";
 import { login } from "../../GlobalStore/ReduxState";
-import { RegisterBusiness } from "../../API/Business/BusinessEndpoints";
+import { createUser } from "../../API/User/UserEndpoints";
 import { useState } from "react";
-import { UseAppDispatch } from "../../GlobalStore/Store";
-export const useBusinessRegistration = () => {
+export const useUserRegister = () => {
   const [isLoading, setIsLoading] = useState(false);
   const schema: any = yup
     .object({
-      companyName: yup.string().required("Business Name is required"),
-      phoneNumber: yup.string(),
       email: yup.string().required("Please input an email"),
-      password: yup.string().required("Enter a strong password"),
+      name: yup.string().required("Enter your name"),
     })
     .required();
   type formData = yup.InferType<typeof schema>;
@@ -31,15 +28,15 @@ export const useBusinessRegistration = () => {
   });
 
   const navigate = useNavigate();
-  const dispatch = UseAppDispatch();
+  const dispatch = useDispatch();
 
   const postData = useMutation({
     mutationKey: [""],
-    mutationFn: RegisterBusiness,
+    mutationFn: createUser,
     onSuccess: (data: any) => {
       console.log("data", data);
       dispatch(login(data?.data));
-      toast.success("Business Account Created Successfully!", {
+      toast.success("Check Email to continue!", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,

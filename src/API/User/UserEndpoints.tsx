@@ -11,10 +11,16 @@ const URl = "https://giftcard-api.onrender.com";
 export const newurl = "https://giftaza.onrender.com";
 
 // register User
-export const RegisterBusiness = async (user: any) => {
-  return axios
-    .post(`${newurl}/api/registerbusiness`, user)
-    .then((res) => res.data);
+export const createUser = async ({ name, email, companyName }: any) => {
+  return await axios
+    .post(`${newurl}/api/registeruser`, {
+      name,
+      email,
+      companyName,
+    })
+    .then((res) => {
+      return res.data;
+    });
 };
 
 // login User
@@ -32,14 +38,14 @@ export const BusinessVerification = async (OTP: string) => {
 };
 
 export const getOneBiz = async ({ id }: any) => {
-  return axios.get(`${newurl}/api/getsinglebusiness/${id}`).then((res) => {
+  return axios.get(`${URl}/api/getsinglebusiness/${id}`).then((res) => {
     return res.data;
   });
 };
 
 export const createGiftCard = async ({ colour, moneyWorth, id }: any) => {
   return axios.post(
-    `${newurl}/api/generateyourgiftcard/${id}`,
+    `${URl}/api/generateyourgiftcard/${id}`,
     {
       colour,
       moneyWorth,

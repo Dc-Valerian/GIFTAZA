@@ -3,7 +3,7 @@ import pic from "../../../Assets/trancard.svg";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import Card from "./Card";
-import { allGiftCard } from "../../../API/Endpoints";
+import { allGiftCard } from "../../../API/Business/BusinessEndpoints";
 
 const ViewCards = () => {
   const AllgiftCards = useQuery({
