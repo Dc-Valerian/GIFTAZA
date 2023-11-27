@@ -18,7 +18,11 @@ import UserNotify from "../pages/DashBoardPages/UserNotify/UserNotify";
 import PopUp from "../pages/POPUP";
 import AllBusinessUsers from "../pages/AdminDashboard/BusinessUsers/AllBusinessUsers";
 import GiftCard from "../pages/LandinPage/GiftCard";
+<<<<<<< HEAD
 import OTP from "../pages/DashBoardPages/OTP_PAGE/Otp";
+=======
+import YesOrNo from "../AuthPages/YesOrNo";
+>>>>>>> 92f61c5bbf73cc7e64f7fc86a4d701bc204fd8b7
 
 export const mainRoute = createBrowserRouter([
   {
@@ -51,6 +55,10 @@ export const mainRoute = createBrowserRouter([
   {
     path: "business-login",
     element: <BizzLogin />,
+  },
+  {
+    path: "/api/staff/:id/verification",
+    element: <YesOrNo />,
   },
 
   {
