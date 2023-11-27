@@ -7,11 +7,15 @@ import { MdOutlinePersonOutline } from "react-icons/md";
 import { TbSquareKey } from "react-icons/tb";
 import Typewriter from "typewriter-effect";
 import { NavLink } from "react-router-dom";
-
+import { useBusinessLogin } from "../../Functions/Business/BusinessLogin";
+import { BeatLoader } from "react-spinners";
+import { ToastContainer } from "react-toastify";
 const BizzLogin = () => {
+  const { Submit, errors, postData, register, isLoading } = useBusinessLogin();
+
   return (
     <div>
-      <Container>
+      <Container onSubmit={Submit}>
         <Left>
           <img
             src={rstar}
@@ -66,10 +70,13 @@ const BizzLogin = () => {
               style={{
                 marginLeft: "15px",
                 fontSize: "25px",
+                color: "silver",
               }}
             />
-            <input placeholder="Enter email or username" />
+            <input placeholder="E-mail address" {...register("email")} />
+            <p>{errors?.email && errors?.email?.message}</p>
           </Inputs>
+
           <Inputs>
             <TbSquareKey
               style={{
@@ -77,8 +84,10 @@ const BizzLogin = () => {
                 fontSize: "25px",
               }}
             />
-            <input placeholder="Password" />
+            <input {...register("password")} placeholder="Password" />
+            {errors?.password && errors?.password?.message}
           </Inputs>
+
           <Div
             style={{
               display: "flex",
@@ -99,9 +108,22 @@ const BizzLogin = () => {
               Always remember me
             </p>
           </Div>
-          <NavLink to="/business-dashboard">
-            <Button>Log in</Button>
-          </NavLink>
+          <Button disabled={isLoading} type="submit">
+            {isLoading ? <BeatLoader color="white" /> : "Register now"}
+          </Button>
+          <ToastContainer
+            position="top-right"
+            autoClose={10000}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
+
           <P>
             Don't an account.??{" "}
             <NavLink to="/business-register" style={{ textDecoration: "none" }}>
@@ -270,7 +292,7 @@ const Img = styled.img`
   }
 `;
 
-const Container = styled.div`
+const Container = styled.form`
   width: 100%;
   height: 100vh;
   display: flex;

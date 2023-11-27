@@ -12,7 +12,7 @@ const App = () => {
   const [cursorVariant, setCursorVariant] = useState<"default" | "hover">(
     "default"
   );
-  console.log(setCursorVariant);
+  // console.log(setCursorVariant);
 
   const mouse = useMouse(ref, {
     enterDelay: 70,
@@ -44,8 +44,6 @@ const App = () => {
     },
   };
 
-
-
   const spring = {
     stiffness: 500,
     damping: 25,
@@ -55,7 +53,6 @@ const App = () => {
 
   return (
     <div ref={ref}>
-
       <motion.div
         className="circle"
         variants={variants}

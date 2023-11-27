@@ -15,7 +15,8 @@ import { useBusinessRegistration } from "../../Functions/Business/BusinessRegist
 import { TbSquareKey } from "react-icons/tb";
 
 const BizzSignUp = () => {
-  const { Submit, errors, postData, register } = useBusinessRegistration();
+  const { Submit, errors, postData, register, isLoading } =
+    useBusinessRegistration();
 
   return (
     <div>
@@ -118,12 +119,8 @@ const BizzSignUp = () => {
             </Inputs>
           </Box>
           <div>
-            <Button disabled={postData?.isLoading} type="submit">
-              {postData?.isLoading ? (
-                <BeatLoader color="white" />
-              ) : (
-                "Register now"
-              )}
+            <Button disabled={isLoading} type="submit">
+              {isLoading ? <BeatLoader color="white" /> : "Register now"}
             </Button>
             <ToastContainer
               position="top-right"
@@ -313,7 +310,7 @@ const Img = styled.img`
   }
 `;
 
-const Container = styled.div`
+const Container = styled.form`
   width: 100%;
   height: 100vh;
   display: flex;
