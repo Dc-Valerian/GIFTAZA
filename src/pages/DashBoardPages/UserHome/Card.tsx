@@ -6,7 +6,6 @@ import { useAppSelector } from "../../../GlobalStore/Store";
 import { allGiftCard } from "../../../API/Business/BusinessEndpoints";
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { Link } from "react-router-dom";
 
 interface iCard {
   pic: any;
@@ -31,7 +30,6 @@ const Card: React.FC<iCard> = ({ pic, busyname, amount, colour, code }) => {
   console.log(user);
   const total = AllgiftCards?.data?.data?.data;
   const totalTotal: number = total?.moneyWorth;
-  console.log(totalTotal);
 
   console.log("bus", AllgiftCards.data);
   useEffect(() => {
@@ -46,32 +44,63 @@ const Card: React.FC<iCard> = ({ pic, busyname, amount, colour, code }) => {
     };
   }, []);
 
+  const userName = useAppSelector((state) => state?.userData);
+
+  const handlePayment = () => {
+    if (window.FlutterwaveCheckout) {
+      window.FlutterwaveCheckout({
+        public_key: "FLWPUBK_TEST-833c54a77bfbb7f86f623880d2ea4518-X",
+        // public_key: "FLWPUBK-fec7e15906e2283f296b2327c10814f0-X",
+        tx_ref: "titanic-48981487343MDI0NzMxvcujeit",
+        amount: totalTotal,
+        currency: "NGN",
+        payment_options: "card, mobilemoneyghana, ussd",
+        redirect_url: "https://giftaza.vercel.app/handle-flutterwave-payment",
+        meta: {
+          consumer_id: 23,
+          consumer_mac: "92a3-912ba-1192a",
+        },
+        customer: {
+          email: `${userName?.email}`,
+          name: `${userName?.name}`,
+        },
+        customizations: {
+          title: `SHOP-WITH-Gift Aza`,
+          description: "Payment for Gift cards purchased",
+          logo: "https://www.logolynx.com/images/logolynx/22/2239ca38f5505fbfce7e55bbc0604386.jpeg",
+        },
+      });
+    } else {
+      console.error(
+        "Flutterwave script not yet loaded or FlutterwaveCheckout is not available!"
+      );
+    }
+  };
+
   return (
     <div>
-      <Link to="/popup" style={{ textDecoration: "none" }}>
-        <Container bc={colour}>
-          <Wave>
-            <img src={wave} />
-          </Wave>
-          <Up>
-            <Amount>
-              ₦ <span>{amount} </span>
-            </Amount>
-          </Up>
-          <Mid>
-            <Logo>
-              <img src={pic}></img>
-            </Logo>
-            <BusinessName>{busyname}</BusinessName>
-          </Mid>
-          <Down>
-            <Code>{code}</Code>
-          </Down>
-          <Wave2>
-            <img src={wave2} />
-          </Wave2>
-        </Container>
-      </Link>
+      <Container onClick={handlePayment} bc={colour}>
+        <Wave>
+          <img src={wave} />
+        </Wave>
+        <Up>
+          <Amount>
+            ₦ <span>{amount} </span>
+          </Amount>
+        </Up>
+        <Mid>
+          <Logo>
+            <img src={pic}></img>
+          </Logo>
+          <BusinessName>{busyname}</BusinessName>
+        </Mid>
+        <Down>
+          <Code>{code}</Code>
+        </Down>
+        <Wave2>
+          <img src={wave2} />
+        </Wave2>
+      </Container>
     </div>
   );
 };
