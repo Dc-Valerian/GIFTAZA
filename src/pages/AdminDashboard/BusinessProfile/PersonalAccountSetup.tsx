@@ -1,24 +1,80 @@
+import React from "react";
 import styled from "styled-components";
-import pic from "../../../Assets/trancard.svg";
+import pic from "../../../Assets/money.webp";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { UseAppDispatch, useAppSelector } from "../../../GlobalStore/Store";
+import { newurl } from "../../../API/Business/BusinessEndpoints";
 
-const PersonalAccountSetup = () => {
+const PersonalAccount = () => {
+  const [previewImage, setPreviewImage] = React.useState("");
+  const [logo, setLogo] = React.useState("");
+  const business = useAppSelector((state) => state.bizClient);
+  const card = useAppSelector((state) => state.DataCard);
+
+  const ImageOnchange = (e: any) => {
+    const file = e.target.files[0];
+    setLogo(file);
+    const url = URL.createObjectURL(file);
+    setPreviewImage(url);
+    console.log(url);
+  };
+
+  // allow user upload profile image
+  const updateProfileImage = () => {
+    if (logo) {
+      // create a new FormData object and append the selected image file to it
+      const formData = new FormData();
+      formData.append("logo", logo);
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+      // make a request to update the company logo using the formData object
+      axios
+        .patch(
+          `${newurl}/api/updatebusinesslogo/${business?._id}
+  `,
+          formData,
+          config
+        )
+        .then((response) => {
+          console.log(response);
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "image uploaded SUCCESSFULLY.",
+            // timer: 1500,
+            confirmButtonText: "Okay!",
+          });
+        })
+        .catch((error: any) => {
+          // handle error
+          console.log("this is error", error);
+        });
+    }
+  };
+
+  console.log(business?._id);
+
   return (
     <Container>
       <NameCard>
         <Update>
           <CircleText>
             <Circle>
-              <Img src={pic} />
+              <Img src={card?.logo === "" ? card?.logo : card?.logo} />
             </Circle>
-            {/* <label htmlFor="pix">upload ogo</label> */}
+            <label htmlFor="pix">upload logo</label>
           </CircleText>
           <Input
-            // onChange={ImageOnchange}
+            onChange={ImageOnchange}
             id="pix"
             // type="multipart/form-data"
             type="file"
           />
-          <Buttons>Update company logo</Buttons>
+          <Buttons onClick={updateProfileImage}>Update company logo</Buttons>
         </Update>
       </NameCard>
       <div
@@ -28,18 +84,17 @@ const PersonalAccountSetup = () => {
           display: "flex",
           flexDirection: "column",
           gap: "30px",
-        }}
-      >
-        <Inputs>Valerian Pedro</Inputs>
-        <Inputs>Valeriapedro03@gmail.com</Inputs>
-        <Inputs>+08037171484</Inputs>
-        <Inputs>4 Giftcards Created</Inputs>
+        }}>
+        <Inputs>{business?.companyName}</Inputs>
+        <Inputs>{business?.email}</Inputs>
+        <Inputs>+{business?.phoneNumber}</Inputs>
+        <Inputs>{business?.giftCard.length} Giftcards Created</Inputs>
       </div>
     </Container>
   );
 };
 
-export default PersonalAccountSetup;
+export default PersonalAccount;
 
 const CircleText = styled.div`
   display: flex;

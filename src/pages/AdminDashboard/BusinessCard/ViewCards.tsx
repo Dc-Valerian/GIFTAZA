@@ -4,13 +4,14 @@ import pic from "../../../Assets/trancard.svg";
 import Card from "./Card";
 import axios from "axios";
 import { useAppSelector } from "../../../GlobalStore/Store";
+import { newurl } from "../../../API/Business/BusinessEndpoints";
 
 const ViewCards = () => {
   const [cad, setCad] = useState([]);
   const business = useAppSelector((state) => state.bizClient);
 
   const apiUrl = "https://giftcard-api.onrender.com";
-  axios.get(`${apiUrl}/api/businessgiftcard/${business?._id}`).then((res) => {
+  axios.get(`${newurl}/api/businessgiftcard/${business?._id}`).then((res) => {
     // console.log("cards", res.data.data.giftCard);
     setCad(res.data.data.giftCard);
   });

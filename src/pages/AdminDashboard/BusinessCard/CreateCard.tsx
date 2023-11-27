@@ -1,27 +1,49 @@
+import axios from "axios";
 import React from "react";
 import styled from "styled-components";
-import pic from "../../../Assets/trancard.svg";
-import { useAppSelector } from "../../../GlobalStore/Store";
+import Swal from "sweetalert2";
+import pic from "../../../Assets/money.webp";
+import { UseAppDispatch, useAppSelector } from "../../../GlobalStore/Store";
+import { newurl } from "../../../API/Business/BusinessEndpoints";
+import { creatingCard } from "../../../GlobalStore/ReduxState";
 
 const CreateCard = () => {
   const business = useAppSelector((state) => state.bizClient);
   const card = useAppSelector((state) => state.DataCard);
+  const dispatch = UseAppDispatch();
   const [colour, setColour] = React.useState("");
   const [moneyWorth, setMoneyWorth] = React.useState<any>(0);
-
+  const postCard = async (e: any) => {
+    e.preventDefault();
+    await axios
+      .post(`${newurl}/api/generateyourgiftcard/${business?._id}`, {
+        moneyWorth: moneyWorth,
+        colour,
+      })
+      .then((res) => {
+        Swal.fire({
+          title: "Gift cards created successfully!",
+        });
+        dispatch(creatingCard(res.data.data));
+        console.log("create", res.data.data);
+      })
+      .catch((err) => {
+        console.log(`this is err from axios ${err}`);
+      });
+  };
   return (
     <Container>
       <Wrapper>
         <Update>
           <Circle>
-            <Img src={card?.BrandLogo === "" ? pic : card?.BrandLogo} />
+            <Img src={card?.logo === "" ? pic : card?.logo} />
           </Circle>
         </Update>
         <Form>
-          <Name>{business?.name}</Name>
+          <Name>{business?.companyName}</Name>
 
           <Inp
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+            onChange={(e: any) => {
               setMoneyWorth(e.target.value);
             }}
             value={moneyWorth}
@@ -31,7 +53,7 @@ const CreateCard = () => {
           <Col>
             <Choose>Select Color</Choose>
             <Color
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              onChange={(e: any) => {
                 setColour(e.target.value);
               }}
               type="color"
@@ -42,7 +64,7 @@ const CreateCard = () => {
               Create Card
             </Button2>
           ) : (
-            <Button2 bg="blueviolet" cp="pointer" type="submit">
+            <Button2 onClick={postCard} bg="blueviolet" cp="pointer">
               Create Card
             </Button2>
           )}

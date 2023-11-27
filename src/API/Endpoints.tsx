@@ -29,25 +29,6 @@ export const createUser = async ({
       return res.data;
     });
 };
-export const createBizUser = async ({
-  name,
-  email,
-  password,
-  confirmPassword,
-  phoneNumber,
-}: any) => {
-  return await axios
-    .post(`${URl}/api/registerbusiness`, {
-      name,
-      email,
-      password,
-      confirmPassword,
-      phoneNumber,
-    })
-    .then((res) => {
-      return res.data;
-    });
-};
 
 export const LoginBizUser = async ({ email, password }: any) => {
   return await axios
