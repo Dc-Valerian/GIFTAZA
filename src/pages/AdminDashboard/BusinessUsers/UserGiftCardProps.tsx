@@ -96,7 +96,7 @@ const StyledTable = styled.table`
 const StyledTableHeader = styled.th`
   padding: 0.75rem;
   text-align: left;
-  background-color: purple;
+  background-color: #8A2BE2;
   color: white;
 `;
 
@@ -113,9 +113,9 @@ const StyledPagination = styled.div`
 const StyledButton = styled.button<{ active?: boolean }>`
   margin-right: 0.5rem;
   padding: 0.5rem 1rem;
-  background-color: ${({ active }) => (active ? "orange" : "#d1d5db")};
-  color: ${({ active }) => (active ? "white" : "#6b7280")};
-  border: 1px solid ${({ active }) => (active ? "orange" : "#d1d5db")};
+  background-color: ${({ active }) => (active ? "#F09E40" : "#d1d5db")};
+  color: ${({ active }) => (active ? "white" : "black")};
+  border: 1px solid ${({ active }) => (active ? "#F09E40" : "#d1d5db")};
   border-radius: 0.25rem;
   cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
 
