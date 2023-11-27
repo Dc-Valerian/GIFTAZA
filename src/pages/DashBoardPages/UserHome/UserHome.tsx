@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import ViewCards from "./ViewCards";
 import UserDashBoardHead from "../../../Layout/DashBoardLayour/UserDashboard/UserDashboard";
 import card from "../../../Assets/card.svg";
 import spiral from "../../../Assets/robo.svg";
@@ -20,9 +19,9 @@ const UserHome = () => {
                 </QuickImage>
                 <QuickComponent>
                   <div>
-                    <HText> Gift Cards</HText>
+                    <HText>Buy a Gift Card</HText>
                     <LText style={{ fontSize: "20px" }}>
-                      Create and sell Gift Cards for your business
+                      Create and buy Gift Cards for your business
                     </LText>
                   </div>
                   <NavLink
@@ -41,9 +40,9 @@ const UserHome = () => {
                 <img src={spiral} />
               </CardImage>
               <div>
-                <HText1>Update your Profile to Own a  Gift Card Wallet</HText1>
+                <HText1>Update your Profile to Own a Gift Card Wallet</HText1>
                 <LText1 style={{ fontSize: "12px" }}>
-                 Update your personal information 
+                  Update your personal information
                 </LText1>
               </div>
               <NavLink
@@ -54,24 +53,8 @@ const UserHome = () => {
               </NavLink>
             </CardComponent>
           </Cards>
-          <Pending>
-            <div style={{ marginBottom: "10px" }}>Pending</div>
-            <PendingActions>
-              <div style={{ fontSize: "13px", fontWeight: "600" }}>
-                Set transaction pin
-              </div>
-              <PendSign>PENDING</PendSign>
-            </PendingActions>
-            <PendingActions>
-              <div style={{ fontSize: "13px", fontWeight: "600" }}>
-                Add default bank
-              </div>
-              <PendSign>PENDING</PendSign>
-            </PendingActions>
-          </Pending>
         </InBody>
       </Body>
-      <ViewCards />
     </Container>
   );
 };
@@ -239,26 +222,6 @@ const CardImage = styled.div`
   img {
     width: 100%;
   }
-`;
-
-const Pending = styled.div``;
-const PendingActions = styled.div`
-  width: calc(100% - 20px);
-  padding: 10px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-radius: 5px;
-  background-color: #ececec;
-  margin-bottom: 10px;
-`;
-const PendSign = styled.div`
-  padding: 1px 7px;
-  border-radius: 2px;
-  color: white;
-  font-weight: 600;
-  background-color: orange;
-  font-size: 14px;
 `;
 
 const Container = styled.div`

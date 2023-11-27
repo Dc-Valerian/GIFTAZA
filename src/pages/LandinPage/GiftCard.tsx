@@ -33,7 +33,7 @@ const Section = styled.section`
   }
 
   & h2 {
-    font-size: 50px;
+    font-size: 30px;
     font-weight: bold;
     color: #ffffff;
 
@@ -46,7 +46,7 @@ const Section = styled.section`
     }
 
     @media (min-width: 1024px) {
-      font-size: 65px;
+      font-size: 45px;
     }
   }
 
@@ -105,7 +105,7 @@ const GiftCard = () => {
     <div>
       <Section>
         <div className="inner">
-          <h2>Get Someone a GiftCard</h2>
+          <h2>Get Someone a GiftCard or Purchase One for yourself</h2>
           <p>
             Yet another giving occasion that comes every year! Gift cards at
             Christmas are a great way to take the stress off when you've got a

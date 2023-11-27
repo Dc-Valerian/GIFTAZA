@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import OnlyViewCards from "./OnlyView";
-// import pic from "../Images/trancard.svg";
+import ViewCards from "../UserHome/ViewCards";
 
 const UserCards = () => {
   return (
@@ -9,7 +8,8 @@ const UserCards = () => {
         <HoldToggle>
           <h2>My Gift Cards</h2>
         </HoldToggle>
-        <OnlyViewCards />
+            <ViewCards />
+
       </Head>
     </Container>
   );
