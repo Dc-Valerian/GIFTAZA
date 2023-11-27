@@ -59,6 +59,9 @@ const Header = () => {
                 <Navigation onClick={toAbout}>About</Navigation>
                 <Navigation onClick={toFeatures}>How it works</Navigation>
                 <Navigation onClick={toSupport}>Get started</Navigation>
+                <NavLink to="/all-giftcards" style={{textDecoration:"none",color:"black"}}>
+                <Navigation>Gift Card</Navigation>
+                </NavLink>
               </Nav>
             </LogoNav>
 
@@ -86,6 +89,9 @@ const Header = () => {
                 <Navigation onClick={toAbout}>About</Navigation>
                 <Navigation onClick={toFeatures}>Features</Navigation>
                 <Navigation onClick={toSupport}>Customer support</Navigation>
+                <NavLink to="/all-giftcards" style={{textDecoration:"none",color:"black"}}>
+                <Navigation>Gift Card</Navigation>
+                </NavLink>
               </Nav>
             </LogoNav>
 

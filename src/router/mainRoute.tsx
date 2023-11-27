@@ -17,6 +17,7 @@ import UserGiftCardProps from "../pages/AdminDashboard/BusinessUsers/UserGiftCar
 import UserCards from "../pages/DashBoardPages/UserCards/UserCards";
 import UserNotify from "../pages/DashBoardPages/UserNotify/UserNotify";
 import PopUp from "../pages/POPUP";
+import AllGiftCard from "../pages/LandinPage/AllGiftCard";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const mainRoute = createBrowserRouter([
         index: true,
         element: <LandingPage />,
       },
+      {
+        path:"/all-giftcards",
+        element:<AllGiftCard/>
+      }
     ],
   },
   {
