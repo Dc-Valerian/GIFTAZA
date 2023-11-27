@@ -15,8 +15,7 @@ import { useBusinessRegistration } from "../../Functions/Business/BusinessRegist
 import { TbSquareKey } from "react-icons/tb";
 
 const BizzSignUp = () => {
-  const { Submit, errors, postData, register, isLoading } =
-    useBusinessRegistration();
+  const { Submit, errors, register, isLoading } = useBusinessRegistration();
 
   return (
     <div>

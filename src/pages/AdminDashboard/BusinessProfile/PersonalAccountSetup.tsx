@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import pic from "../../../Assets/money.webp";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { UseAppDispatch, useAppSelector } from "../../../GlobalStore/Store";
+import { useAppSelector } from "../../../GlobalStore/Store";
 import { newurl } from "../../../API/Business/BusinessEndpoints";
 
 const PersonalAccount = () => {
   const [previewImage, setPreviewImage] = React.useState("");
+  console.log(previewImage);
+
   const [logo, setLogo] = React.useState("");
   const business = useAppSelector((state) => state.bizClient);
   const card = useAppSelector((state) => state.DataCard);
@@ -84,7 +85,8 @@ const PersonalAccount = () => {
           display: "flex",
           flexDirection: "column",
           gap: "30px",
-        }}>
+        }}
+      >
         <Inputs>{business?.companyName}</Inputs>
         <Inputs>{business?.email}</Inputs>
         <Inputs>+{business?.phoneNumber}</Inputs>
