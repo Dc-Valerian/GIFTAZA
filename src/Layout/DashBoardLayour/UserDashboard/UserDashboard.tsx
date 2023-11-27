@@ -1,32 +1,88 @@
 import styled from "styled-components";
 import moment from "moment";
 import { useSelector } from "react-redux";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
+import { useState } from "react";
 
 const UserDashBoardHead = () => {
   const toggle = useSelector((state: any) => state.toggle);
+  const [show, setShow] = useState(false);
 
   return (
     <Container wd={toggle ? "value" : ""}>
       <Wrapper>
-        <Name>All Gift Cards</Name>
+        <Top>
+          <Name>All Gift Cards</Name>
 
-        <Profile>
-          <UserName>
-            {moment(Date.now()).format("LLLL")}
-            {/* {moment(Date.now()).format("MMM Do YYYY")} */}
-          </UserName>
-        </Profile>
+          <Profile>
+            <UserName>{moment(Date.now()).format("LLLL")}</UserName>
+          </Profile>
+        </Top>
+
+        <Bottom>
+          <SeeBalance>
+            <BalanceDetails>
+              <Viewer>
+                <div style={{ marginBottom: "5px" }}>Available balance</div>
+                <div
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    setShow(!show);
+                  }}
+                >
+                  {show ? (
+                    <AiFillEye style={{ marginTop: "5px", fontSize: "30px" }} />
+                  ) : (
+                    <AiFillEyeInvisible
+                      style={{ marginTop: "5px", fontSize: "30px" }}
+                    />
+                  )}
+                </div>
+              </Viewer>
+              {show ? <Info> ₦200.00</Info> : <Info>*******</Info>}
+            </BalanceDetails>
+          </SeeBalance>
+        </Bottom>
       </Wrapper>
     </Container>
   );
 };
 
 export default UserDashBoardHead;
-const Wrapper = styled.div`
-  /* background-color: goldenrod; */
-  width: 90%;
+const SeeBalance = styled.div`
+  color: blue;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+`;
+const Viewer = styled.div`
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  font-size: 17px;
+  color: #8a2be2;
+`;
+const Info = styled.div`
+  font-size: 20px;
+  color: #8a2be2;
+`;
+const BalanceDetails = styled.div``;
+
+const Bottom = styled.div``;
+
+const Top = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const Wrapper = styled.div`
+  /* background-color: goldenrod; */
+  width: 88%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 `;
 
 const Container = styled.div<{ wd: string }>`
@@ -35,7 +91,7 @@ const Container = styled.div<{ wd: string }>`
   position: fixed;
   justify-content: center;
   align-items: center;
-  height: 130px;
+  height: 200px;
   color: white;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   top: 0;
@@ -52,7 +108,6 @@ const Container = styled.div<{ wd: string }>`
 `;
 
 const Name = styled.div`
-  margin-left: 60px;
   font-size: 35px;
   color: black;
   display: flex;
@@ -80,7 +135,7 @@ const UserName = styled.span`
   text-transform: capitalize;
   padding: 5px;
   color: black;
-  font-size:20px;
+  font-size: 20px;
   @media screen and (max-width: 769px) {
     font-size: 12px;
   }

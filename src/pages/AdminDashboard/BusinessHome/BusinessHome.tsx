@@ -20,7 +20,7 @@ const BusinessHome = () => {
             <BalanceDetails>
               <Viewer>
                 <div style={{ marginBottom: "5px" }}>Available balance</div>
-                <div
+                <div style={{cursor:"pointer"}}
                   onClick={() => {
                     setShow(!show);
                   }}
@@ -160,9 +160,13 @@ const Viewer = styled.div`
   gap: 30px;
   align-items: center;
   font-size: 17px;
+  color: #8A2BE2;
+
 `;
 const Info = styled.div`
   font-size: 20px;
+  color: #8A2BE2;
+
 `;
 const BalanceDetails = styled.div``;
 const WithdrawButton = styled.button`
