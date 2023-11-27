@@ -9,8 +9,12 @@ import { BsTelephone } from "react-icons/bs";
 // import { TbSquareKey } from "react-icons/tb";
 import Typewriter from "typewriter-effect";
 import { NavLink } from "react-router-dom";
+import { useBusinessRegistration } from "../../Functions/Business/BusinessRegistration";
+import { TbSquareKey } from "react-icons/tb";
 
 const BizzSignUp = () => {
+  const { Submit, errors, postData, register } = useBusinessRegistration();
+
   return (
     <div>
       {" "}
@@ -74,18 +78,9 @@ const BizzSignUp = () => {
                   color: "silver",
                 }}
               />
-              <input placeholder="Name" />
+              <input placeholder="Business Name" />
             </Inputs>
-            <Inputs>
-              <MdOutlinePersonOutline
-                style={{
-                  marginLeft: "15px",
-                  fontSize: "25px",
-                  color: "silver",
-                }}
-              />
-              <input placeholder="UserName" />
-            </Inputs>
+
             <Inputs>
               <IoMailOutline
                 style={{
@@ -106,15 +101,24 @@ const BizzSignUp = () => {
               />
               <input placeholder="Phone-no" />
             </Inputs>
+            <Inputs>
+              <TbSquareKey
+                style={{
+                  marginLeft: "15px",
+                  fontSize: "25px",
+                }}
+              />
+              <input placeholder="Password" />
+            </Inputs>
           </Box>
           <NavLink to="/business-dashboard">
             <Button>Register Now</Button>
           </NavLink>
           <P>
             Already have an account.??{" "}
-            <NavLink to="/business-login" style={{textDecoration:"none"}}>
+            <NavLink to="/business-login" style={{ textDecoration: "none" }}>
               <span style={{ color: "blue", textDecoration: "none" }}>
-               Log In
+                Log In
               </span>
             </NavLink>
           </P>

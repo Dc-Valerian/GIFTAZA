@@ -85,8 +85,7 @@ const BizzLogin = () => {
               marginLeft: "60px",
               marginTop: "20px",
               alignItems: "center",
-            }}
-          >
+            }}>
             <input
               type="checkbox"
               style={{ width: "15px", height: "15px", background: "#f9f4ff" }}
@@ -96,8 +95,7 @@ const BizzLogin = () => {
                 margin: "0",
                 marginLeft: "10px",
                 fontSize: "15px",
-              }}
-            >
+              }}>
               Always remember me
             </p>
           </Div>
@@ -106,9 +104,9 @@ const BizzLogin = () => {
           </NavLink>
           <P>
             Don't an account.??{" "}
-            <NavLink to="/business-dashboard" style={{ textDecoration: "none" }}>
+            <NavLink to="/business-register" style={{ textDecoration: "none" }}>
               <span style={{ color: "blue", textDecoration: "none" }}>
-               Register 
+                Register
               </span>
             </NavLink>
           </P>

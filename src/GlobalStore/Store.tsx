@@ -4,7 +4,6 @@ import { TypedUseSelectorHook } from "react-redux";
 import { useDispatch, useSelector } from "react-redux";
 import storage from "redux-persist/lib/storage";
 import {
- 
   persistReducer,
   FLUSH,
   REHYDRATE,
@@ -15,7 +14,7 @@ import {
 } from "redux-persist";
 
 const persistConfig = {
-  key: "KLUCKER_HACKATHON",
+  key: "KLUSTHER_HACKATHON",
   version: 1,
   storage,
 };
