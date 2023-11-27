@@ -7,7 +7,7 @@ const Section = styled.section`
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  margin-bottom:40px;
+  margin-bottom: 40px;
 
   & .inner {
     background-color: rgba(0, 0, 0, 0.25);
@@ -71,7 +71,7 @@ const Section = styled.section`
   & a {
     display: inline-block;
     border-radius: 9999px;
-    background-color: #8A2BE2;
+    background-color: #8a2be2;
     padding: 0.75rem 3rem;
     font-size: 0.875rem;
     font-weight: bold;
@@ -84,7 +84,7 @@ const Section = styled.section`
 
     &:hover,
     &:focus {
-      background-color: #8A2BE2;
+      background-color: #8a2be2;
       box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.5);
     }
 
@@ -102,20 +102,22 @@ const Section = styled.section`
 
 const GiftCard = () => {
   return (
-   <div>
-     <Section>
-      <div className="inner">
-        <h2>Get Someone a GiftCard</h2>
-        <p>
-        Yet another giving occasion that comes every year! Gift cards at Christmas are a great way to take the stress off when you've got a big list to shop for…or just people who are hard to shop for.
-        </p>
-        <a href="/get-started" style={{textDecoration:"none"}}>
-          Get Yours Today
-        </a>
-      </div>
-    </Section>
-    <AllGiftCard/>
-   </div>
+    <div>
+      <Section>
+        <div className="inner">
+          <h2>Get Someone a GiftCard</h2>
+          <p>
+            Yet another giving occasion that comes every year! Gift cards at
+            Christmas are a great way to take the stress off when you've got a
+            big list to shop for…or just people who are hard to shop for.
+          </p>
+          <a href="/get-started" style={{ textDecoration: "none" }}>
+            Get Yours Today
+          </a>
+        </div>
+      </Section>
+      <AllGiftCard />
+    </div>
   );
 };
 

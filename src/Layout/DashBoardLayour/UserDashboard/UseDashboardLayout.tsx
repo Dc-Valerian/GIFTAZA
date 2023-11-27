@@ -77,12 +77,11 @@ const Button = styled(BsFillArrowRightSquareFill)<{
   positionLeftValue: string;
 }>`
   position: fixed;
-  color: #f15a22;
+  color: #EF9837;
   font-size: 30px;
   top: 48px;
   left: ${({ positionLeftValue }) => (positionLeftValue ? "16" : "7")}%;
   cursor: pointer;
-  /* background-color: white; */
   overflow: hidden;
   border-radius: 0;
   transform: ${({ tt }) => (tt ? "rotate(180deg)" : "rotate(0deg)")};

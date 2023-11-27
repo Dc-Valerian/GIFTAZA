@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import moment from "moment";
-import img from "../../../Assets/me.jpg";
 import { useSelector } from "react-redux";
 
 const UserDashBoardHead = () => {
@@ -12,7 +11,6 @@ const UserDashBoardHead = () => {
         <Name>All Gift Cards</Name>
 
         <Profile>
-          <UserImage src={img} alt="Profile Image" />
           <UserName>
             {moment(Date.now()).format("LLLL")}
             {/* {moment(Date.now()).format("MMM Do YYYY")} */}
@@ -77,22 +75,12 @@ const Profile = styled.div`
     background-color: goldenrod;
   }
 `;
-const UserImage = styled.img`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 10px;
-  background-color: #fff;
-  @media screen and (max-width: 769px) {
-    width: 30px;
-    height: 30px;
-  }
-`;
+
 const UserName = styled.span`
   text-transform: capitalize;
   padding: 5px;
   color: black;
+  font-size:20px;
   @media screen and (max-width: 769px) {
     font-size: 12px;
   }

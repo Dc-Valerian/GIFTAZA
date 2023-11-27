@@ -18,17 +18,8 @@ const UserSideBar = () => {
     <Container w={toggle ? "k" : ""}>
       <Wrapper w={toggle ? "k" : ""}>
         <Top>
-          <Image w={toggle ? "k" : ""}>
-            <Pic
-              src={
-                "https://cdn.dribbble.com/users/6938226/avatars/small/73d8d6b0c59e6036ed9803730edc9ac7.png?1659668380"
-              }
-              alt="Profile Image"
-            />
-          </Image>
-
           {toggle && <Wel>Welcome Back,</Wel>}
-          {toggle && <Text>Valerian Pedro</Text>}
+          <Text>Valerian Pedro</Text>
         </Top>
 
         <NavHolder w={toggle ? "k" : ""}>
@@ -53,15 +44,6 @@ const UserSideBar = () => {
                 {toggle && <NavName>Gift Cards</NavName>}
               </Nav>
             </NavLink>
-
-            {/* <NavLink style={{ textDecoration: "none" }} to={""}>
-                <Nav w={toggle ? "k" : ""}>
-                  <Icon>
-                    <BiSolidPieChart />
-                  </Icon>
-                  {toggle && <NavName>History</NavName>}
-                </Nav>
-              </NavLink> */}
 
             <NavLink
               style={{ textDecoration: "none" }}
@@ -115,13 +97,6 @@ const Topper = styled.div`
 
 const Dropper = styled.div``;
 
-const Pic = styled.img`
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-`;
-
 const NavName = styled.div`
   font-size: 17px;
   color: #fff;
@@ -166,10 +141,12 @@ const NavHolder = styled.div<{ w: string }>`
 
 const Text = styled.div`
   margin-top: 5px;
+  text-align: center;
   font-size: 20px;
 `;
 const Wel = styled.div`
   font-size: 15px;
+  text-align: center;
 `;
 const Top = styled.div`
   position: sticky;
@@ -182,17 +159,6 @@ const Top = styled.div`
   width: 100%;
   z-index: 99999;
   height: 140px;
-`;
-
-const Image = styled.div<{ w: string }>`
-  /* background-color: blanchedalmond; */
-  height: 70px;
-  width: ${({ w }) => (w ? "70px" : "70px")};
-  border-radius: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
 `;
 
 const Wrapper = styled.div<{ w: string }>`
