@@ -1,129 +1,131 @@
 import React from "react";
-import { styled } from "styled-components";
-import { BiSolidPhone } from "react-icons/bi";
+import styled from "styled-components";
 
-
-interface iUserCard {
-  firstname?: string;
-  lastname?: string;
-  email?: string;
-  img?: string;
-  referredStaff?: string;
-  address?: string;
-  phonenumber?: string;
-  bcc?: string;
-  name?: string;
-  branchName?: string;
-  none?: string;
+interface User {
+  username: string;
+  email: string;
+  phone: string;
+  contact: string;
 }
 
-const UserGiftCardProps: React.FC<iUserCard> = ({
-  firstname,
-  lastname,
-  email,
-  img,
-  referredStaff,
-  address,
-  phonenumber,
-  bcc,
-  
-}) => {
+interface TableProps {
+  users: User[];
+}
+
+const Table: React.FC<TableProps> = ({ users }) => {
+  const [currentPage, setCurrentPage] = React.useState(0);
+  const usersPerPage = 2;
+
+  const offset = currentPage * usersPerPage;
+  const currentUsers = users.slice(offset, offset + usersPerPage);
+
+  const totalPages = Math.ceil(users.length / usersPerPage);
+
+  const handlePrevClick = () => {
+    setCurrentPage((prevPage) => prevPage - 1);
+  };
+
+  const handleNextClick = () => {
+    setCurrentPage((prevPage) => prevPage + 1);
+  };
+
   return (
-    <div>
-      <Card>
-        <Bgc bcc={bcc}>
-          <UserName>
-            {firstname} &nbsp; {lastname}
-          </UserName>
-          <BusinessName>{email}</BusinessName>
-          <img src={img} />
-        </Bgc>
-        <Wrap>
-          <Address>{address}</Address>
-          <Address>Referred by {referredStaff}</Address>
-          <PhoneNumber>
-            <BiSolidPhone />
-            {phonenumber}
-          </PhoneNumber>
-        
-        </Wrap>
-      </Card>
-    </div>
+    <StyledTableContainer>
+      <StyledTable>
+        <thead>
+          <tr>
+            <StyledTableHeader>Name</StyledTableHeader>
+            <StyledTableHeader>Email</StyledTableHeader>
+            <StyledTableHeader>Number of GiftCard</StyledTableHeader>
+          </tr>
+        </thead>
+        <tbody>
+          {currentUsers.map((user, index) => (
+            <tr key={index}>
+              <StyledTableCell>{user.username}</StyledTableCell>
+              <StyledTableCell>{user.email}</StyledTableCell>
+              <StyledTableCell>{user.phone}</StyledTableCell>
+            </tr>
+          ))}
+        </tbody>
+      </StyledTable>
+
+      <StyledPagination>
+        <StyledButton onClick={handlePrevClick} disabled={currentPage === 0}>
+          Previous
+        </StyledButton>
+        <StyledSpan>
+          {Array.from(Array(totalPages).keys()).map((page) => (
+            <StyledButton
+              key={page}
+              onClick={() => setCurrentPage(page)}
+              active={page === currentPage}
+              aria-label={`Go to Page ${page + 1}`}
+            >
+              {page + 1}
+            </StyledButton>
+          ))}
+        </StyledSpan>
+        <StyledButton
+          onClick={handleNextClick}
+          disabled={currentPage === totalPages - 1}
+        >
+          Next
+        </StyledButton>
+      </StyledPagination>
+    </StyledTableContainer>
   );
 };
 
-export default UserGiftCardProps;
-
-const Wrap = styled.div`
-  flex-direction: column;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const StyledTableContainer = styled.div`
+  overflow-x: auto;
+  margin-top: 20px;
+  width: 95%;
 `;
 
-
-const Card = styled.div`
-  width: 330px;
-  height: 350px;
-  flex-direction: column;
-  display: flex;
-  justify-content: space-between;
-  margin: 15px;
-  align-items: center;
-  padding-bottom: 20px;
-  background-color: #fff;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
-  border-radius: 0px 0px 10px 10px;
-`;
-const Bgc = styled.div<{ bcc?: string }>`
-  width: 100%;
-  background-color: ${(props) => props.bcc};
-  height: 145px;
-  flex-direction: column;
-  display: flex;
-  padding-top: 7px;
-  align-items: center;
-  position: relative;
-
-  img {
-    width: 105px;
-    height: 110px;
-    object-fit: cover;
-    position: absolute;
-    top: 55%;
-    border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
-  }
-`;
-const UserName = styled.h4`
-  font-weight: 600;
-  color: white;
-  font-size: 18px;
-  text-transform: capitalize;
-  margin-top: 10px;
-`;
-const BusinessName = styled.span`
-  color: white;
-  text-transform: capitalize;
-  font-size: 14px;
-`;
-const Address = styled.p`
-  width: 230px;
-  text-align: center;
-  margin: 0;
-  margin-top: 10px;
-  font-size: 14px;
-  color: rgb(0, 0, 0, 0.8);
-`;
-const PhoneNumber = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: rgb(0, 0, 0, 0.8);
-  margin-top: 10px;
-  font-size: 15px;
-  :nth-child(1) {
-    margin-right: 5px;
+const StyledTable = styled.table`
+  min-width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+  background-color: #ddd;
+  tbody tr:not(:last-child) {
+    border-bottom: 1px solid #ccc;
   }
 `;
 
+const StyledTableHeader = styled.th`
+  padding: 0.75rem;
+  text-align: left;
+  background-color: purple;
+  color: white;
+`;
+
+const StyledTableCell = styled.td`
+  padding: 0.75rem;
+`;
+
+const StyledPagination = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+`;
+
+const StyledButton = styled.button<{ active?: boolean }>`
+  margin-right: 0.5rem;
+  padding: 0.5rem 1rem;
+  background-color: ${({ active }) => (active ? "orange" : "#d1d5db")};
+  color: ${({ active }) => (active ? "white" : "#6b7280")};
+  border: 1px solid ${({ active }) => (active ? "orange" : "#d1d5db")};
+  border-radius: 0.25rem;
+  cursor: ${({ disabled }) => (disabled ? "not-allowed" : "pointer")};
+
+  &:hover:not(:disabled) {
+    background-color: #c9d1d9;
+  }
+`;
+
+const StyledSpan = styled.span`
+  margin: 0 0.5rem;
+`;
+
+export default Table;

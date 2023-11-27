@@ -53,7 +53,10 @@ const Header = () => {
         <Container boxShadow={show ? "value" : ""} fixed="jj">
           <Wrapper>
             <LogoNav>
-              <Logo onClick={backToTop}>GiftAza</Logo>
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              <Logo>GiftAza</Logo>
+              </NavLink>
+
               <Nav>
                 <Navigation onClick={toHero}>Home</Navigation>
                 <Navigation onClick={toAbout}>About</Navigation>
@@ -83,7 +86,9 @@ const Header = () => {
         <Container boxShadow={show ? "value" : ""} fixed="">
           <Wrapper>
             <LogoNav>
-              <Logo onClick={backToTop}>GiftAza</Logo>
+            <NavLink to="/" style={{ textDecoration: "none" }}>
+              <Logo>GiftAza</Logo>
+              </NavLink>
               <Nav>
                 <Navigation onClick={toHero}>Home</Navigation>
                 <Navigation onClick={toAbout}>About</Navigation>

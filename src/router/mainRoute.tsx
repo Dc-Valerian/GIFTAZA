@@ -18,6 +18,7 @@ import UserCards from "../pages/DashBoardPages/UserCards/UserCards";
 import UserNotify from "../pages/DashBoardPages/UserNotify/UserNotify";
 import PopUp from "../pages/POPUP";
 import AllGiftCard from "../pages/LandinPage/AllGiftCard";
+import AllBusinessUsers from "../pages/AdminDashboard/BusinessUsers/AllBusinessUsers";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -88,7 +89,7 @@ export const mainRoute = createBrowserRouter([
       },
       {
         path: "/business-dashboard/all-users",
-        element: <UserGiftCardProps />,
+        element: <AllBusinessUsers />,
       },
       {
         path: "/business-dashboard/histories",

@@ -14,7 +14,7 @@ const AllGiftCard = () => {
   console.log("bus", AllgiftCards.data);
 
   return (
-    <div>
+    <div style={{ marginTop: "90px", marginBottom: "50px" }}>
       {AllgiftCards?.data?.data.length < 0 ? (
         <Nothing>
           <CenterHold>
