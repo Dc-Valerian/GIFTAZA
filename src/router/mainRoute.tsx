@@ -13,10 +13,11 @@ import UserProfile from "../pages/DashBoardPages/UserProfile/UserProfile";
 import BusinessCard from "../pages/AdminDashboard/BusinessCard/BusinessCard";
 import BusinessHistory from "../pages/AdminDashboard/BusinessHistory/BusinessHistory";
 import BusinessProfilePage from "../pages/AdminDashboard/BusinessProfile/BusinessProfilePage";
-import UserGiftCardProps from "../pages/AdminDashboard/BusinessUsers/UserGiftCardProps";
 import UserCards from "../pages/DashBoardPages/UserCards/UserCards";
 import UserNotify from "../pages/DashBoardPages/UserNotify/UserNotify";
 import PopUp from "../pages/POPUP";
+import AllGiftCard from "../pages/LandinPage/AllGiftCard";
+import AllBusinessUsers from "../pages/AdminDashboard/BusinessUsers/AllBusinessUsers";
 
 export const mainRoute = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const mainRoute = createBrowserRouter([
         index: true,
         element: <LandingPage />,
       },
+      {
+        path:"/all-giftcards",
+        element:<AllGiftCard/>
+      }
     ],
   },
   {
@@ -83,7 +88,7 @@ export const mainRoute = createBrowserRouter([
       },
       {
         path: "/business-dashboard/all-users",
-        element: <UserGiftCardProps />,
+        element: <AllBusinessUsers />,
       },
       {
         path: "/business-dashboard/histories",

@@ -5,7 +5,7 @@
     left: 0;
     right: 0;
     height: 5px;
-    background: #12C5E4;
+    background: #8A2BE2;
     transform-origin: 0%;
   }
 
@@ -22,7 +22,7 @@
     left: 0;
     height: 10px;
     width: 10px;
-    background-color: #12C5E4;
+    background-color: #8A2BE2;
     border-radius: 200px;
     pointer-events: none;
     color: black;
