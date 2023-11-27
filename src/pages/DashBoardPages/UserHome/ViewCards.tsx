@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import pic from "../../../Assets/trancard.svg";
-import { Link } from "react-router-dom";
+import pic from "../../../Assets/money.webp";
 import { useQuery } from "@tanstack/react-query";
 import Card from "./Card";
 import { allGiftCard } from "../../../API/Business/BusinessEndpoints";
@@ -10,8 +9,6 @@ const ViewCards = () => {
     queryKey: ["Allgiftcards"],
     queryFn: allGiftCard,
   });
-
-  console.log("bus", AllgiftCards.data);
 
   return (
     <div>
@@ -31,7 +28,7 @@ const ViewCards = () => {
         <div>
           <CardContainer>
             {AllgiftCards?.data?.data?.data?.map((props: any) => (
-              <Link style={{ textDecoration: "none" }} to={`/popup`}>
+              <div style={{ textDecoration: "none" }}>
                 <Card
                   pic={props?.BrandLogo}
                   busyname={props?.name}
@@ -39,7 +36,7 @@ const ViewCards = () => {
                   colour={props?.colour}
                   code={props?.uniqueID}
                 />
-              </Link>
+              </div>
             ))}
           </CardContainer>
         </div>
