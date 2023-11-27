@@ -2,18 +2,19 @@ import { styled } from "styled-components";
 import OtpInput from "react-otp-input";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import "react-toastify/dist/ReactToastify.css";
-import React, { useState } from "react";
-import { useNavigate, useParams } from "react-router";
-import { newurl } from "../../../API/Business/BusinessEndpoints";
-import axios from "axios";
-import Swal from "sweetalert2";
+import { useState } from "react";
+// import { useNavigate } from "react-router";
+// import { newurl } from "../../../API/Business/BusinessEndpoints";
+// import axios from "axios";
+// import Swal from "sweetalert2";
 
 const OTP = () => {
-  const [otp, setOtp] = React.useState("");
-  const { id } = useParams();
-  const navigate = useNavigate();
+  // const [otp, setOtp] = React.useState("");
+
+  // const { id } = useParams();
+  // const navigate = useNavigate();
   // const [myChecked, setMyChecked] = useState(true);
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
 
   const [token, setToken] = useState<string>("");
 
@@ -21,44 +22,44 @@ const OTP = () => {
 
   // const [activeOTPIndex, setAtiveOTPIndex] = useState<number>(0);
 
-  const GetOTP = async () => {
-    const newURL = `${newurl}/`;
+  // const GetOTP = async () => {
+  //   const newURL = `${newurl}/`;
 
-    setLoading(true);
-    await axios
-      .post(newURL, { OTP: token })
+  //   setLoading(true);
+  //   await axios
+  //     .post(newURL, { OTP: token })
 
-      .then((res) => {
-        console.log(`this is token`, token);
-        console.log(`this is token`, res);
-        Swal.fire({
-          position: "center",
-          icon: "success",
-          title: `${res.data.message}`,
-          showConfirmButton: false,
-          timer: 2500,
-        }).then(() => {
-          navigate("/sign-in");
-        });
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.log("this is error", error);
-        console.log(`this is token`, token);
-        Swal.fire({
-          position: "center",
-          icon: "error",
-          title: `Error: ${error}`,
+  //     .then((res) => {
+  //       console.log(`this is token`, token);
+  //       console.log(`this is token`, res);
+  //       Swal.fire({
+  //         position: "center",
+  //         icon: "success",
+  //         title: `${res.data.message}`,
+  //         showConfirmButton: false,
+  //         timer: 2500,
+  //       }).then(() => {
+  //         navigate("/sign-in");
+  //       });
+  //       setLoading(false);
+  //     })
+  //     .catch((error) => {
+  //       console.log("this is error", error);
+  //       console.log(`this is token`, token);
+  //       Swal.fire({
+  //         position: "center",
+  //         icon: "error",
+  //         title: `Error: ${error}`,
 
-          text: `${error?.response?.data?.message}`,
-          showConfirmButton: false,
-          timer: 2500,
-        }).then(() => {
-          navigate("/");
-        });
-        setLoading(false);
-      });
-  };
+  //         text: `${error?.response?.data?.message}`,
+  //         showConfirmButton: false,
+  //         timer: 2500,
+  //       }).then(() => {
+  //         navigate("/");
+  //       });
+  //       setLoading(false);
+  //     });
+  // };
 
   return (
     <Container>
