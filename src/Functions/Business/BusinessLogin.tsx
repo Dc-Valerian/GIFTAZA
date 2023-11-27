@@ -38,8 +38,6 @@ export const useBusinessLogin = () => {
     mutationFn: LoginBusiness,
 
     onSuccess: (data) => {
-      console.log("da", data);
-
       dispatch(login(data));
 
       toast.success("Successfully Sign In!", {
@@ -85,26 +83,6 @@ export const useBusinessLogin = () => {
           theme: "light",
         });
         dispatch(access(false));
-      }
-      if (error?.response?.data?.message === "User not Verified") {
-        dispatch(access(null));
-        setTimeout(() => {
-          toast.error(`${error?.response?.data?.message} Navigating To OTP`, {
-            position: "top-right",
-            autoClose: 2300,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-        }, 1000);
-
-        dispatch(login(error?.response?.data?.error?.name));
-        setTimeout(() => {
-          navigate("/otp_vertification");
-        }, 4000);
       } else {
         dispatch(access(null));
         setTimeout(() => {

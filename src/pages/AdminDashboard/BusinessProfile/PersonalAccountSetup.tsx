@@ -10,8 +10,8 @@ const PersonalAccount = () => {
   console.log(previewImage);
 
   const [logo, setLogo] = React.useState("");
-  const business = useAppSelector((state) => state.bizClient);
-  const card = useAppSelector((state) => state.DataCard);
+  const business = useAppSelector((state) => state?.bizClient);
+  const card = useAppSelector((state) => state?.DataCard);
 
   const ImageOnchange = (e: any) => {
     const file = e.target.files[0];
@@ -85,8 +85,7 @@ const PersonalAccount = () => {
           display: "flex",
           flexDirection: "column",
           gap: "30px",
-        }}
-      >
+        }}>
         <Inputs>{business?.companyName}</Inputs>
         <Inputs>{business?.email}</Inputs>
         <Inputs>+{business?.phoneNumber}</Inputs>

@@ -8,6 +8,7 @@ import { useDispatch } from "react-redux";
 import { login } from "../../GlobalStore/ReduxState";
 import { createUser } from "../../API/User/UserEndpoints";
 import { useState } from "react";
+import Swal from "sweetalert2";
 export const useUserRegister = () => {
   const [isLoading, setIsLoading] = useState(false);
   const schema: any = yup
@@ -34,7 +35,10 @@ export const useUserRegister = () => {
     mutationKey: [""],
     mutationFn: createUser,
     onSuccess: (data: any) => {
-      console.log("data", data);
+      Swal.fire({
+        title:
+          "This business will create a profile for you to continue purchasing and have access to more",
+      });
       dispatch(login(data?.data));
       toast.success("Check Email to continue!", {
         position: "top-right",
@@ -46,7 +50,7 @@ export const useUserRegister = () => {
         progress: undefined,
         theme: "light",
       });
-      toast.success("Redirecting To Email for OTP!", {
+      toast.success("Redirecting To Email for Info!", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -62,9 +66,7 @@ export const useUserRegister = () => {
         // End the loading state
         setIsLoading(false);
       }, 2000);
-      setTimeout(() => {
-        navigate("/otp_vertification");
-      }, 2000);
+      setTimeout(() => {}, 2000);
       reset();
     },
 

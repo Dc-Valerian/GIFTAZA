@@ -8,6 +8,7 @@ import { BsPersonFill } from "react-icons/bs";
 
 const UserSideBar = () => {
   const toggle = useSelector((state: any) => state.toggle);
+  const user = useSelector((state: any) => state.userData);
 
   const logoutNav = useNavigate();
   const backToHome = () => {
@@ -19,7 +20,7 @@ const UserSideBar = () => {
       <Wrapper w={toggle ? "k" : ""}>
         <Top>
           {toggle && <Wel>Welcome Back,</Wel>}
-          <Text>Valerian Pedro</Text>
+          <Text>{user?.name}</Text>
         </Top>
 
         <NavHolder w={toggle ? "k" : ""}>
@@ -35,8 +36,7 @@ const UserSideBar = () => {
 
             <NavLink
               style={{ textDecoration: "none" }}
-              to={"/user-dashboard/my-giftcard"}
-            >
+              to={"/user-dashboard/my-giftcard"}>
               <Nav w={toggle ? "k" : ""}>
                 <Icon>
                   <MdInsertChart />
@@ -47,8 +47,7 @@ const UserSideBar = () => {
 
             <NavLink
               style={{ textDecoration: "none" }}
-              to={"/user-dashboard/profile"}
-            >
+              to={"/user-dashboard/profile"}>
               <Nav w={toggle ? "k" : ""}>
                 <Icon>
                   <BsPersonFill />
@@ -59,8 +58,7 @@ const UserSideBar = () => {
 
             <NavLink
               style={{ textDecoration: "none" }}
-              to={"/user-dashboard/notify"}
-            >
+              to={"/user-dashboard/notify"}>
               <Nav w={toggle ? "k" : ""}>
                 <Icon>
                   <HiBell />
@@ -74,8 +72,7 @@ const UserSideBar = () => {
             <Nav
               onClick={backToHome}
               w={toggle ? "k" : ""}
-              style={{ marginTop: "30px" }}
-            >
+              style={{ marginTop: "30px" }}>
               <Icon>
                 <CiLogout />
               </Icon>

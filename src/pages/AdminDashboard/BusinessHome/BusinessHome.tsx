@@ -4,27 +4,29 @@ import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import card from "../../../Assets/card.svg";
 import spiral from "../../../Assets/robo.svg";
 import { NavLink } from "react-router-dom";
+import { useAppSelector } from "../../../GlobalStore/Store";
 
 const BusinessHome = () => {
   const [show, setShow] = useState(false);
-
+  const business = useAppSelector((state) => state.bizClient);
+  console.log(business);
   return (
     <Container>
       <Head>
         <InHead>
           <Message>
             Welcome,
-            <span> Valerian</span>
+            <span>{business?.companyName}</span>
           </Message>
           <SeeBalance>
             <BalanceDetails>
               <Viewer>
                 <div style={{ marginBottom: "5px" }}>Available balance</div>
-                <div style={{cursor:"pointer"}}
+                <div
+                  style={{ cursor: "pointer" }}
                   onClick={() => {
                     setShow(!show);
-                  }}
-                >
+                  }}>
                   {show ? (
                     <AiFillEye style={{ marginTop: "5px", fontSize: "30px" }} />
                   ) : (
@@ -58,8 +60,7 @@ const BusinessHome = () => {
                   </div>
                   <NavLink
                     to="/business-dashboard/giftcard"
-                    style={{ textDecoration: "none" }}
-                  >
+                    style={{ textDecoration: "none" }}>
                     <Button>Sell Gift Card</Button>
                   </NavLink>
                 </QuickComponent>
@@ -79,8 +80,7 @@ const BusinessHome = () => {
               </div>
               <NavLink
                 to="/business-dashboard/all-users"
-                style={{ textDecoration: "none" }}
-              >
+                style={{ textDecoration: "none" }}>
                 <CardButton>See Users</CardButton>
               </NavLink>
             </CardComponent>
@@ -160,13 +160,11 @@ const Viewer = styled.div`
   gap: 30px;
   align-items: center;
   font-size: 17px;
-  color: #8A2BE2;
-
+  color: #8a2be2;
 `;
 const Info = styled.div`
   font-size: 20px;
-  color: #8A2BE2;
-
+  color: #8a2be2;
 `;
 const BalanceDetails = styled.div``;
 const WithdrawButton = styled.button`

@@ -99,14 +99,11 @@ const PopUp = () => {
   const business = useAppSelector((state) => state.bizClient);
   const [getCompanyName, setGetCompanyName] = useState("");
   const getBiz = async () => {
-    console.log("id", business?._id);
-    console.log("email", business?.email);
     await axios
       .get(`${newurl}/api/getsinglebusiness/${business?._id}`)
 
       .then((res) => {
         setGetCompanyName(res?.data?.data?.companyName);
-        console.log("getcomapny name", getCompanyName);
       })
       .catch((error) => {
         console.log(error);

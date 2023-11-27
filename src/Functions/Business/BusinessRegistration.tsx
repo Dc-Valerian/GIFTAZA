@@ -36,7 +36,6 @@ export const useBusinessRegistration = () => {
     mutationKey: [""],
     mutationFn: RegisterBusiness,
     onSuccess: (data: any) => {
-      console.log("data", data);
       dispatch(login(data?.data));
       toast.success("Business Account Created Successfully!", {
         position: "top-right",
@@ -48,7 +47,7 @@ export const useBusinessRegistration = () => {
         progress: undefined,
         theme: "light",
       });
-      toast.success("Redirecting To Email for OTP!", {
+      toast.success("Redirecting To Login!", {
         position: "top-right",
         autoClose: 2000,
         hideProgressBar: false,
@@ -65,7 +64,7 @@ export const useBusinessRegistration = () => {
         setIsLoading(false);
       }, 2000);
       setTimeout(() => {
-        navigate("/otp_vertification");
+        navigate("/business-login");
       }, 2000);
       reset();
     },
@@ -105,7 +104,6 @@ export const useBusinessRegistration = () => {
     event?.preventDefault();
     handleSubmit((data: any) => {
       postData.mutate(data);
-      console.log("postdata", data);
     })();
   };
   const loading = (postData as any).isLoading;
