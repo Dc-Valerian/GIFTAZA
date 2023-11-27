@@ -95,8 +95,7 @@ const Inputs = styled.div`
 `;
 
 const PopUp = () => {
-  const { Submit, errors, isLoading, loading, postData, register } =
-    useUserRegister();
+  const { Submit, errors, register } = useUserRegister();
   const business = useAppSelector((state) => state.bizClient);
   const [getCompanyName, setGetCompanyName] = useState("");
   const getBiz = async () => {

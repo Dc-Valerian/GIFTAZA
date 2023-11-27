@@ -8,8 +8,11 @@ import { useDispatch } from "react-redux";
 import { LoginBusiness } from "../../API/Business/BusinessEndpoints";
 import { login, access } from "../../GlobalStore/ReduxState";
 import { useState } from "react";
+
 export const useBusinessLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
+  console.log(setIsLoading);
+
   const schema: any = yup
     .object({
       email: yup.string().required("Please Enter your email"),

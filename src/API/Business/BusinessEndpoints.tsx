@@ -6,8 +6,6 @@ const config = {
   },
 };
 
-const URl = "https://giftcard-api.onrender.com";
-
 export const newurl = "https://giftaza.onrender.com";
 
 // register User

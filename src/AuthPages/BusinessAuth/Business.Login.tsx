@@ -11,7 +11,7 @@ import { useBusinessLogin } from "../../Functions/Business/BusinessLogin";
 import { BeatLoader } from "react-spinners";
 import { ToastContainer } from "react-toastify";
 const BizzLogin = () => {
-  const { Submit, errors, postData, register, isLoading } = useBusinessLogin();
+  const { Submit, errors, register, isLoading } = useBusinessLogin();
 
   return (
     <div>
@@ -94,7 +94,8 @@ const BizzLogin = () => {
               marginLeft: "60px",
               marginTop: "20px",
               alignItems: "center",
-            }}>
+            }}
+          >
             <input
               type="checkbox"
               style={{ width: "15px", height: "15px", background: "#f9f4ff" }}
@@ -104,7 +105,8 @@ const BizzLogin = () => {
                 margin: "0",
                 marginLeft: "10px",
                 fontSize: "15px",
-              }}>
+              }}
+            >
               Always remember me
             </p>
           </Div>

@@ -18,6 +18,7 @@ import UserNotify from "../pages/DashBoardPages/UserNotify/UserNotify";
 import PopUp from "../pages/POPUP";
 import AllBusinessUsers from "../pages/AdminDashboard/BusinessUsers/AllBusinessUsers";
 import GiftCard from "../pages/LandinPage/GiftCard";
+import OTP from "../pages/DashBoardPages/OTP_PAGE/Otp";
 import YesOrNo from "../AuthPages/YesOrNo";
 
 export const mainRoute = createBrowserRouter([
@@ -108,5 +109,9 @@ export const mainRoute = createBrowserRouter([
   {
     path: "/popup",
     element: <PopUp />,
+  },
+  {
+    path: "/otp_verification",
+    element: <OTP />,
   },
 ]);
